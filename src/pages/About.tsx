@@ -223,45 +223,12 @@ const About = () => {
                 {whyChooseUsData.map((item, index) => (
                   <motion.div
                     key={index}
-                    // Initial slide-in animation (runs once when in view)
+                    whileHover={{ y: -10 }}
+                    whileTap={{ scale: 0.98 }}
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{
-                      type: "spring",
-                      stiffness: 300,
-                      damping: 30, // Added damping for a smoother entry spring
-                      delay: index * 0.1 + 0.1,
-                    }}
+                    transition={{ type: "spring", stiffness: 300, delay: index * 0.1 + 0.1 }}
                     viewport={{ once: true }}
-
-                    // Continuous "toggling" (vertical sway) for the entire card
-                    // This animation will start AFTER the initial whileInView animation
-                    animate={{
-                      y: [0, -15, 0], // Sway up by 15px and back to original position
-                      transition: {
-                        y: {
-                          duration: 3.5, // Total duration for one full sway cycle (3-4 seconds as requested)
-                          repeat: Infinity, // Repeat indefinitely
-                          repeatType: "mirror", // Animates forward then backward
-                          ease: "easeInOut"
-                        }
-                      }
-                    }}
-
-                    // Pause and slightly lift on hover
-                    // `whileHover` takes precedence, interrupting `animate`
-                    whileHover={{
-                      y: -5 // Lifts the card slightly up on hover
-                    }}
-                    // Transition for the hover effect (smooth lift/return)
-                    transition={{
-                      y: {
-                        type: "spring",
-                        stiffness: 400,
-                        damping: 25
-                      }
-                    }}
-                    // whileTap={{ scale: 0.98 }} // Re-add if you still want a tap effect (will combine with other transitions)
                     className="relative bg-[#1a1a2e] p-8 rounded-xl border border-gray-800 shadow-lg hover:shadow-[#6E59A5]/20 transition-all duration-300 group overflow-hidden"
                   >
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#6E59A5]/0 via-[#6E59A5]/5 to-[#6E59A5]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -269,20 +236,20 @@ const About = () => {
                       <div className="w-16 h-16 mb-6 rounded-lg bg-gradient-to-br from-[#6E59A5] to-[#8B5CF6] flex items-center justify-center">
                         {/* Wrapper for the icon to apply toggling animation */}
                         <motion.div
-                          initial={{ scale: 1, rotate: 0 }}
+                          initial={{ scale: 1, rotate: 0 }} // Initial state for scale and rotate
                           whileInView={{
-                            scale: [1, 1.2, 1], // More pronounced pulse
-                            rotate: [0, 3, -3, 0], // Subtle wobble
+                            scale: [1, 1.2, 1], // More pronounced pulse: normal -> larger -> normal
+                            rotate: [0, 3, -3, 0], // Subtle wobble: 0 -> 3 deg -> -3 deg -> 0
                             transition: {
-                              scale: {
-                                duration: 1.2,
+                              scale: { // Separate transition properties for scale
+                                duration: 1.2, // Slightly faster scale pulse
                                 repeat: Infinity,
                                 repeatType: "mirror",
                                 ease: "easeInOut",
                                 delay: index * 0.1 + 0.5
                               },
-                              rotate: {
-                                duration: 2.5,
+                              rotate: { // Separate transition properties for rotate
+                                duration: 2.5, // Slightly slower rotation for subtlety
                                 repeat: Infinity,
                                 repeatType: "mirror",
                                 ease: "easeInOut",
@@ -290,9 +257,9 @@ const About = () => {
                               }
                             }
                           }}
-                          viewport={{ once: true }}
+                          viewport={{ once: true }} // Trigger this pulse animation once the card enters view
                         >
-                          <item.icon className="h-8 w-8 text-white" />
+                          <item.icon className="h-8 w-8 text-white" /> {/* Render the specific icon */}
                         </motion.div>
                       </div>
                       <h3 className="text-xl font-semibold text-white mb-4">{item.title}</h3>
