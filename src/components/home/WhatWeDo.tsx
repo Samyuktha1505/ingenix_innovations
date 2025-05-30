@@ -46,7 +46,7 @@ const WhatWeDo = () => {
       description: "We create autonomous AI agents that can perform complex tasks, make decisions, and integrate with your existing workflows.",
       icon: Bot,
       delay: 0.5,
-      image: "/public/imgs/img3.png"
+      image: "/src/images/img3.png"
     },
   ];
 
