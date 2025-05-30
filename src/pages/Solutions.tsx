@@ -6,6 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Brain, Mic, Users, TrendingUp, Sparkles, Settings, ArrowRight, Zap, FileJson, Laptop, Bot } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const solutionTypes = [
   {
@@ -201,6 +202,8 @@ const Solutions = () => {
   
   const solution = solutionTypes.find(s => s.id === selectedSolution);
   const controls = useAnimationControls();
+  const location = useLocation();
+  const navigate = useNavigate();
   
   useEffect(() => {
     setIsLoaded(true);
@@ -212,6 +215,33 @@ const Solutions = () => {
       transition: { duration: 2, repeat: Infinity, repeatType: "reverse" }
     });
   }, [controls, selectedSolution]);
+  
+  // Handle URL hash changes and tab activation
+  useEffect(() => {
+    const hash = location.hash.replace('#', '');
+    if (hash && solutionTypes.some(s => s.id === hash)) {
+      setSelectedSolution(hash);
+      
+      // Always scroll to top first
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // Then scroll to section after content renders
+    setTimeout(() => {
+      const element = document.getElementById(hash);
+      element?.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'nearest'
+      });
+    }, 300);
+  }
+}, [location.hash, location.pathname]);
+
+  const handleTabChange = (newValue: string) => {
+    setSelectedSolution(newValue);
+    navigate(`#${newValue}`, { replace: true });
+    window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top on tab change
+  };
 
   const renderFloatingParticles = (count = 8, color = "#8B5CF6") => {
     return Array(count).fill(0).map((_, i) => (
@@ -334,7 +364,7 @@ const Solutions = () => {
           </div>
           
           <div className="mb-12">
-            <Tabs defaultValue="ai-consulting" onValueChange={setSelectedSolution}>
+          <Tabs value={selectedSolution} onValueChange={handleTabChange}>
               <TabsList className="flex flex-wrap justify-center gap-x-10 gap-y-2 bg-[#1a1a2e] p-2 px-2 sm:px-4 md:px-6 rounded-lg h-auto">
                 {solutionTypes.map((solution) => (
                   <TabsTrigger 
@@ -360,12 +390,13 @@ const Solutions = () => {
               <AnimatePresence mode="wait">
                 {solutionTypes.map((solution) => (
                   <TabsContent key={solution.id} value={solution.id}>
-                    <motion.div 
+                    <motion.div id={solution.id}
                       className="mt-8 grid md:grid-cols-2 gap-8"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.3 }}
+                      style={{ scrollMarginTop: "100px" }}
                     >
                       <motion.div
                         initial={{ opacity: 0, x: -20 }}
