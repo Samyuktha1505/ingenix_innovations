@@ -1,30 +1,20 @@
-
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      
-      // Show dynamic island effect when scrolled past threshold
-      if (currentScrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 50);
     };
-
     window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navLinks = [
@@ -40,10 +30,7 @@ const Navbar = () => {
       className="fixed w-full z-50 top-0"
       initial={{ y: 0 }}
       animate={{ y: 0 }}
-      transition={{ 
-        duration: 0.3, 
-        ease: "easeInOut"
-      }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
     >
       <motion.div 
         className={`mx-auto px-6 sm:px-8 lg:px-12 transition-all duration-700 ease-out ${
@@ -51,9 +38,7 @@ const Navbar = () => {
             ? 'max-w-4xl mt-3 bg-[#12121e]/70 backdrop-blur-xl rounded-full border border-[#6E59A5]/30 shadow-2xl shadow-[#6E59A5]/20' 
             : 'max-w-7xl bg-transparent mt-0'
         }`}
-        animate={{
-          scale: scrolled ? 0.9 : 1,
-        }}
+        animate={{ scale: scrolled ? 0.9 : 1 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
       >
         <div className={`flex justify-between items-center transition-all duration-500 ${scrolled ? 'h-12' : 'h-20'}`}>
@@ -88,24 +73,31 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-4">
-              {navLinks.map((link, index) => (
-                <motion.div
-                  key={link.name}
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  whileHover={{ y: -2, scale: 1.05 }}
-                >
-                  <Link
-                    to={link.path}
-                    className={`px-3 py-2 text-sm font-medium text-gray-300 hover:text-white hover:bg-[#6E59A5]/20 rounded-full transition-all duration-300 ${
-                      scrolled ? 'text-xs px-2 py-1' : 'text-sm px-3 py-2'
-                    }`}
+              {navLinks.map((link, index) => {
+                const isActive = location.pathname === link.path;
+                return (
+                  <motion.div
+                    key={link.name}
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    whileHover={{ y: -2, scale: 1.05 }}
                   >
-                    {link.name}
-                  </Link>
-                </motion.div>
-              ))}
+                    <Link
+                      to={link.path}
+                      className={`relative px-3 py-2 text-sm font-medium rounded-full transition-all duration-300
+                        ${isActive 
+                          ? 'text-[#8B5CF6]'
+                          : 'text-gray-300 hover:text-white'
+                        }
+                        ${scrolled ? 'text-xs px-2 py-1' : 'text-sm px-3 py-2'}
+                      `}
+                    >
+                      {link.name}
+                    </Link>
+                  </motion.div>
+                );
+              })}
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -155,22 +147,30 @@ const Navbar = () => {
             transition={{ duration: 0.3 }}
           >
             <div className="px-4 pt-4 pb-6 space-y-2">
-              {navLinks.map((link, index) => (
-                <motion.div
-                  key={link.name}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.05 }}
-                >
-                  <Link
-                    to={link.path}
-                    className="block px-4 py-3 text-base font-medium text-gray-300 hover:text-white hover:bg-[#6E59A5]/20 rounded-full transition-all duration-300"
-                    onClick={() => setIsOpen(false)}
+              {navLinks.map((link, index) => {
+                const isActive = location.pathname === link.path;
+                return (
+                  <motion.div
+                    key={link.name}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.05 }}
                   >
-                    {link.name}
-                  </Link>
-                </motion.div>
-              ))}
+                    <Link
+                      to={link.path}
+                      className={`block px-4 py-3 text-base font-medium rounded-full transition-all duration-300
+                        ${isActive 
+                          ? 'text-[#8B5CF6]'
+                          : 'text-gray-300 hover:text-white hover:bg-[#6E59A5]/20'
+                        }
+                      `}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {link.name}
+                    </Link>
+                  </motion.div>
+                );
+              })}
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
