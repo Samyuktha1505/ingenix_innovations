@@ -222,8 +222,6 @@ const Solutions = () => {
     if (hash && solutionTypes.some(s => s.id === hash)) {
       setSelectedSolution(hash);
       
-      // Always scroll to top first
-    window.scrollTo({ top: 0, behavior: 'smooth' });
 
     // Then scroll to section after content renders
     setTimeout(() => {
@@ -233,7 +231,7 @@ const Solutions = () => {
         block: 'start',
         inline: 'nearest'
       });
-    }, 300);
+    }, 0);
   }
 }, [location.hash, location.pathname]);
 
