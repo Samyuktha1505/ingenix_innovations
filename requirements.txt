@@ -1,7 +1,8 @@
-npm install 
-lottie-react  //npm install lottie-react
-npm install --save-dev @types/lottie-react
-npm install @react-three/fiber@8.18.0
-npm install three
-npm install three@0.154.0
-npm install @react-three/drei@9.103.0
+                          # npm install 
+lottie-react              # npm install lottie-react
+@types/lottie-react       # npm install --save-dev @types/lottie-react
+
+three                     # npm install three
+three@0.154.0             # npm install three@0.154.0
+@react-three/fiber@8.18.0 # npm install @react-three/fiber@8.18.0
+@react-three/drei@9.103.0 # npm install @react-three/drei@9.103.0
