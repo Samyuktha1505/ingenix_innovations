@@ -22,6 +22,11 @@ const DynamicTagline = () => {
   }, []);
 
   return (
+    <div className="h-24 item-center justify-center items-center justify-center">
+    {}
+     <span className="invisible absolute">
+    Digital Transformation
+  </span>
     <AnimatePresence mode="wait">
       <motion.span
         key={currentIndex}
@@ -44,12 +49,13 @@ const DynamicTagline = () => {
           duration: 0.6,
           ease: "easeInOut"
         }}
-        className="text-transparent bg-clip-text bg-gradient-to-r from-[#6E59A5] to-[#8B5CF6] inline-block"
+        className="text-transparent bg-clip-text bg-gradient-to-r from-[#6E59A5] to-[#8B5CF6] inline-block pb-2"
         style={{ transformOrigin: "center center" }}
       >
         {taglines[currentIndex]}
       </motion.span>
     </AnimatePresence>
+    </div>
   );
 };
 

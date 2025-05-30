@@ -11,14 +11,14 @@ const WhatWeDo = () => {
       description: "We harness the latest breakthroughs in AI research and translate them into practical, scalable solutions for real-world challenges.",
       icon: Sparkles,
       delay: 0,
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80"
+      image: "/src/images/img1.jpg"
     },
     {
       title: "Custom Solutions",
       description: "We build tailored AI systems that integrate seamlessly with your existing infrastructure while solving your unique business challenges.",
       icon: Rocket,
       delay: 0.1,
-      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1579389083046-e3df9c2b3325?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
       title: "Rapid Implementation",
@@ -32,21 +32,21 @@ const WhatWeDo = () => {
       description: "We develop state-of-the-art AI models using cutting-edge frameworks and techniques to solve complex business problems.",
       icon: Code,
       delay: 0.3,
-      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=800&q=80"
+      image: "https://media.istockphoto.com/id/2012883461/photo/ai-data-analysis-business-people-use-ai-to-analyze-financial-related-data-big-data-complex.jpg?s=1024x1024&w=is&k=20&c=ztgU0XEkYbUqBsQ8G-nWaPeZCapBac6qQanbXoinTxc="
     },
     {
       title: "Data Engineering",
       description: "Our expert data engineers build robust pipelines to collect, process, and transform your data into AI-ready formats.",
       icon: Database,
       delay: 0.4,
-      image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=800&q=80"
+      image: "https://plus.unsplash.com/premium_photo-1661454577337-7738fd3dd478?q=80&w=3092&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
       title: "AI Agents",
       description: "We create autonomous AI agents that can perform complex tasks, make decisions, and integrate with your existing workflows.",
       icon: Bot,
       delay: 0.5,
-      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80"
+      image: "/public/imgs/img3.png"
     },
   ];
 

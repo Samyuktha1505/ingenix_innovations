@@ -71,7 +71,7 @@ const Hero = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCodeIndex((prevIndex) => (prevIndex + 1) % codeExamples.length);
-    }, 5000);
+    }, 3000);
     
     return () => clearInterval(interval);
   }, []);
@@ -148,7 +148,7 @@ const Hero = () => {
             variants={itemVariants}
           >
             <motion.div variants={itemVariants}>
-              <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6">
+              <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6 pb">
                 <span className="text-gray-100">Revolutionizing Business Through </span>
                 <DynamicTagline />
               </h1>

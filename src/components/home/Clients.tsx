@@ -1,31 +1,62 @@
 
-const Clients = () => {
-  // These would be replaced with actual client logos
-  const clients = Array.from({ length: 6 }, (_, i) => ({
-    id: i + 1,
-    name: `Client ${i + 1}`,
-  }));
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+
+const taglines = [
+  "AI Innovation",
+  "Smart Automation",
+  "Intelligent Solutions", 
+  "Digital Transformation",
+  "Future Technology"
+];
+
+const DynamicTagline = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % taglines.length);
+    }, 3000); // Change every 3 seconds
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <section className="py-16 bg-gray-50 border-y border-gray-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10">
-          <h2 className="text-2xl font-bold text-gray-900">
-            Trusted By <span className="text-ingenix-primary">Industry Leaders</span>
-          </h2>
-        </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center justify-items-center">
-          {clients.map((client) => (
-            <div key={client.id} className="grayscale hover:grayscale-0 transition-all duration-300">
-              <div className="h-12 w-28 flex items-center justify-center bg-gray-200 rounded-md">
-                <span className="text-gray-500">Logo {client.id}</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+    <div className="h-24 item-center justify-center items-center justify-center">
+    {}
+     <span className="invisible absolute">
+    Digital Transformation
+  </span>
+    <AnimatePresence mode="wait">
+      <motion.span
+        key={currentIndex}
+        initial={{ 
+          opacity: 0, 
+          y: 20,
+          rotateX: 90 
+        }}
+        animate={{ 
+          opacity: 1, 
+          y: 0,
+          rotateX: 0 
+        }}
+        exit={{ 
+          opacity: 0, 
+          y: -20,
+          rotateX: -90 
+        }}
+        transition={{ 
+          duration: 0.6,
+          ease: "easeInOut"
+        }}
+        className="text-transparent bg-clip-text bg-gradient-to-r from-[#6E59A5] to-[#8B5CF6] inline-block pb-2"
+        style={{ transformOrigin: "center center" }}
+      >
+        {taglines[currentIndex]}
+      </motion.span>
+    </AnimatePresence>
+    </div>
   );
 };
 
-export default Clients;
+export default DynamicTagline;
