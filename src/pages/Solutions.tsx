@@ -1,4 +1,3 @@
-
 import { useState, useRef, useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -31,6 +30,7 @@ const solutionTypes = [
       icon: '🧠',
       color: '#8B5CF6'
     },
+    imageUrl: 'https://www.impactmybiz.com/_next/image/?url=https%3A%2F%2Fres.cloudinary.com%2Fdlpitjizv%2Fimage%2Fupload%2Ff_auto%2Fv1724101401%2Fimpact%2F20240708_AI_Solution_Webpage_Blog_Hero_M_fd2ddab21e.jpg&w=3840&q=75',
     genAIUseCase: [
       'Strategic AI Roadmapping',
       'Capability Gap Analysis',
@@ -60,6 +60,7 @@ const solutionTypes = [
       icon: '🎤',
       color: '#6E59A5'
     },
+    imageUrl: 'https://murf.ai/resources/media/posts/4/voice-ai.jpeg',
     genAIUseCase: [
       'Virtual Assistants',
       'Interactive Voice Response',
@@ -68,8 +69,8 @@ const solutionTypes = [
     ]
   },
   {
-    id: 'agents',
-    name: 'AI Agents Systems',
+    id: 'agentic-ai',
+    name: 'Agentic AI',
     icon: Users,
     description: 'Advanced agent orchestration and collaboration enabling complex workflows and automated decision making.',
     features: [
@@ -87,8 +88,9 @@ const solutionTypes = [
     ],
     animation: {
       icon: '🤖',
-      color: '#0EA5E9'
+      color: '#3B82F6'
     },
+    imageUrl: 'https://viscovery.com/wp-content/uploads/2024/08/AI-Agentic-Workflow-Banner.webp',
     genAIUseCase: [
       'Autonomous Workflow Agents',
       'Multi-Agent Collaboration',
@@ -118,6 +120,7 @@ const solutionTypes = [
       icon: '📈',
       color: '#10B981'
     },
+    imageUrl: 'https://www.hdatasystems.com/assets/uploads/banner/1639602922.jpg',
     genAIUseCase: [
       'Demand Forecasting',
       'Churn Prediction',
@@ -147,6 +150,7 @@ const solutionTypes = [
       icon: '✨',
       color: '#6E59A5'
     },
+    imageUrl: 'https://www.bpifrance.com/storage/sites/7/2024/06/IA-Generative-dans-les-entreprises.png',
     genAIUseCase: [
       'Content Generation',
       'Product Design Assistance',
@@ -177,9 +181,10 @@ const solutionTypes = [
       'Improved employee productivity'
     ],
     animation: {
-      icon: '⚙️',
+      icon: '⚙',
       color: '#6366F1'
     },
+    imageUrl: 'https://automate.fortra.com/sites/default/files/2022-07/am-what-is-intelligent-process-automation-blog-header-2000x1000.jpeg',
     genAIUseCase: [
       'Document Processing',
       'Workflow Optimization',
@@ -260,33 +265,21 @@ const Solutions = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
-              className="relative"
+              className="relative text-center"
             >
-              <motion.div 
-                className="absolute -top-20 left-1/2 transform -translate-x-1/2 text-8xl opacity-20 filter blur-sm"
-                animate={{ 
-                  y: [0, -10, 0],
-                  rotate: [0, 5, 0, -5, 0],
-                }}
-                transition={{ 
-                  duration: 8,
-                  repeat: Infinity,
-                }}
-              >
-                💡
-              </motion.div>
+            
               
               <motion.h1 
-                className="text-4xl font-bold mb-4"
+                className="text-3xl sm:text-4xl font-bold mb-4"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
               >
-                AI <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6E59A5] to-[#8B5CF6]">Solutions</span>
+                <span className="text-white">AI</span> <span className="text-purple-400">Solutions</span>
               </motion.h1>
               
               <motion.p 
-                className="mt-4 text-xl text-gray-300 max-w-3xl mx-auto"
+                className="mt-4 text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
@@ -296,18 +289,42 @@ const Solutions = () => {
             </motion.div>
           </div>
           
-          <div className="absolute bottom-0 left-0 w-full">
-            <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <motion.path 
-                initial={{ opacity: 0, pathLength: 0 }}
-                animate={{ opacity: 1, pathLength: 1 }}
-                transition={{ duration: 1.5, ease: "easeInOut" }}
-                d="M0 120L48 105C96 90 192 60 288 55C384 50 480 70 576 75C672 80 768 70 864 65C960 60 1056 60 1152 65C1248 70 1344 80 1392 85L1440 90V120H1392C1344 120 1248 120 1152 120C1056 120 960 120 864 120C768 120 672 120 576 120C480 120 384 120 288 120C192 120 96 120 48 120H0Z" 
-                fill="#12121e"
-                stroke="#6E59A5"
-                strokeWidth="1"
-              />
-            </svg>
+          <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-0">
+            <motion.div
+              className="flex"
+              animate={{ x: ["0%", "-100%"] }}
+              transition={{ 
+                duration: 20, 
+                repeat: Infinity, 
+                ease: "linear"
+              }}
+            >
+              {[...Array(3)].map((_, i) => (
+                <svg
+                  key={i}
+                  className="w-[100vw] h-[150px] min-w-[100vw]"
+                  viewBox="0 0 1200 150"
+                  xmlns="http://www.w3.org/2000/svg"
+                  preserveAspectRatio="none"
+                >
+                  {/* Solid wave fill */}
+                  <path
+                    d="M0,60 C200,120 400,0 600,60 S1000,0 1200,60 V150 H0 Z"
+                    fill="#1e1b4b"
+                    className="opacity-90"
+                  />
+                  
+                  {/* Smooth wave outline */}
+                  <path
+                    d="M0,60 C200,120 400,0 600,60 S1000,0 1200,60"
+                    stroke="#6d28d9"
+                    strokeWidth="1.5"
+                    fill="none"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              ))}
+            </motion.div>
           </div>
         </div>
         
@@ -318,15 +335,24 @@ const Solutions = () => {
           
           <div className="mb-12">
             <Tabs defaultValue="ai-consulting" onValueChange={setSelectedSolution}>
-              <TabsList className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 bg-[#1a1a2e] p-1">
+              <TabsList className="flex flex-wrap justify-center gap-x-10 gap-y-2 bg-[#1a1a2e] p-2 px-2 sm:px-4 md:px-6 rounded-lg h-auto">
                 {solutionTypes.map((solution) => (
                   <TabsTrigger 
                     key={solution.id} 
                     value={solution.id}
-                    className="data-[state=active]:bg-[#6E59A5] data-[state=active]:text-white"
+                    className="data-[state=active]:bg-[#6E59A5] data-[state=active]:text-white px-3 py-2 sm:px-4"
                   >
                     <solution.icon className="h-4 w-4 mr-2" />
-                    <span className="hidden sm:inline">{solution.name}</span>
+                    <motion.span
+                      className="whitespace-nowrap bg-clip-text text-transparent"
+                      style={{
+                        backgroundImage: `linear-gradient(to right, currentColor 20%, #FFFFFF 50%, currentColor 80%)`,
+                        backgroundSize: '300% 100%',
+                        backgroundPosition: 'center',
+                      }}
+                    >
+                      {solution.name}
+                    </motion.span>
                   </TabsTrigger>
                 ))}
               </TabsList>
@@ -348,15 +374,15 @@ const Solutions = () => {
                         className="space-y-6"
                       >
                         <div>
-                          <h2 className="text-3xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-[#6E59A5] to-[#8B5CF6] flex items-center">
+                          <h2 className="text-2xl md:text-3xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-[#6E59A5] to-[#8B5CF6] flex items-center leading-normal pb-1">
                             <solution.icon className="h-8 w-8 mr-3 text-[#8B5CF6]" />
                             {solution.name}
                           </h2>
-                          <p className="text-gray-300 text-lg">{solution.description}</p>
+                          <p className="text-gray-300 text-base md:text-lg">{solution.description}</p>
                         </div>
                         
                         <div>
-                          <h3 className="text-xl font-semibold mb-3 text-white">Key Features</h3>
+                          <h3 className="text-lg md:text-xl font-semibold mb-3 text-white">Key Features</h3>
                           <ul className="space-y-2">
                             {solution.features.map((feature, index) => (
                               <motion.li 
@@ -375,7 +401,7 @@ const Solutions = () => {
                         </div>
                         
                         <div>
-                          <h3 className="text-xl font-semibold mb-3 text-white">Business Benefits</h3>
+                          <h3 className="text-lg md:text-xl font-semibold mb-3 text-white">Business Benefits</h3>
                           <ul className="space-y-2">
                             {solution.benefits.map((benefit, index) => (
                               <motion.li 
@@ -409,214 +435,182 @@ const Solutions = () => {
                         transition={{ duration: 0.5, delay: 0.2 }}
                         className="flex items-center justify-center h-full"
                       >
-                        <div className="animation-container relative w-full h-80 bg-gradient-to-br from-[#1a1a2e] to-[#24243e] rounded-xl overflow-hidden border border-purple-800/20 shadow-xl">
-                          <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
-                          
-                          <motion.div 
-                            className="flex flex-col items-center justify-center h-full"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ duration: 0.5 }}
-                          >
+                        <motion.div 
+                          className="flex flex-col items-center min-h-[30rem] w-full"
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          transition={{ duration: 0.5 }}
+                        >
+                          <div className="w-full flex flex-col items-center">
                             <motion.div 
-                              className="text-6xl mb-4 relative"
-                              animate={{ 
-                                scale: [1, 1.2, 1],
-                                rotateY: [0, 360],
-                                rotate: [0, 5, 0, -5, 0]
-                              }}
-                              transition={{ 
-                                duration: 8,
-                                repeat: Infinity,
-                                repeatType: "loop"
-                              }}
+                              className="mb-4 relative w-full max-w-sm h-auto aspect-[4/3]"
+                              style={{ filter: `drop-shadow(0 10px 15px ${solution.animation.color}20)` }}
                             >
-                              {solution.animation.icon}
+                              {solution.imageUrl ? (
+                                <img 
+                                  src={solution.imageUrl} 
+                                  alt={solution.name} 
+                                  className="w-full h-full object-cover rounded-lg"
+                                  style={{ filter: 'brightness(0.8)' }}
+                                />
+                              ) : (
+                                <span className="text-6xl">{solution.animation.icon}</span>
+                              )}
                               <motion.div
-                                className="absolute inset-0 rounded-full"
+                                className="absolute inset-0 rounded-lg pointer-events-none"
                                 animate={{ 
                                   boxShadow: [
-                                    `0 0 10px 5px ${solution.animation.color}50`,
-                                    `0 0 20px 10px ${solution.animation.color}70`,
-                                    `0 0 10px 5px ${solution.animation.color}50`
+                                    `0 0 15px 7px ${solution.animation.color}15`,
+                                    `0 0 25px 12px ${solution.animation.color}25`,
+                                    `0 0 15px 7px ${solution.animation.color}15`
                                   ]
                                 }}
-                                transition={{ duration: 2, repeat: Infinity }}
+                                transition={{ duration: 3, repeat: Infinity, repeatType: "mirror" }}
+                                style={{ display: solution.imageUrl ? 'block' : 'none' }}
                               />
                             </motion.div>
-                            
-                            <div className="text-center">
+                          
+                            <div className="text-center mb-2">
                               <motion.h3 
-                                className="text-2xl font-bold mb-2"
+                                className="text-xl md:text-2xl font-bold mb-2 leading-normal pb-1"
                                 style={{ color: solution.animation.color }}
                               >
                                 {solution.name}
                               </motion.h3>
-                              
-                              <motion.div 
-                                className="flex space-x-3 mt-6"
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.3 }}
-                              >
-                                {Array(5).fill(0).map((_, i) => (
-                                  <motion.div 
-                                    key={i}
-                                    className="w-3 h-3 rounded-full"
-                                    style={{ backgroundColor: solution.animation.color }}
-                                    animate={{
-                                      scale: [1, 1.5, 1],
-                                      opacity: [0.7, 1, 0.7]
-                                    }}
-                                    transition={{
-                                      duration: 1.5,
-                                      delay: i * 0.2,
-                                      repeat: Infinity
-                                    }}
-                                  />
-                                ))}
-                              </motion.div>
                             </div>
-                            
-                            {solution.id === 'ai-consulting' && (
+                          </div>
+
+                          {solution.id === 'ai-consulting' && (
+                            <motion.div 
+                              className="mt-4 flex justify-center w-full"
+                              initial={{ opacity: 0 }}
+                              animate={{ opacity: 1 }}
+                              transition={{ delay: 0.5 }}
+                            >
                               <motion.div 
-                                className="absolute bottom-4 left-0 right-0 flex justify-center"
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                transition={{ delay: 0.5 }}
-                              >
-                                <motion.div 
-                                  className="h-1 w-32 bg-gradient-to-r from-[#6E59A5] to-[#8B5CF6] rounded-full"
-                                  animate={{ width: ["0%", "70%", "30%", "90%", "60%"] }}
-                                  transition={{ duration: 3, repeat: Infinity }}
-                                />
-                              </motion.div>
-                            )}
-                            
-                            {solution.id === 'voice-ai' && (
-                              <motion.div 
-                                className="absolute bottom-6 left-0 right-0 flex justify-center"
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                transition={{ delay: 0.5 }}
-                              >
-                                {[...Array(5)].map((_, i) => (
-                                  <motion.div
-                                    key={i}
-                                    className="w-2 h-10 mx-1 bg-[#6E59A5] rounded-full"
-                                    animate={{ 
-                                      height: [10, 30, 15, 40, 10],
-                                    }}
-                                    transition={{ 
-                                      duration: 1.5, 
-                                      delay: i * 0.15,
-                                      repeat: Infinity,
-                                    }}
-                                  />
-                                ))}
-                              </motion.div>
-                            )}
-                            
-                            {solution.id === 'agents' && (
-                              <motion.div className="absolute bottom-6 left-0 right-0 flex justify-center space-x-6">
-                                {[...Array(3)].map((_, i) => (
-                                  <motion.div 
-                                    key={i}
-                                    className="w-8 h-8 rounded-full bg-[#8B5CF6]"
-                                    animate={{ 
-                                      y: [0, -15, 0],
-                                      x: [0, i === 0 ? -15 : i === 2 ? 15 : 0, 0]
-                                    }}
-                                    transition={{ 
-                                      duration: 2,
-                                      delay: i * 0.3,
-                                      repeat: Infinity
-                                    }}
-                                  />
-                                ))}
-                              </motion.div>
-                            )}
-                            
-                            {solution.id === 'predictive' && (
-                              <motion.div className="absolute bottom-6 left-0 right-0 flex justify-center">
-                                <svg width="120" height="40" viewBox="0 0 120 40">
-                                  <motion.path
-                                    d="M0,30 Q30,10 60,25 T120,20"
-                                    fill="transparent"
-                                    stroke={solution.animation.color}
-                                    strokeWidth="2"
-                                    initial={{ pathLength: 0 }}
-                                    animate={{ pathLength: 1 }}
-                                    transition={{ 
-                                      duration: 2,
-                                      repeat: Infinity,
-                                      repeatType: "loop",
-                                      repeatDelay: 0.5
-                                    }}
-                                  />
-                                  <motion.circle
-                                    cx="0"
-                                    cy="30"
-                                    r="3"
-                                    fill={solution.animation.color}
-                                    animate={{
-                                      cx: [0, 30, 60, 90, 120],
-                                      cy: [30, 10, 25, 15, 20]
-                                    }}
-                                    transition={{
-                                      duration: 2,
-                                      repeat: Infinity,
-                                      repeatType: "loop",
-                                      repeatDelay: 0.5
-                                    }}
-                                  />
-                                </svg>
-                              </motion.div>
-                            )}
-                            
-                            {solution.id === 'generative' && (
-                              <motion.div className="absolute inset-0 flex items-center justify-center">
-                                <motion.div 
-                                  className="absolute inset-0 opacity-30"
-                                  animate={{
-                                    background: [
-                                      'radial-gradient(circle at 30% 30%, #6E59A5 0%, transparent 70%)',
-                                      'radial-gradient(circle at 70% 70%, #6E59A5 0%, transparent 70%)',
-                                      'radial-gradient(circle at 30% 70%, #6E59A5 0%, transparent 70%)',
-                                      'radial-gradient(circle at 70% 30%, #6E59A5 0%, transparent 70%)',
-                                      'radial-gradient(circle at 30% 30%, #6E59A5 0%, transparent 70%)'
-                                    ]
-                                  }}
-                                  transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                                />
-                                {[...Array(10)].map((_, i) => (
-                                  <motion.div
-                                    key={i}
-                                    className="absolute w-1 h-1 bg-[#8B5CF6]"
-                                    initial={{
-                                      x: 0,
-                                      y: 0,
-                                      opacity: 0
-                                    }}
-                                    animate={{
-                                      x: Math.random() * 300 - 150,
-                                      y: Math.random() * 300 - 150,
-                                      opacity: [0, 1, 0],
-                                      scale: [0, Math.random() * 3 + 1, 0]
-                                    }}
-                                    transition={{
-                                      duration: Math.random() * 3 + 2,
-                                      repeat: Infinity,
-                                      delay: Math.random() * 2
-                                    }}
-                                  />
-                                ))}
-                              </motion.div>
-                            )}
-                            
-                            {solution.id === 'automation' && (
-                              <motion.div className="absolute bottom-6 left-0 right-0 flex justify-center items-center">
+                                className="h-1 w-32 bg-gradient-to-r from-[#6E59A5] to-[#8B5CF6] rounded-full"
+                                animate={{ width: ["0%", "70%", "30%", "90%", "60%"] }}
+                                transition={{ duration: 3, repeat: Infinity }}
+                              />
+                            </motion.div>
+                          )}
+                          
+                          {solution.id === 'voice-ai' && (
+                            <motion.div 
+                              className="mt-4 flex justify-center w-full"
+                              initial={{ opacity: 0 }}
+                              animate={{ opacity: 1 }}
+                              transition={{ delay: 0.5 }}
+                            >
+                              {[...Array(9)].map((_, i) => (
                                 <motion.div
+                                  key={i}
+                                  className="w-1 h-10 mx-1 bg-[#6E59A5] rounded-full"
+                                  animate={{ 
+                                    height: [10, 30, 15, 40, 10],
+                                  }}
+                                  transition={{ 
+                                    duration: 1.5, 
+                                    delay: i * 0.15,
+                                    repeat: Infinity,
+                                  }}
+                                />
+                              ))}
+                            </motion.div>
+                          )}
+                          
+                          {solution.id === 'agentic-ai' && (
+                            <motion.div className="mt-4 flex justify-center space-x-6 w-full"
+                            >
+                              {[...Array(3)].map((_, i) => (
+                                <motion.div 
+                                  key={i}
+                                  className="w-8 h-8 rounded-full bg-[#8B5CF6]"
+                                  animate={{ 
+                                    y: [0, -15, 0],
+                                    x: [0, i === 0 ? -15 : i === 2 ? 15 : 0, 0]
+                                  }}
+                                  transition={{ 
+                                    duration: 2,
+                                    delay: i * 0.3,
+                                    repeat: Infinity
+                                  }}
+                                />
+                              ))}
+                            </motion.div>
+                          )}
+                          
+                          {solution.id === 'predictive' && (
+                            <motion.div className="mt-4 flex justify-center w-full"
+                            >
+                              <svg width="120" height="40" viewBox="0 0 120 40">
+                                <motion.path
+                                  d="M0,30 Q30,10 60,25 T120,20"
+                                  fill="transparent"
+                                  stroke={solution.animation.color}
+                                  strokeWidth="2"
+                                  initial={{ pathLength: 0 }}
+                                  animate={{ pathLength: 1 }}
+                                  transition={{ 
+                                    duration: 2,
+                                    repeat: Infinity,
+                                    repeatType: "loop",
+                                    repeatDelay: 0.5
+                                  }}
+                                />
+                                <motion.circle
+                                  cx="0"
+                                  cy="30"
+                                  r="3"
+                                  fill={solution.animation.color}
+                                  animate={{
+                                    cx: [0, 30, 60, 90, 120],
+                                    cy: [30, 10, 25, 15, 20]
+                                  }}
+                                  transition={{
+                                    duration: 2,
+                                    repeat: Infinity,
+                                    repeatType: "loop",
+                                    repeatDelay: 0.5
+                                  }}
+                                />
+                              </svg>
+                            </motion.div>
+                          )}
+                          
+                          {solution.id === 'generative' && (
+                            <motion.div 
+                              className="mt-4 w-full h-12 relative flex items-center justify-center space-x-3"
+                            >
+                              {[...Array(3)].map((_, i) => (
+                                <motion.div
+                                  key={i}
+                                  className="text-purple-400"
+                                  initial={{ opacity: 0.3, scale: 0.8, y: 0 }}
+                                  animate={{
+                                    opacity: [0.3, 1, 0.3],
+                                    scale: [0.8, 1.1, 0.8],
+                                    y: [0, -5, 0]
+                                  }}
+                                  transition={{
+                                    duration: 1.5,
+                                    repeat: Infinity,
+                                    delay: i * 0.3,
+                                    ease: "easeInOut"
+                                  }}
+                                >
+                                  <Sparkles className="w-8 h-8" />
+                                </motion.div>
+                              ))}
+                            </motion.div>
+                          )}
+                          
+                          {solution.id === 'automation' && (
+                            <motion.div className="mt-4 flex justify-center items-center space-x-4 w-full"
+                            >
+                              {[...Array(3)].map((_, i) => (
+                                <motion.div
+                                  key={i}
                                   className="w-10 h-10 rounded-md border-2 border-[#6E59A5]"
                                   animate={{ 
                                     rotate: 360,
@@ -625,7 +619,8 @@ const Solutions = () => {
                                   transition={{ 
                                     duration: 3,
                                     repeat: Infinity,
-                                    ease: "linear"
+                                    ease: "linear",
+                                    delay: i * 0.3
                                   }}
                                 >
                                   <motion.div
@@ -638,14 +633,15 @@ const Solutions = () => {
                                     transition={{ 
                                       duration: 3,
                                       repeat: Infinity,
-                                      ease: "linear"
+                                      ease: "linear",
+                                      delay: i * 0.3
                                     }}
                                   />
                                 </motion.div>
-                              </motion.div>
-                            )}
-                          </motion.div>
-                        </div>
+                              ))}
+                            </motion.div>
+                          )}
+                        </motion.div>
                       </motion.div>
                     </motion.div>
                   </TabsContent>
@@ -662,7 +658,7 @@ const Solutions = () => {
             className="mt-24 mb-16"
           >
             <motion.h2 
-              className="text-3xl font-bold mb-8 text-center"
+              className="text-2xl sm:text-3xl font-bold mb-8 text-center"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -699,7 +695,7 @@ const Solutions = () => {
                   >
                     {item.icon}
                   </motion.div>
-                  <h3 className="font-bold text-lg mb-2">{item.label}</h3>
+                  <h3 className="font-bold text-base sm:text-lg mb-2">{item.label}</h3>
                   <motion.div
                     className="w-12 h-1 bg-gradient-to-r from-[#6E59A5] to-[#8B5CF6] rounded-full"
                     animate={hoverItem === idx ? {
@@ -714,13 +710,13 @@ const Solutions = () => {
             </div>
 
             <motion.div
-              className="mt-16 bg-[#1a1a2e]/60 rounded-xl border border-[#6E59A5]/20 p-8"
+              className="mt-16 bg-[#1a1a2e]/60 rounded-xl border border-[#6E59A5]/20 p-8 flex flex-col items-center"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
             >
-              <h3 className="text-2xl font-bold mb-6 text-center">
+              <h3 className="text-xl sm:text-2xl font-bold mb-6 text-center">
                 Transformative <span className="text-[#6E59A5]">Use Cases</span>
               </h3>
               
@@ -749,7 +745,7 @@ const Solutions = () => {
             transition={{ duration: 0.6 }}
             className="mt-16 text-center"
           >
-            <h3 className="text-2xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-[#6E59A5] to-[#8B5CF6]">
+            <h3 className="text-xl sm:text-2xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-[#6E59A5] to-[#8B5CF6]">
               Ready to Transform Your Business?
             </h3>
             <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
