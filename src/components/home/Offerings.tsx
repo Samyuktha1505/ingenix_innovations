@@ -99,6 +99,12 @@ const Offerings = () => {
   });
 
   const [dimensions, setDimensions] = useState({ viewportWidth: 0, stripWidth: 0 });
+  const [currentScrollProgress, setCurrentScrollProgress] = useState(0);
+
+  // Track scroll progress for conditional rendering
+  scrollYProgress.on("change", (value) => {
+    setCurrentScrollProgress(value);
+  });
 
   const CARD_WIDTH_PX = 320; // w-80
   const GAP_PX = 32; // gap-8
@@ -199,6 +205,47 @@ const Offerings = () => {
                  </div>
             )}
           </motion.div>
+          
+          {/* Scroll Indicators */}
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center space-y-2 text-white/80">
+            {/* Show down arrow and text when cards can still scroll horizontally */}
+            {currentScrollProgress >= ANIMATION_START_PROGRESS && currentScrollProgress < ANIMATION_END_PROGRESS && (
+              <motion.div 
+                className="flex items-center space-x-2"
+                initial={{ opacity: 1 }}
+                animate={{ opacity: [0.5, 1, 0.5] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <span className="text-sm font-medium">Scroll down to explore</span>
+                <motion.div
+                  animate={{ y: [0, 6, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                  className="text-lg"
+                >
+                  ↓
+                </motion.div>
+              </motion.div>
+            )}
+            
+            {/* Show up arrow and text when at the end of card scrolling */}
+            {currentScrollProgress >= ANIMATION_END_PROGRESS && currentScrollProgress < STATIC_PAUSE_END_PROGRESS && (
+              <motion.div 
+                className="flex items-center space-x-2"
+                initial={{ opacity: 1 }}
+                animate={{ opacity: [0.5, 1, 0.5] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <motion.div
+                  animate={{ y: [0, -6, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                  className="text-lg"
+                >
+                  ↑
+                </motion.div>
+                <span className="text-sm font-medium">Scroll up to go back</span>
+              </motion.div>
+            )}
+          </div>
         </div>
       </div>
     </section>
