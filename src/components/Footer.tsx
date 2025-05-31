@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 import { Linkedin, Mail, Phone } from 'lucide-react';
-import { FaXTwitter } from 'react-icons/fa6';
+import { FaXTwitter } from 'react-icons/fa6'; // Make sure FaXTwitter is imported if you want to use it
 
 const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* 4-column layout */}
+        {/* 4-column layout that becomes 1 column on small screens */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:[grid-template-columns:1.5fr_1fr_1fr_1fr] gap-8">
           {/* Column 1: Brand */}
           <div>
@@ -106,16 +106,16 @@ const Footer = () => {
                   size={18}
                   className="text-gray-400 mr-3 mt-1 flex-shrink-0"
                 />
-                <span className="text-gray-400">
-                  info@ingenixinnovations.com
-                </span>
+                <a href="mailto:sales@ingenixinnovations.com" className="text-gray-400 hover:text-white transition-colors">
+                  sales@ingenixinnovations.com
+                </a>
               </li>
               <li className="flex items-start">
                 <Phone
                   size={18}
                   className="text-gray-400 mr-3 mt-1 flex-shrink-0"
                 />
-                <span className="text-gray-400">+91 (123) 456-7890</span>
+                <span className="text-gray-400">+91 74837 15401</span>
               </li>
               <li className="text-gray-400">
                 123 Tech Park, IT Corridor,
@@ -127,19 +127,24 @@ const Footer = () => {
             </ul>
             <div className="flex space-x-4 mt-4">
               <a
-                href="#"
+                href="https://www.linkedin.com/company/ingenix-innovations/"
                 className="text-gray-400 hover:text-white transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <Linkedin size={20} />
               </a>
-              <a
-                href="#"
+              {/* If you want the X (Twitter) icon uncomment this: */}
+              {/* <a
+                href="#" // Add your X (Twitter) URL here
                 className="text-gray-400 hover:text-white transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <FaXTwitter size={20} />
-              </a>
+              </a> */}
               <a
-                href="#"
+                href="mailto:sales@ingenixinnovations.com"
                 className="text-gray-400 hover:text-white transition-colors"
               >
                 <Mail size={20} />
@@ -158,7 +163,7 @@ const Footer = () => {
             <ul className="flex space-x-6">
               <li>
                 <a
-                  href="#"
+                  href="#" // Add your Privacy Policy URL here
                   className="text-gray-500 text-sm hover:text-gray-400"
                 >
                   Privacy Policy
@@ -166,7 +171,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="#" // Add your Terms of Service URL here
                   className="text-gray-500 text-sm hover:text-gray-400"
                 >
                   Terms of Service
