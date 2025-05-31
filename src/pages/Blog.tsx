@@ -10,6 +10,7 @@ const Blog = () => {
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [openArticle, setOpenArticle] = useState(null); // Modal state
 
   // All articles organized by category
   const allArticles = {
@@ -208,7 +209,7 @@ const Blog = () => {
   const categories = Object.keys(allArticles);
   const [selectedCategory, setSelectedCategory] = useState('AI Trends');
   const [currentTaglineIndex, setCurrentTaglineIndex] = useState(0);
-  
+
   const taglines = [
     "Cutting-edge AI insights",
     "Deep technical knowledge", 
@@ -222,7 +223,6 @@ const Blog = () => {
   const nextSlide = () => {
     setCurrentSlide(prev => (prev === filteredArticles.length - 1 ? 0 : prev + 1));
   };
-
   const prevSlide = () => {
     setCurrentSlide(prev => (prev === 0 ? filteredArticles.length - 1 : prev - 1));
   };
@@ -249,9 +249,9 @@ const Blog = () => {
 
   // Get 3 latest articles from all categories for the sidebar
   const latestArticles = Object.values(allArticles)
-  .flat()
-  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-  .slice(0, 3);
+    .flat()
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .slice(0, 3);
 
   return (
     <div className="min-h-screen flex flex-col bg-[#0a0a12] text-white">
@@ -289,93 +289,88 @@ const Blog = () => {
 
       <main className="flex-grow pt-20">
 
-{/* Hero Section */}
-<div className="relative bg-gradient-to-b from-[#12121e] to-[#1a1a2e] py-24 overflow-hidden">
-  <div className="absolute inset-0 opacity-20">
-  <div 
-  className="absolute inset-0 z-0 opacity-120"
-  style={{ 
-    backgroundImage: `url(${bg7})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center'
-  }}
-/>
-    <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] bg-[length:40px_40px]"></div>
-    <div className="absolute inset-0 bg-gradient-to-r from-purple-900/50 to-transparent"></div>
-  </div>
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-    <motion.h1 
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="text-5xl font-bold pb-2 mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-200 to-violet-400"
-    >
-      AI Insights Hub
-      
-    </motion.h1>
-    
-    <div className="h-20 flex items-center justify-center">
-      <AnimatePresence mode="wait">
-        <motion.p
-          key={currentTaglineIndex}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.5 }}
-          className="text-2xl text-purple-400 font-medium"
-        >
-          {taglines[currentTaglineIndex]}
-        </motion.p>
-      </AnimatePresence>
-    </div>
-
-    <motion.p 
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 0.3, duration: 0.5 }}
-      className="text-gray-300 max-w-3xl mx-auto text-lg"
-    >
-      Expert analysis on artificial intelligence technologies, applications, and their impact on business and society.
-    </motion.p>
-
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.6, duration: 0.5 }}
-      className="mt-8 flex flex-wrap justify-center gap-4"
-    >
-      {categories.slice(0, 3).map(category => (
-        <button
-          key={category}
-          onClick={() => {
-            setSelectedCategory(category);
-            document.getElementById('featured-section').scrollIntoView({ behavior: 'smooth' });
-          }}
-          className={`px-6 py-3 rounded-full font-medium transition-all ${
-            selectedCategory === category
-              ? 'bg-purple-600 text-white shadow-lg shadow-purple-500/30'
-              : 'bg-[#2d2d42] text-gray-300 hover:bg-[#3a3a57] hover:shadow-md'
-          }`}
-        >
-          {category}
-        </button>
-      ))}
-      <button
-        onClick={() => setIsMenuOpen(true)}
-        className="px-6 py-3 rounded-full font-medium bg-[#2d2d42] text-gray-300 hover:bg-[#3a3a57] hover:shadow-md transition-all flex items-center gap-2"
-      >
-        Explore All <ChevronRight className="w-4 h-4" />
-      </button>
-    </motion.div>
-  </div>
-</div>
+        {/* Hero Section */}
+        <div className="relative bg-gradient-to-b from-[#12121e] to-[#1a1a2e] py-24 overflow-hidden">
+          <div className="absolute inset-0 opacity-20">
+            <div 
+              className="absolute inset-0 z-0 opacity-120"
+              style={{ 
+                backgroundImage: `url(${bg7})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+              }}
+            />
+            <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] bg-[length:40px_40px]"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-900/50 to-transparent"></div>
+          </div>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-5xl font-bold pb-2 mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-200 to-violet-400"
+            >
+              AI Insights Hub
+            </motion.h1>
+            <div className="h-20 flex items-center justify-center">
+              <AnimatePresence mode="wait">
+                <motion.p
+                  key={currentTaglineIndex}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.5 }}
+                  className="text-2xl text-purple-400 font-medium"
+                >
+                  {taglines[currentTaglineIndex]}
+                </motion.p>
+              </AnimatePresence>
+            </div>
+            <motion.p 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3, duration: 0.5 }}
+              className="text-gray-300 max-w-3xl mx-auto text-lg"
+            >
+              Expert analysis on artificial intelligence technologies, applications, and their impact on business and society.
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.5 }}
+              className="mt-8 flex flex-wrap justify-center gap-4"
+            >
+              {categories.slice(0, 3).map(category => (
+                <button
+                  key={category}
+                  onClick={() => {
+                    setSelectedCategory(category);
+                    document.getElementById('featured-section').scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className={`px-6 py-3 rounded-full font-medium transition-all ${
+                    selectedCategory === category
+                      ? 'bg-purple-600 text-white shadow-lg shadow-purple-500/30'
+                      : 'bg-[#2d2d42] text-gray-300 hover:bg-[#3a3a57] hover:shadow-md'
+                  }`}
+                >
+                  {category}
+                </button>
+              ))}
+              <button
+                onClick={() => setIsMenuOpen(true)}
+                className="px-6 py-3 rounded-full font-medium bg-[#2d2d42] text-gray-300 hover:bg-[#3a3a57] hover:shadow-md transition-all flex items-center gap-2"
+              >
+                Explore All <ChevronRight className="w-4 h-4" />
+              </button>
+            </motion.div>
+          </div>
+        </div>
 
         {/* Featured Articles Slider */}
         <section id="featured-section" className="bg-gradient-to-b from-[#1a1a2e] to-[#12121e] py-16 relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-full opacity-10">
             <div className="absolute inset-0 bg-[url('/circuit-pattern.svg')] bg-[length:300px_300px]"></div>
           </div>
-          
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div className="flex justify-between items-center mb-8">
               <motion.h2 
@@ -415,7 +410,6 @@ const Blog = () => {
                 </button>
               </motion.div>
             </div>
-
             <div className="relative overflow-hidden rounded-xl">
               <div 
                 className="flex transition-transform duration-500 ease-in-out"
@@ -434,13 +428,13 @@ const Blog = () => {
                       transition={{ duration: 0.5 }}
                     >
                       <div className="h-48 bg-[#2d2d42] relative overflow-hidden">
-                      <div className="relative h-48 w-full">
-                    <img
-                    src={article.image}
-                    alt={article.title}
-                    className="absolute inset-0 object-cover opacity-80 w-full h-full"
-                    />
-                     </div>
+                        <div className="relative h-48 w-full">
+                          <img
+                            src={article.image}
+                            alt={article.title}
+                            className="absolute inset-0 object-cover opacity-80 w-full h-full"
+                          />
+                        </div>
                         <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-[#1e1e2e] to-transparent"></div>
                         <div className="absolute top-4 left-4 bg-purple-600/90 text-white px-3 py-1 rounded-full text-xs font-medium">
                           {article.category}
@@ -455,7 +449,10 @@ const Blog = () => {
                         <p className="text-gray-300 mb-4 line-clamp-2">{article.excerpt}</p>
                         <div className="flex justify-between items-center">
                           <span className="text-sm text-gray-400">{article.readTime}</span>
-                          <button className="text-purple-400 hover:text-purple-300 text-sm font-medium flex items-center gap-1">
+                          <button
+                            className="text-purple-400 hover:text-purple-300 text-sm font-medium flex items-center gap-1"
+                            onClick={() => setOpenArticle(article)}
+                          >
                             Read More <ArrowRight className="w-4 h-4" />
                           </button>
                         </div>
@@ -465,7 +462,6 @@ const Blog = () => {
                 ))}
               </div>
             </div>
-
             <div className="flex justify-center mt-8 space-x-2">
               {filteredArticles.map((_, index) => (
                 <button
@@ -503,7 +499,6 @@ const Blog = () => {
                     </div>
                   </div>
                 </div>
-                
                 <div className="grid md:grid-cols-2 gap-6">
                   {filteredArticles.map((article, index) => (
                     <motion.article 
@@ -516,13 +511,13 @@ const Blog = () => {
                       viewport={{ once: true }}
                     >
                       <div className="h-48 bg-[#2d2d42] relative overflow-hidden">
-                      <div className="relative h-48 w-full">
-                     <img
-                     src={article.image}
-                     alt={article.title}
-                     className="absolute inset-0 object-cover opacity-80 w-full h-full"
-                     />
-                      </div>
+                        <div className="relative h-48 w-full">
+                          <img
+                            src={article.image}
+                            alt={article.title}
+                            className="absolute inset-0 object-cover opacity-80 w-full h-full"
+                          />
+                        </div>
                         <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-[#1e1e2e] to-transparent"></div>
                       </div>
                       <div className="p-5">
@@ -534,7 +529,10 @@ const Blog = () => {
                         <p className="text-gray-300 text-sm mb-3 line-clamp-2">{article.excerpt}</p>
                         <div className="flex justify-between items-center">
                           <span className="text-xs text-gray-400">{article.readTime}</span>
-                          <button className="text-purple-400 hover:text-purple-300 text-xs font-medium flex items-center gap-1">
+                          <button
+                            className="text-purple-400 hover:text-purple-300 text-xs font-medium flex items-center gap-1"
+                            onClick={() => setOpenArticle(article)}
+                          >
                             Read More <ArrowRight className="w-3 h-3" />
                           </button>
                         </div>
@@ -542,47 +540,13 @@ const Blog = () => {
                     </motion.article>
                   ))}
                 </div>
-                
                 <div className="mt-10 flex justify-center">
                   <button className="px-6 py-3 rounded-full font-medium bg-[#2d2d42] text-gray-300 hover:bg-[#3a3a57] hover:text-white transition-all flex items-center gap-2 border border-[#3a3a57]">
                     Load More Articles
                   </button>
                 </div>
               </section>
-
               <aside className="space-y-8">
-                {/* <motion.div 
-                  className="bg-[#1e1e2e] p-6 rounded-xl border border-[#3a3a57] sticky top-4"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5 }}
-                  viewport={{ once: true }}
-                >
-                  <h3 className="font-bold text-lg mb-4 flex items-center gap-2">
-                    <Mail className="w-5 h-5 text-purple-400" /> Newsletter
-                  </h3>
-                  <p className="text-gray-300 mb-4 text-sm">
-                    Get the latest AI insights delivered straight to your inbox every week.
-                  </p>
-                  <form className="space-y-3">
-                    <input 
-                      type="email" 
-                      placeholder="Your email address" 
-                      className="w-full px-4 py-2 rounded bg-[#2d2d42] border border-[#3a3a57] text-white focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm"
-                      required
-                    />
-                    <button 
-                      type="submit"
-                      className="w-full bg-gradient-to-r from-purple-600 to-violet-500 hover:from-purple-700 hover:to-violet-600 text-white py-2 px-4 rounded transition-all flex items-center justify-center gap-2"
-                    >
-                      Subscribe <Mail className="w-4 h-4" />
-                    </button>
-                  </form>
-                  <p className="text-gray-400 text-xs mt-3">
-                    We respect your privacy. Unsubscribe at any time.
-                  </p>
-                </motion.div> */}
-
                 <motion.div 
                   className="bg-[#1e1e2e] p-6 rounded-xl border border-[#3a3a57]"
                   initial={{ opacity: 0, y: 20 }}
@@ -611,7 +575,6 @@ const Blog = () => {
                     ))}
                   </ul>
                 </motion.div>
-
                 <motion.div 
                   className="bg-[#1e1e2e] p-6 rounded-xl border border-[#3a3a57]"
                   initial={{ opacity: 0, y: 20 }}
@@ -624,13 +587,13 @@ const Blog = () => {
                     {latestArticles.map(article => (
                       <div key={article.id} className="flex gap-3">
                         <div className="flex-shrink-0 w-16 h-16 bg-[#2d2d42] rounded-lg overflow-hidden relative">
-                        <div className="relative h-48 w-full">
-                        <img
-                           src={article.image}
-                           alt={article.title}
-                           className="absolute inset-0 object-cover opacity-80 w-full h-full"
-                        />
-                        </div>
+                          <div className="relative h-48 w-full">
+                            <img
+                              src={article.image}
+                              alt={article.title}
+                              className="absolute inset-0 object-cover opacity-80 w-full h-full"
+                            />
+                          </div>
                         </div>
                         <div>
                           <h4 className="text-sm font-medium line-clamp-2">{article.title}</h4>
@@ -645,12 +608,52 @@ const Blog = () => {
           </div>
         </div>
 
+        {/* Modal for "Read More" */}
+        <AnimatePresence>
+          {openArticle && (
+            <motion.div
+              className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setOpenArticle(null)}
+            >
+              <motion.div
+                className="bg-[#1e1e2e] rounded-2xl shadow-2xl border border-[#3a3a57] max-w-2xl w-full mx-4 p-8 relative"
+                initial={{ scale: 0.95, y: 40 }}
+                animate={{ scale: 1, y: 0 }}
+                exit={{ scale: 0.95, y: 40 }}
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                onClick={e => e.stopPropagation()}
+              >
+                <button
+                  className="absolute top-4 right-4 text-gray-400 hover:text-purple-400 text-2xl font-bold"
+                  onClick={() => setOpenArticle(null)}
+                  aria-label="Close"
+                >
+                  &times;
+                </button>
+                <img
+                  src={openArticle.image}
+                  alt={openArticle.title}
+                  className="rounded-xl w-full h-48 object-cover mb-6"
+                />
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-xs bg-purple-600/90 text-white px-3 py-1 rounded-full font-medium">{openArticle.category}</span>
+                  <span className="text-xs text-gray-400">{openArticle.date} • {openArticle.readTime}</span>
+                </div>
+                <h2 className="text-2xl font-bold mb-4">{openArticle.title}</h2>
+                <p className="text-gray-300 text-base">{openArticle.excerpt}</p>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
         {/* CTA Section */}
         <section className="bg-gradient-to-r from-purple-900/40 to-violet-900/40 py-16 relative overflow-hidden">
           <div className="absolute inset-0 opacity-10">
             <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] bg-[length:40px_40px]"></div>
           </div>
-          
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
@@ -693,7 +696,6 @@ const Blog = () => {
           </div>
         </section>
       </main>
-
       <Footer />
     </div>
   );
