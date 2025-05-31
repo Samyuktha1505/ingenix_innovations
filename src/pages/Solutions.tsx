@@ -199,6 +199,7 @@ const Solutions = () => {
   const [selectedSolution, setSelectedSolution] = useState('ai-consulting');
   const [hoverItem, setHoverItem] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
+  const sectionRefs = useRef({});
   
   const solution = solutionTypes.find(s => s.id === selectedSolution);
   const controls = useAnimationControls();
@@ -216,29 +217,54 @@ const Solutions = () => {
     });
   }, [controls, selectedSolution]);
   
+  // Set up refs for each solution section
+  useEffect(() => {
+    solutionTypes.forEach(solution => {
+      sectionRefs.current[solution.id] = document.getElementById(solution.id);
+    });
+  }, []);
+  
   // Handle URL hash changes and tab activation
   useEffect(() => {
     const hash = location.hash.replace('#', '');
     if (hash && solutionTypes.some(s => s.id === hash)) {
       setSelectedSolution(hash);
       
-
-    // Then scroll to section after content renders
-    setTimeout(() => {
-      const element = document.getElementById(hash);
-      element?.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start',
-        inline: 'nearest'
-      });
-    }, 0);
-  }
-}, [location.hash, location.pathname]);
+      // Scroll to section after content renders
+      setTimeout(() => {
+        const element = sectionRefs.current[hash];
+        if (element) {
+          const headerOffset = 120; // Adjust this value based on your header height
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }, 100);
+    }
+  }, [location.hash, location.pathname]);
 
   const handleTabChange = (newValue: string) => {
     setSelectedSolution(newValue);
     navigate(`#${newValue}`, { replace: true });
-    window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top on tab change
+    
+    // Scroll to section with offset
+    setTimeout(() => {
+      const element = sectionRefs.current[newValue];
+      if (element) {
+        const headerOffset = 120; // Same as above
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }, 100);
   };
 
   const renderFloatingParticles = (count = 8, color = "#8B5CF6") => {
@@ -295,8 +321,6 @@ const Solutions = () => {
               transition={{ duration: 0.5 }}
               className="relative text-center"
             >
-            
-              
               <motion.h1 
                 className="text-3xl sm:text-4xl font-bold mb-4"
                 initial={{ opacity: 0, y: 20 }}
@@ -335,14 +359,11 @@ const Solutions = () => {
                   xmlns="http://www.w3.org/2000/svg"
                   preserveAspectRatio="none"
                 >
-                  {/* Solid wave fill */}
                   <path
                     d="M0,60 C200,120 400,0 600,60 S1000,0 1200,60 V150 H0 Z"
                     fill="#1e1b4b"
                     className="opacity-90"
                   />
-                  
-                  {/* Smooth wave outline */}
                   <path
                     d="M0,60 C200,120 400,0 600,60 S1000,0 1200,60"
                     stroke="#6d28d9"
@@ -362,7 +383,7 @@ const Solutions = () => {
           </div>
           
           <div className="mb-12">
-          <Tabs value={selectedSolution} onValueChange={handleTabChange}>
+            <Tabs value={selectedSolution} onValueChange={handleTabChange}>
               <TabsList className="flex flex-wrap justify-center gap-x-10 gap-y-2 bg-[#1a1a2e] p-2 px-2 sm:px-4 md:px-6 rounded-lg h-auto">
                 {solutionTypes.map((solution) => (
                   <TabsTrigger 
@@ -388,14 +409,17 @@ const Solutions = () => {
               <AnimatePresence mode="wait">
                 {solutionTypes.map((solution) => (
                   <TabsContent key={solution.id} value={solution.id}>
-                    <motion.div id={solution.id}
+                    <motion.div 
+                      id={solution.id}
+                      ref={el => sectionRefs.current[solution.id] = el}
                       className="mt-8 grid md:grid-cols-2 gap-8"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.3 }}
-                      style={{ scrollMarginTop: "100px" }}
+                      style={{ scrollMarginTop: "120px" }}
                     >
+                      {/* Rest of your solution content remains the same */}
                       <motion.div
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
@@ -464,6 +488,7 @@ const Solutions = () => {
                         transition={{ duration: 0.5, delay: 0.2 }}
                         className="flex items-center justify-center h-full"
                       >
+                        {/* Rest of your solution image/animation content */}
                         <motion.div 
                           className="flex flex-col items-center min-h-[30rem] w-full"
                           initial={{ opacity: 0 }}
@@ -509,6 +534,7 @@ const Solutions = () => {
                             </div>
                           </div>
 
+                          {/* Animation specific to each solution type */}
                           {solution.id === 'ai-consulting' && (
                             <motion.div 
                               className="mt-4 flex justify-center w-full"
@@ -679,6 +705,7 @@ const Solutions = () => {
             </Tabs>
           </div>
 
+          {/* Rest of your component remains the same */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}

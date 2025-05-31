@@ -11,6 +11,7 @@ import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop"; // ✅ Import this
 import BackToTop from "./components/ui/back_to_top";
+import Blog from "./pages/Blog"
 
 const queryClient = new QueryClient();
 
@@ -27,7 +28,7 @@ const App = () => (
           <Route path="/solutions" element={<Solutions />} />
           <Route path="/industries" element={<Industries />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="/blog" element={<Blog />} />
         </Routes>
         <BackToTop />
       </BrowserRouter>
