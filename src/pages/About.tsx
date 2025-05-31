@@ -2,12 +2,10 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { motion, useSpring, useTransform } from 'framer-motion';
 import { Typewriter } from 'react-simple-typewriter';
-import AboutUsBackground from '@/images/image.png'; // Update this path to your image location
+import AboutUsBackground from '@/images/image.png';
 import { useEffect } from 'react';
-import { Target, Eye, Brain, FlaskConical, Zap } from 'lucide-react'; // Importing necessary icons from lucide-react
+import { Target, Eye, Brain, FlaskConical, Zap } from 'lucide-react';
 
-// --- AnimatedNumber Component ---
-// This component animates a number from 0 to its given value.
 const AnimatedNumber = ({ value }) => {
   const spring = useSpring(0, {
     mass: 1,
@@ -21,36 +19,33 @@ const AnimatedNumber = ({ value }) => {
   return <motion.span>{display}</motion.span>;
 };
 
-// --- Data for "Why Choose Us" Widgets ---
-// Centralized data for easy management and dynamic rendering of the feature cards.
 const whyChooseUsData = [
   {
-    icon: Brain, // Lucide React icon for "Deep Domain Expertise"
+    icon: Brain,
     title: 'Deep Domain Expertise',
     description: 'Our team brings together experts in machine learning, deep learning, NLP, and computer vision with years of experience in enterprise solutions.',
   },
   {
-    icon: FlaskConical, // Lucide React icon for "Research-Backed Solutions"
+    icon: FlaskConical,
     title: 'Research-Backed Solutions',
     description: 'We stay at the cutting edge of AI research, translating the latest breakthroughs into practical applications for businesses.',
   },
   {
-    icon: Zap, // Lucide React icon for "Agile Implementation"
+    icon: Zap,
     title: 'Agile Implementation',
     description: 'Our methodology ensures quick deployment of AI solutions that can grow and adapt with your business needs.',
   },
 ];
 
-// --- About Component ---
 const About = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-[#12121e] text-white">
+    <div className="min-h-screen flex flex-col bg-[#12121e] text-white overflow-x-hidden">
       <Navbar />
       <main className="flex-grow pt-20">
 
-        {/* Hero Section with Image Background and Typewriter Effect */}
+        {/* Hero Section */}
         <div className="relative py-32 overflow-hidden">
-          <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 z-0 overflow-hidden">
             <img
               src={AboutUsBackground}
               alt="About Us Background"
@@ -88,7 +83,7 @@ const About = () => {
           </div>
         </div>
 
-        {/* Mission & Vision Section with Slide-in Animations */}
+        {/* Mission & Vision Section */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="grid md:grid-cols-2 gap-8">
             {/* Mission Card */}
@@ -97,7 +92,7 @@ const About = () => {
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.7 }}
               viewport={{ once: true, amount: 0.2 }}
-              className="relative group"
+              className="relative group overflow-hidden"
             >
               <div className="absolute -inset-1 bg-gradient-to-r from-[#6E59A5] to-[#8B5CF6] rounded-xl blur opacity-30 group-hover:opacity-50 transition duration-200"></div>
               <div className="relative bg-[#1a1a2e] rounded-xl p-8 h-full border border-gray-800 overflow-hidden">
@@ -122,7 +117,7 @@ const About = () => {
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.7 }}
               viewport={{ once: true, amount: 0.2 }}
-              className="relative group"
+              className="relative group overflow-hidden"
             >
               <div className="absolute -inset-1 bg-gradient-to-r from-[#8B5CF6] to-[#6E59A5] rounded-xl blur opacity-30 group-hover:opacity-50 transition duration-200"></div>
               <div className="relative bg-[#1a1a2e] rounded-xl p-8 h-full border border-gray-800 overflow-hidden">
@@ -142,7 +137,7 @@ const About = () => {
             </motion.div>
           </div>
 
-          {/* Animated Heading: "Accelerating the future through AI innovations" */}
+          {/* Animated Heading */}
           <motion.div
             className="mt-16 text-center"
             initial={{ opacity: 0, scale: 0.9 }}
@@ -181,12 +176,11 @@ const About = () => {
           </motion.div>
         </div>
 
-        {/* Why Choose Us Section with Dynamic Widgets and Animations */}
+        {/* Why Choose Us Section */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="relative">
-            {/* Floating background elements for visual flair */}
-            <div className="absolute -top-20 -left-20 w-64 h-64 bg-[#6E59A5]/10 rounded-full filter blur-3xl"></div>
-            <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-[#8B5CF6]/10 rounded-full filter blur-3xl"></div>
+          <div className="relative overflow-hidden">
+            <div className="absolute -top-20 -left-20 w-64 h-64 bg-[#6E59A5]/10 rounded-full filter blur-3xl overflow-hidden"></div>
+            <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-[#8B5CF6]/10 rounded-full filter blur-3xl overflow-hidden"></div>
 
             <motion.div
               className="relative z-10"
@@ -218,7 +212,6 @@ const About = () => {
                 </motion.p>
               </div>
 
-              {/* Dynamic rendering of "Why Choose Us" widgets */}
               <div className="grid md:grid-cols-3 gap-8">
                 {whyChooseUsData.map((item, index) => (
                   <motion.div
@@ -234,22 +227,21 @@ const About = () => {
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#6E59A5]/0 via-[#6E59A5]/5 to-[#6E59A5]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <div className="relative z-10">
                       <div className="w-16 h-16 mb-6 rounded-lg bg-gradient-to-br from-[#6E59A5] to-[#8B5CF6] flex items-center justify-center">
-                        {/* Wrapper for the icon to apply toggling animation */}
                         <motion.div
-                          initial={{ scale: 1, rotate: 0 }} // Initial state for scale and rotate
+                          initial={{ scale: 1, rotate: 0 }}
                           whileInView={{
-                            scale: [1, 1.2, 1], // More pronounced pulse: normal -> larger -> normal
-                            rotate: [0, 3, -3, 0], // Subtle wobble: 0 -> 3 deg -> -3 deg -> 0
+                            scale: [1, 1.2, 1],
+                            rotate: [0, 3, -3, 0],
                             transition: {
-                              scale: { // Separate transition properties for scale
-                                duration: 1.2, // Slightly faster scale pulse
+                              scale: {
+                                duration: 1.2,
                                 repeat: Infinity,
                                 repeatType: "mirror",
                                 ease: "easeInOut",
                                 delay: index * 0.1 + 0.5
                               },
-                              rotate: { // Separate transition properties for rotate
-                                duration: 2.5, // Slightly slower rotation for subtlety
+                              rotate: {
+                                duration: 2.5,
                                 repeat: Infinity,
                                 repeatType: "mirror",
                                 ease: "easeInOut",
@@ -257,9 +249,9 @@ const About = () => {
                               }
                             }
                           }}
-                          viewport={{ once: true }} // Trigger this pulse animation once the card enters view
+                          viewport={{ once: true }}
                         >
-                          <item.icon className="h-8 w-8 text-white" /> {/* Render the specific icon */}
+                          <item.icon className="h-8 w-8 text-white" />
                         </motion.div>
                       </div>
                       <h3 className="text-xl font-semibold text-white mb-4">{item.title}</h3>
@@ -271,9 +263,8 @@ const About = () => {
                 ))}
               </div>
 
-              {/* Stats Section with Animated Numbers */}
+              {/* Stats Section */}
               <div className="mt-20 grid md:grid-cols-3 gap-8">
-                {/* Successful Projects Stat */}
                 <motion.div
                   className="text-center"
                   initial={{ opacity: 0, y: 20 }}
@@ -286,7 +277,6 @@ const About = () => {
                   </div>
                   <div className="text-gray-400">Successful Projects</div>
                 </motion.div>
-                {/* Happy Clients Stat */}
                 <motion.div
                   className="text-center"
                   initial={{ opacity: 0, y: 20 }}
@@ -299,7 +289,6 @@ const About = () => {
                   </div>
                   <div className="text-gray-400">Happy Clients</div>
                 </motion.div>
-                {/* Industry Awards Stat */}
                 <motion.div
                   className="text-center"
                   initial={{ opacity: 0, y: 20 }}
