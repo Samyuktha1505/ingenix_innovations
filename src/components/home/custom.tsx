@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Lightbulb, Cog, Repeat } from "lucide-react";
 import { useEffect, useState } from "react";
+import Link from '@/pages/Contact'; // Assuming you're using Next.js for routing
 
 const CustomSolutionsSection = () => {
   const features = [
@@ -38,16 +39,16 @@ const CustomSolutionsSection = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true }}
-      className="group relative bg-[#0f0f1b] border border-[#6e59a5] rounded-2xl shadow-md hover:border-[#c084fc] p-6 md:p-10 mb-16 max-w-6xl mx-auto"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      className="group relative bg-[#0f0f1b] border border-[#6e59a5] rounded-2xl shadow-md p-6 md:p-10 mb-16 max-w-6xl mx-auto"
     >
       <div className="text-center mb-10">
         <h3 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#8B5CF6] to-[#c084fc]">
-        Custom Solutions for Your Industry
+          Custom Solutions for Your Industry
         </h3>
         <p className="text-gray-300 mt-2 text-lg max-w-2xl mx-auto">
-        Don't see your industry listed? Our team has experience working across many sectors, and we specialize in developing custom AI solutions for unique business challenges.
+          Don't see your industry listed? Our team has experience working across
+          many sectors, and we specialize in developing custom AI solutions for
+          unique business challenges.
         </p>
       </div>
 
@@ -61,16 +62,19 @@ const CustomSolutionsSection = () => {
             transition={{ duration: 0.6 }}
             className="absolute inset-0 flex justify-center items-center"
           >
-            <div className="w-full max-w-4xl bg-[#12121e] border border-gray-800 rounded-xl p-6 sm:p-8 md:p-10 mx-auto relative overflow-hidden">
+            <div
+              className="w-full max-w-4xl bg-[#12121e] border border-gray-800 rounded-xl p-6 sm:p-8 md:p-10 mx-auto relative overflow-hidden transition-all duration-300 hover:border-[#c084fc]"
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+            >
               {/* Inner glow overlay */}
               <div
-  className={`pointer-events-none absolute inset-0 rounded-xl blur-3xl opacity-0 transition-opacity duration-500 ${
-    isHovered
-      ? "opacity-20 bg-gradient-to-tr from-[#8B5CF6] via-[#c084fc] to-[#8B5CF6]"
-      : ""
-  }`}
+                className={`pointer-events-none absolute inset-0 rounded-xl blur-3xl opacity-0 transition-opacity duration-500 ${
+                  isHovered
+                    ? "opacity-20 bg-gradient-to-tr from-[#8B5CF6] via-[#c084fc] to-[#8B5CF6]"
+                    : ""
+                }`}
               />
-
 
               {/* Actual content */}
               <div className="relative z-10">
@@ -89,6 +93,19 @@ const CustomSolutionsSection = () => {
             </div>
           </motion.div>
         </AnimatePresence>
+      </div>
+
+      {/* Consultation Button */}
+      <div className="text-center mt-10">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-[#8B5CF6] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-[#c084fc] transition duration-300 ease-in-out"
+          >
+            Schedule a Consultation 
+          </motion.button>
+          <div className="text-center mb-10 pt-10 md:pt-6">
+  </div>
       </div>
     </motion.section>
   );

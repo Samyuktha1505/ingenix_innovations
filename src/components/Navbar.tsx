@@ -34,15 +34,15 @@ const Navbar = () => {
       transition={{ duration: 0.3, ease: "easeInOut" }}
     >
       <motion.div 
-        className={`mx-auto px-4 sm:px-6 transition-all duration-700 ease-out ${
+        className={`mx-auto px-6 sm:px-8 lg:px-12 transition-all duration-700 ease-out ${
           scrolled 
-            ? 'max-w-6xl mt-3 bg-[#12121e]/70 backdrop-blur-xl rounded-full border border-[#6E59A5]/30 shadow-2xl shadow-[#6E59A5]/20' 
+            ? 'max-w-4xl mt-3 bg-[#12121e]/70 backdrop-blur-xl rounded-full border border-[#6E59A5]/30 shadow-2xl shadow-[#6E59A5]/20' 
             : 'max-w-7xl bg-transparent mt-0'
         }`}
-        animate={{ scale: scrolled ? 0.95 : 1 }}
+        animate={{ scale: scrolled ? 0.9 : 1 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
       >
-        <div className={`flex justify-between items-center transition-all duration-500 ${scrolled ? 'h-14' : 'h-20'}`}>
+        <div className={`flex justify-between items-center transition-all duration-500 ${scrolled ? 'h-12' : 'h-20'}`}>
           <motion.div 
             className="flex-shrink-0 flex items-center"
             whileHover={{ scale: 1.05 }}
@@ -53,7 +53,7 @@ const Navbar = () => {
                 className="text-2xl font-bold text-[#6E59A5]"
                 animate={{ 
                   textShadow: scrolled ? "0px 0px 8px rgba(110, 89, 165, 0.6)" : "none",
-                  fontSize: scrolled ? "1.25rem" : "1.5rem"
+                  fontSize: scrolled ? "1.2rem" : "1.5rem"
                 }}
                 transition={{ duration: 0.5 }}
               >
@@ -62,7 +62,7 @@ const Navbar = () => {
               <motion.span 
                 className="text-2xl font-medium ml-1 text-white"
                 animate={{ 
-                  fontSize: scrolled ? "1.25rem" : "1.5rem"
+                  fontSize: scrolled ? "1.2rem" : "1.5rem"
                 }}
                 transition={{ duration: 0.5 }}
               >
@@ -72,70 +72,64 @@ const Navbar = () => {
           </motion.div>
           
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1">
-            {navLinks.map((link, index) => {
-              const isActive = location.pathname === link.path;
-              return (
-                <motion.div
-                  key={link.name}
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  whileHover={{ y: -2 }}
-                >
-                  <Link
-                    to={link.path}
-                    className={`relative px-3 py-2 text-sm font-medium transition-all duration-300
-                      ${isActive 
-                        ? 'text-[#8B5CF6]'
-                        : 'text-gray-300 hover:text-white'
-                      }
-                      ${scrolled ? 'text-sm' : 'text-sm'}
-                    `}
+          <div className="hidden md:block">
+            <div className="ml-10 flex items-center space-x-4">
+              {navLinks.map((link, index) => {
+                const isActive = location.pathname === link.path;
+                return (
+                  <motion.div
+                    key={link.name}
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    whileHover={{ y: -2, scale: 1.05 }}
                   >
-                    {link.name}
-                    {isActive && (
-                      <motion.span 
-                        className="absolute bottom-0 left-0 w-full h-0.5 bg-[#8B5CF6]"
-                        layoutId="navUnderline"
-                        transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                      />
-                    )}
-                  </Link>
-                </motion.div>
-              );
-            })}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.5 }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="ml-2"
-            >
-              <Link to="/contact">
-                <Button 
-                  className={`bg-[#8B5CF6] hover:bg-[#6E59A5] rounded-full transition-all duration-300 ${
-                    scrolled ? 'text-sm px-4 py-1 h-8' : 'text-sm px-5 py-2'
-                  }`}
-                >
-                  Get Started
-                </Button>
-              </Link>
-            </motion.div>
+                    <Link
+                      to={link.path}
+                      className={`relative px-3 py-2 text-sm font-medium rounded-full transition-all duration-300
+                        ${isActive 
+                          ? 'text-[#8B5CF6]'
+                          : 'text-gray-300 hover:text-white'
+                        }
+                        ${scrolled ? 'text-xs px-2 py-1' : 'text-sm px-3 py-2'}
+                      `}
+                    >
+                      {link.name}
+                    </Link>
+                  </motion.div>
+                );
+              })}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.5 }}
+                whileHover={{ scale: 1.08 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Link to="/contact">
+                  <Button 
+                    className={`ml-3 bg-[#8B5CF6] hover:bg-[#6E59A5] rounded-full transition-all duration-300 ${
+                      scrolled ? 'text-xs px-3 py-1 h-8' : 'text-sm px-6 py-3'
+                    }`}
+                  >
+                    Get Started
+                  </Button>
+                </Link>
+              </motion.div>
+            </div>
           </div>
           
           {/* Mobile Navigation Button */}
-          <div className="md:hidden flex items-center">
+          <div className="md:hidden">
             <motion.button
               onClick={() => setIsOpen(!isOpen)}
               className={`inline-flex items-center justify-center rounded-full text-gray-300 hover:text-white hover:bg-[#6E59A5]/20 focus:outline-none transition-all duration-300 ${
-                scrolled ? 'p-2' : 'p-2'
+                scrolled ? 'p-1' : 'p-2'
               }`}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
-              {isOpen ? <X size={20} /> : <Menu size={20} />}
+              {isOpen ? <X size={scrolled ? 16 : 20} /> : <Menu size={scrolled ? 16 : 20} />}
             </motion.button>
           </div>
         </div>
