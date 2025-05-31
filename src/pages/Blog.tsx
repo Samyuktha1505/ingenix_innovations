@@ -308,7 +308,7 @@ const Blog = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-200 to-violet-400"
+      className="text-5xl font-bold pb-2 mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-200 to-violet-400"
     >
       AI Insights Hub
       
