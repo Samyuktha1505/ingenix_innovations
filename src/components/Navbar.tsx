@@ -17,10 +17,11 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Use non-breaking spaces to keep link text on one line
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'About Us', path: '/about' },
-    { name: 'AI Solutions', path: '/solutions' },
+    { name: 'About\u00A0Us', path: '/about' },
+    { name: 'AI\u00A0Solutions', path: '/solutions' },
     { name: 'Industries', path: '/industries' },
     { name: 'Blog', path: '/blog' },
     { name: 'Contact', path: '/contact' },
@@ -73,7 +74,8 @@ const Navbar = () => {
           
           {/* Desktop Navigation */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-center space-x-4">
+            {/* Add flex-nowrap to prevent wrapping */}
+            <div className="ml-10 flex items-center space-x-4 flex-nowrap">
               {navLinks.map((link, index) => {
                 const isActive = location.pathname === link.path;
                 return (
@@ -86,7 +88,7 @@ const Navbar = () => {
                   >
                     <Link
                       to={link.path}
-                      className={`relative px-3 py-2 text-sm font-medium rounded-full transition-all duration-300
+                      className={`relative px-3 py-2 text-sm font-medium rounded-full transition-all duration-300 whitespace-nowrap
                         ${isActive 
                           ? 'text-[#8B5CF6]'
                           : 'text-gray-300 hover:text-white'
@@ -159,7 +161,7 @@ const Navbar = () => {
                   >
                     <Link
                       to={link.path}
-                      className={`block px-4 py-3 text-base font-medium rounded-full transition-all duration-300
+                      className={`block px-4 py-3 text-base font-medium rounded-full transition-all duration-300 whitespace-nowrap
                         ${isActive 
                           ? 'text-[#8B5CF6]'
                           : 'text-gray-300 hover:text-white hover:bg-[#6E59A5]/20'

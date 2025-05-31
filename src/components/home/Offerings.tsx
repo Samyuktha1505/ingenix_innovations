@@ -171,10 +171,10 @@ const Offerings = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-[#0A0A12] pt-16 sm:pt-20 md:pt-24 pb-8 sm:pb-12 md:pb-16"
+      className="relative w-full bg-[#0A0A12] pt-16 sm:pt-2 md:pt-16 pb-8 sm:pb-2 md:pb-8"
       style={{ height: `${sectionHeight}vh` }}
     >
-      <div className="text-center mb-12 sm:mb-16 md:mb-20 px-4">
+      <div className="text-center mb-6 sm:mb-6 md:mb-6 px-4">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
           Our <span className="text-purple-400">AI Solutions</span>
         </h2>
