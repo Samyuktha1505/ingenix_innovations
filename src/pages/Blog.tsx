@@ -4,43 +4,6 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const DynamicTagline = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const taglines = [
-    "AI Innovation",
-    "Smart Automation", 
-    "Intelligent Solutions",
-    "Digital Transformation",
-    "Future Technology"
-  ];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % taglines.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
-
-  return (
-    <div className="h-24 flex items-center justify-center">
-      <span className="invisible absolute">Digital Transformation</span>
-      <AnimatePresence mode="wait">
-        <motion.span
-          key={currentIndex}
-          initial={{ opacity: 0, y: 20, rotateX: 90 }}
-          animate={{ opacity: 1, y: 0, rotateX: 0 }}
-          exit={{ opacity: 0, y: -20, rotateX: -90 }}
-          transition={{ duration: 0.6, ease: "easeInOut" }}
-          className="text-transparent bg-clip-text bg-gradient-to-r from-[#6E59A5] to-[#8B5CF6] inline-block pb-2 text-2xl font-bold"
-          style={{ transformOrigin: "center center" }}
-        >
-          {taglines[currentIndex]}
-        </motion.span>
-      </AnimatePresence>
-    </div>
-  );
-};
-
 const Blog = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [touchStart, setTouchStart] = useState(0);
@@ -49,150 +12,274 @@ const Blog = () => {
   const articles = [
     {
       date: 'May 20, 2025',
-      title: 'NVIDIA 800 V HVDC Architecture Will Power the Next Generation of...',
-      excerpt: 'The exponential growth of AI workloads is increasing data center power demands. Traditional 54 V L.',
-      readTime: '8 MIN READ'
+      title: 'NVIDIA 800 V HVDC Architecture Will Power the Next Generation of AI',
+      excerpt: 'The exponential growth of AI workloads is increasing data center power demands. Traditional 54 V architectures are being replaced with more efficient 800 V systems.',
+      readTime: '8 MIN READ',
+      category: 'AI Infrastructure'
     },
     {
       date: 'Nov 7, 2024',
-      title: 'Building Custom Robot Simulations with Wandelbots NOVA and...',
-      excerpt: 'Programming robots for real-world success requires a training process that accounts for unpredictable...',
-      readTime: '7 MIN READ'
+      title: 'Building Custom Robot Simulations with Wandelbots NOVA',
+      excerpt: 'Programming robots for real-world success requires training processes that account for unpredictable environments through advanced simulation techniques.',
+      readTime: '7 MIN READ',
+      category: 'Robotics'
     },
     {
       date: 'May 23, 2025',
-      title: 'Blackwell Breaks the 1,000 TPS/User Barrier With Meta\'s Llama 4...',
-      excerpt: 'NVIDIA has achieved a world-record large language model (LLM) inference speed. A single NVIDIA...',
-      readTime: '9 MIN READ'
+      title: 'Blackwell Breaks the 1,000 TPS/User Barrier With Meta\'s Llama 4',
+      excerpt: 'NVIDIA achieves world-record LLM inference speeds, enabling unprecedented throughput for enterprise AI applications.',
+      readTime: '9 MIN READ',
+      category: 'AI Performance'
     },
     {
       date: 'May 23, 2025',
-      title: 'Stream Smarter and Safer: Learn how NVIDIA NeMo Guardrails Enhance...',
-      excerpt: 'LLM Streaming sends a model\'s response incrementally in real time, token by token, as it\'s being...',
-      readTime: '8 MIN READ'
+      title: 'Stream Smarter: NVIDIA NeMo Guardrails Enhance AI Safety',
+      excerpt: 'LLM streaming delivers responses incrementally while maintaining safety guardrails for enterprise deployment.',
+      readTime: '8 MIN READ',
+      category: 'AI Safety'
     }
   ];
 
+  const categories = ['All', ...new Set(articles.map(article => article.category))];
+  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [currentTaglineIndex, setCurrentTaglineIndex] = useState(0);
+  const taglines = [
+    "AI Innovation",
+    "Technical Insights", 
+    "Industry Trends",
+    "Research Breakthroughs"
+  ];
+
+  const filteredArticles = selectedCategory === 'All' 
+    ? articles 
+    : articles.filter(article => article.category === selectedCategory);
+
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev === articles.length - 1 ? 0 : prev + 1));
+    setCurrentSlide(prev => (prev === filteredArticles.length - 1 ? 0 : prev + 1));
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev === 0 ? articles.length - 1 : prev - 1));
+    setCurrentSlide(prev => (prev === 0 ? filteredArticles.length - 1 : prev - 1));
   };
 
-  const handleTouchStart = (e) => {
-    setTouchStart(e.targetTouches[0].clientX);
-  };
-
-  const handleTouchMove = (e) => {
-    setTouchEnd(e.targetTouches[0].clientX);
-  };
-
+  // Handle touch events for mobile swipe
+  const handleTouchStart = (e) => setTouchStart(e.targetTouches[0].clientX);
+  const handleTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX);
   const handleTouchEnd = () => {
-    if (touchStart - touchEnd > 50) {
-      nextSlide();
-    }
-
-    if (touchStart - touchEnd < -50) {
-      prevSlide();
-    }
+    if (touchStart - touchEnd > 50) nextSlide();
+    if (touchStart - touchEnd < -50) prevSlide();
   };
 
+  // Auto-rotate slides and taglines
   useEffect(() => {
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [currentSlide]);
+    const slideInterval = setInterval(nextSlide, 5000);
+    const taglineInterval = setInterval(() => {
+      setCurrentTaglineIndex(prev => (prev + 1) % taglines.length);
+    }, 3000);
+    return () => {
+      clearInterval(slideInterval);
+      clearInterval(taglineInterval);
+    };
+  }, [currentSlide, filteredArticles.length]);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-[#12121e] text-white">
       <Navbar />
+      
       <main className="flex-grow pt-20">
-        <div className="bg-ingenix-accent/50 py-20">
+        {/* Hero Section */}
+        <div className="bg-gradient-to-b from-[#12121e] to-[#1a1a2e] py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-4xl font-bold text-gray-900">Blog & Insights</h1>
-            <DynamicTagline />
-            <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
+            <h1 className="text-4xl font-bold mb-6">Blog & Insights</h1>
+            
+            <div className="h-20 flex items-center justify-center">
+              <AnimatePresence mode="wait">
+                <motion.p
+                  key={currentTaglineIndex}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.5 }}
+                  className="text-xl text-purple-400"
+                >
+                  {taglines[currentTaglineIndex]}
+                </motion.p>
+              </AnimatePresence>
+            </div>
+
+            <p className="text-gray-300 max-w-3xl mx-auto">
               Stay updated with the latest AI trends, insights, and use cases from our experts.
             </p>
           </div>
         </div>
-        
-        {/* Recommended For You Slider */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="flex justify-between items-center mb-6">
-            <h2 className="text-2xl font-bold text-gray-900">Recommended For You</h2>
-            <div className="flex space-x-2">
-              <button 
-                onClick={prevSlide}
-                className="p-2 rounded-full hover:bg-gray-100 transition-colors"
-                aria-label="Previous slide"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-              <button 
-                onClick={nextSlide}
-                className="p-2 rounded-full hover:bg-gray-100 transition-colors"
-                aria-label="Next slide"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
-            </div>
-          </div>
 
-          <div className="relative overflow-hidden">
-            <div 
-              className="flex transition-transform duration-300 ease-in-out"
-              style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-              onTouchStart={handleTouchStart}
-              onTouchMove={handleTouchMove}
-              onTouchEnd={handleTouchEnd}
-            >
-              {articles.map((article, index) => (
-                <div 
-                  key={index}
-                  className="w-full flex-shrink-0 px-4"
+        {/* Category Filters */}
+        <div className="bg-[#1a1a2e] py-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-wrap justify-center gap-2">
+              {categories.map(category => (
+                <button
+                  key={category}
+                  onClick={() => {
+                    setSelectedCategory(category);
+                    setCurrentSlide(0);
+                  }}
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                    selectedCategory === category
+                      ? 'bg-purple-600 text-white'
+                      : 'bg-[#2d2d42] text-gray-300 hover:bg-[#3a3a57]'
+                  }`}
                 >
-                  <div className="border rounded-lg p-6 hover:shadow-md transition-shadow bg-white">
-                    <p className="text-sm text-gray-500 mb-2">{article.date}</p>
-                    <h3 className="text-xl font-semibold mb-3 text-gray-900">{article.title}</h3>
-                    <p className="text-gray-600 mb-4">{article.excerpt}</p>
-                    <p className="text-sm text-gray-500">{article.readTime}</p>
-                  </div>
-                </div>
+                  {category}
+                </button>
               ))}
             </div>
           </div>
+        </div>
 
-          <div className="flex justify-center mt-4 space-x-2">
-            {articles.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentSlide(index)}
-                className={`w-2 h-2 rounded-full ${currentSlide === index ? 'bg-ingenix-primary' : 'bg-gray-300'}`}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
+        {/* Featured Articles Slider */}
+        <div className="bg-gradient-to-b from-[#1a1a2e] to-[#12121e] py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-between items-center mb-8">
+              <h2 className="text-2xl font-bold">
+                {selectedCategory === 'All' ? 'Featured Articles' : selectedCategory}
+              </h2>
+              <div className="flex space-x-2">
+                <button 
+                  onClick={prevSlide}
+                  className="p-2 rounded-full hover:bg-[#2d2d42] transition-colors"
+                  aria-label="Previous slide"
+                >
+                  <ChevronLeft className="w-5 h-5" />
+                </button>
+                <button 
+                  onClick={nextSlide}
+                  className="p-2 rounded-full hover:bg-[#2d2d42] transition-colors"
+                  aria-label="Next slide"
+                >
+                  <ChevronRight className="w-5 h-5" />
+                </button>
+              </div>
+            </div>
+
+            <div className="relative overflow-hidden">
+              <div 
+                className="flex transition-transform duration-300 ease-in-out"
+                style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
+              >
+                {filteredArticles.map((article, index) => (
+                  <div key={index} className="w-full flex-shrink-0 px-4">
+                    <motion.div 
+                      className="border border-[#3a3a57] rounded-xl p-6 hover:shadow-lg transition-all bg-[#1e1e2e]"
+                      whileHover={{ y: -5 }}
+                    >
+                      <div className="flex justify-between items-start mb-2">
+                        <span className="text-sm text-purple-400">{article.category}</span>
+                        <span className="text-sm text-gray-400">{article.date}</span>
+                      </div>
+                      <h3 className="text-xl font-semibold mb-3">{article.title}</h3>
+                      <p className="text-gray-300 mb-4">{article.excerpt}</p>
+                      <div className="flex justify-between items-center">
+                        <span className="text-sm text-gray-400">{article.readTime}</span>
+                        <button className="text-purple-400 hover:text-purple-300 text-sm font-medium">
+                          Read More →
+                        </button>
+                      </div>
+                    </motion.div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex justify-center mt-8 space-x-2">
+              {filteredArticles.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentSlide(index)}
+                  className={`w-3 h-3 rounded-full transition-colors ${
+                    currentSlide === index ? 'bg-purple-500' : 'bg-[#3a3a57]'
+                  }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* Blog Content Placeholder */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8">Blog coming soon</h2>
-          <p className="text-gray-700">
-            The Blog section will be developed with content types including:
-          </p>
-          <ul className="mt-6 space-y-2 text-ingenix-primary">
-            <li>AI trends and innovations</li>
-            <li>In-depth technical explainers</li>
-            <li>Use case breakdowns</li>
-            <li>Thought leadership articles</li>
-            <li>"How we built it" for internal projects</li>
-          </ul>
+        {/* Blog Content Sections */}
+        <div className="bg-[#12121e] py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid md:grid-cols-3 gap-8">
+              <section className="md:col-span-2">
+                <h2 className="text-2xl font-bold mb-6">Latest Articles</h2>
+                <div className="space-y-6">
+                  {articles.map((article, index) => (
+                    <motion.article 
+                      key={index}
+                      className="border-b border-[#3a3a57] pb-6"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                    >
+                      <span className="text-sm text-purple-400">{article.category}</span>
+                      <h3 className="text-xl font-semibold mt-2 mb-2">{article.title}</h3>
+                      <p className="text-gray-400 text-sm mb-3">{article.date} · {article.readTime}</p>
+                      <p className="text-gray-300 mb-4">{article.excerpt}</p>
+                      <button className="text-purple-400 hover:text-purple-300 text-sm font-medium">
+                        Continue Reading →
+                      </button>
+                    </motion.article>
+                  ))}
+                </div>
+              </section>
+
+              <aside className="space-y-8">
+                <div className="bg-[#1e1e2e] p-6 rounded-xl border border-[#3a3a57]">
+                  <h3 className="font-bold text-lg mb-4">Categories</h3>
+                  <ul className="space-y-2">
+                    {categories.map(category => (
+                      <li key={category}>
+                        <button 
+                          onClick={() => setSelectedCategory(category)}
+                          className={`w-full text-left px-3 py-2 rounded transition-colors ${
+                            selectedCategory === category
+                              ? 'bg-purple-600/20 text-purple-400'
+                              : 'hover:bg-[#2d2d42] text-gray-300'
+                          }`}
+                        >
+                          {category}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="bg-[#1e1e2e] p-6 rounded-xl border border-[#3a3a57]">
+                  <h3 className="font-bold text-lg mb-4">Subscribe</h3>
+                  <p className="text-gray-300 mb-4">Get the latest articles delivered to your inbox</p>
+                  <form className="space-y-3">
+                    <input 
+                      type="email" 
+                      placeholder="Your email" 
+                      className="w-full px-4 py-2 rounded bg-[#2d2d42] border border-[#3a3a57] text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    />
+                    <button 
+                      type="submit"
+                      className="w-full bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded transition-colors"
+                    >
+                      Subscribe
+                    </button>
+                  </form>
+                </div>
+              </aside>
+            </div>
+          </div>
         </div>
       </main>
+
       <Footer />
     </div>
   );
