@@ -3,7 +3,7 @@ import Footer from '@/components/Footer';
 import { ChevronLeft, ChevronRight, ArrowRight, Mail, BookOpen, Cpu, Lightbulb, Code2, ChevronDown, Brain, Settings } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react'; // Import useRef
 import { motion, AnimatePresence } from 'framer-motion';
-import bg7 from '@/images/indimages/bg10.png'; // Ensure this path is correct for your project structure
+import bg7 from '@/assets/indimages/bg10.png'; // Ensure this path is correct for your project structure
 import { Link } from 'react-router-dom';
 
 const Blog = () => {
@@ -38,7 +38,7 @@ const Blog = () => {
         `,
         readTime: '8 MIN READ',
         category: 'AI Trends',
-        image: 'src/images/blog2.png'
+        image: 'src/assets/blog2.png'
       },
       {
         id: 2,
@@ -48,7 +48,7 @@ const Blog = () => {
         fullContent: 'Full content for The Rise of Multimodal Foundation Models...',
         readTime: '6 MIN READ',
         category: 'AI Trends',
-        image: 'src/images/blogs3.png'
+        image: 'src/assets/img3.png'
       },
       {
         id: 3,
@@ -58,7 +58,7 @@ const Blog = () => {
         fullContent: 'Full content for Edge AI...',
         readTime: '7 MIN READ',
         category: 'AI Trends',
-        image: 'src/images/blogs4.png'
+        image: 'src/assets/blogs4.png'
       },
       {
         id: 4,
@@ -68,7 +68,7 @@ const Blog = () => {
         fullContent: 'Full content for Generative AI in Creative Industries...',
         readTime: '9 MIN READ',
         category: 'AI Trends',
-        image: 'src/images/blogs5.png'
+        image: 'src/assets/blogs5.png'
       },
       {
         id: 21,
@@ -78,7 +78,7 @@ const Blog = () => {
         fullContent: 'Full content for The Future of AI in Healthcare...',
         readTime: '10 MIN READ',
         category: 'AI Trends',
-        image: 'src/images/blogs6.png' // Assuming you have more images
+        image: 'src/assets/blogs6.png' // Assuming you have more images
       },
       {
         id: 22,
@@ -88,7 +88,7 @@ const Blog = () => {
         fullContent: 'Full content for Quantum Computing Meets AI...',
         readTime: '11 MIN READ',
         category: 'AI Trends',
-        image: 'src/images/blogs7.png'
+        image: 'src/assets/blogs7.png'
       },
       {
         id: 23,
@@ -98,7 +98,7 @@ const Blog = () => {
         fullContent: 'Full content for AI Ethics and Governance...',
         readTime: '9 MIN READ',
         category: 'AI Trends',
-        image: 'src/images/blogs8.png'
+        image: 'src/assets/blogs8.png'
       }
     ],
     'Technical Explainers': [
@@ -110,7 +110,7 @@ const Blog = () => {
         fullContent: 'Full content for Understanding Mixture of Experts...',
         readTime: '12 MIN READ',
         category: 'Technical Explainers',
-        image: 'src/images/blogs_1.1.png'
+        image: 'src/assets/blogs_1.1.png'
       },
       {
         id: 6,
@@ -120,7 +120,7 @@ const Blog = () => {
         fullContent: 'Full content for The Math Behind Diffusion Models...',
         readTime: '15 MIN READ',
         category: 'Technical Explainers',
-        image: 'src/images/blogs2_5.png'
+        image: 'src/assets/blogs2_5.png'
       },
       {
         id: 7,
@@ -130,7 +130,7 @@ const Blog = () => {
         fullContent: 'Full content for Optimizing Transformer Inference...',
         readTime: '10 MIN READ',
         category: 'Technical Explainers',
-        image: 'src/images/blogs2_4.png'
+        image: 'src/assets/blogs2_4.png'
       },
       {
         id: 8,
@@ -140,7 +140,7 @@ const Blog = () => {
         fullContent: 'Full content for Quantization...',
         readTime: '11 MIN READ',
         category: 'Technical Explainers',
-        image: 'src/images/blogs2_3.png'
+        image: 'src/assets/blogs2_3.png'
       }
     ],
     'Use Cases': [
@@ -152,7 +152,7 @@ const Blog = () => {
         fullContent: 'Full content for AI-Powered Drug Discovery...',
         readTime: '8 MIN READ',
         category: 'Use Cases',
-        image: 'src/images/blogs3_1.png'
+        image: 'src/assets/blogs3_1.png'
       },
       {
         id: 10,
@@ -162,7 +162,7 @@ const Blog = () => {
         fullContent: 'Full content for Automating Financial Reporting...',
         readTime: '7 MIN READ',
         category: 'Use Cases',
-        image: 'src/images/blogs3_2.png'
+        image: 'src/assets/blogs3_2.png'
       },
       {
         id: 11,
@@ -172,7 +172,7 @@ const Blog = () => {
         fullContent: 'Full content for Computer Vision in Precision Agriculture...',
         readTime: '9 MIN READ',
         category: 'Use Cases',
-        image: 'src/images/blogs3_3.png'
+        image: 'src/assets/blogs3_3.png'
       },
       {
         id: 12,
@@ -182,7 +182,7 @@ const Blog = () => {
         fullContent: 'Full content for AI for Personalized Education...',
         readTime: '10 MIN READ',
         category: 'Use Cases',
-        image: 'src/images/blogs3_4.png'
+        image: 'src/assets/blogs3_4.png'
       }
     ],
     'Thought Leadership': [
@@ -194,7 +194,7 @@ const Blog = () => {
         fullContent: 'Full content for The Ethical Imperative...',
         readTime: '8 MIN READ',
         category: 'Thought Leadership',
-        image: 'src/images/blogs4_1.png'
+        image: 'src/assets/blogs4_1.png'
       },
       {
         id: 14,
@@ -204,7 +204,7 @@ const Blog = () => {
         fullContent: 'Full content for Preparing for AGI...',
         readTime: '12 MIN READ',
         category: 'Thought Leadership',
-        image: 'src/images/blogs4_2.png'
+        image: 'src/assets/blogs4_2.png'
       },
       {
         id: 15,
@@ -214,7 +214,7 @@ const Blog = () => {
         fullContent: 'Full content for The Future of Human-AI Collaboration...',
         readTime: '9 MIN READ',
         category: 'Thought Leadership',
-        image: 'src/images/blogs4_3.png'
+        image: 'src/assets/blogs4_3.png'
       },
       {
         id: 16,
@@ -224,7 +224,7 @@ const Blog = () => {
         fullContent: 'Full content for Regulating AI...',
         readTime: '10 MIN READ',
         category: 'Thought Leadership',
-        image: 'src/images/blogs4_4.png'
+        image: 'src/assets/blogs4_4.png'
       }
     ],
     'How We Built It': [
@@ -236,7 +236,7 @@ const Blog = () => {
         fullContent: 'Full content for Building Our Real-Time Video Analysis Pipeline...',
         readTime: '14 MIN READ',
         category: 'How We Built It',
-        image: 'src/images/blogs5_1.png'
+        image: 'src/assets/blogs5_1.png'
       },
       {
         id: 18,
@@ -246,7 +246,7 @@ const Blog = () => {
         fullContent: 'Full content for Scaling Our Recommendation System...',
         readTime: '11 MIN READ',
         category: 'How We Built It',
-        image: 'src/images/blogs5_2.png'
+        image: 'src/assets/blogs5_2.png'
       },
       {
         id: 19,
@@ -256,7 +256,7 @@ const Blog = () => {
         fullContent: 'Full content for Migrating Our ML Platform...',
         readTime: '13 MIN READ',
         category: 'How We Built It',
-        image: 'src/images/blogs5_3.png'
+        image: 'src/assets/blogs5_3.png'
       },
       {
         id: 20,
@@ -266,7 +266,7 @@ const Blog = () => {
         fullContent: 'Full content for Implementing Continuous Training...',
         readTime: '10 MIN READ',
         category: 'How We Built It',
-        image: 'src/images/blogs5_4.png'
+        image: 'src/assets/blogs5_4.png'
       }
     ]
   };

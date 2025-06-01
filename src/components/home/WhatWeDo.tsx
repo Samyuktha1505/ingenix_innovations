@@ -11,7 +11,7 @@ const WhatWeDo = () => {
       description: "We harness the latest breakthroughs in AI research and translate them into practical, scalable solutions for real-world challenges.",
       icon: Sparkles,
       delay: 0,
-      image: "/src/images/img1.jpg" // For Vite/CRA, ensure images are in `public` or handled by the build process.
+      image: "/src/assets/img1.jpg" // For Vite/CRA, ensure images are in `public` or handled by the build process.
                                      // If in `src`, import them: `import img1 from '../images/img1.jpg'` and use `image: img1`
     },
     {
@@ -47,7 +47,7 @@ const WhatWeDo = () => {
       description: "We create autonomous AI agents that can perform complex tasks, make decisions, and integrate with your existing workflows.",
       icon: Bot,
       delay: 0.5,
-      image: "/src/images/img3.png" // Similar to img1, ensure path is correct for your setup.
+      image: "/src/assets/img3.png" // Similar to img1, ensure path is correct for your setup.
     },
   ];
 

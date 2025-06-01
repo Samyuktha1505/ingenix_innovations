@@ -6,7 +6,7 @@ import { Linkedin, Mail, Phone } from 'lucide-react';
 import { FaXTwitter } from 'react-icons/fa6';
 import { useToast } from '@/hooks/use-toast';
 import { motion } from 'framer-motion';
-import impImage from '@/images/imp.png';
+import impImage from '@/assets/imp.png';
 
 const Toast = ({ title, description, type, onClose }) => {
   const bgColor = type === 'error' ? 'bg-red-500' : 'bg-green-500';
