@@ -3,7 +3,7 @@ import Footer from '@/components/Footer';
 import { ChevronLeft, ChevronRight, ArrowRight, Mail, BookOpen, Cpu, Lightbulb, Code2, ChevronDown, Brain, Settings } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react'; // Import useRef
 import { motion, AnimatePresence } from 'framer-motion';
-import bg7 from '@/images/indimages/bg7.avif'; // Ensure this path is correct for your project structure
+import bg7 from '@/images/indimages/bg10.png'; // Ensure this path is correct for your project structure
 
 const Blog = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -193,7 +193,7 @@ const Blog = () => {
         fullContent: 'Full content for The Ethical Imperative...',
         readTime: '8 MIN READ',
         category: 'Thought Leadership',
-        image: '/thought-1.jpg'
+        image: 'src/images/blogs4_1.png'
       },
       {
         id: 14,
@@ -203,7 +203,7 @@ const Blog = () => {
         fullContent: 'Full content for Preparing for AGI...',
         readTime: '12 MIN READ',
         category: 'Thought Leadership',
-        image: '/thought-2.jpg'
+        image: 'src/images/blogs4_2.png'
       },
       {
         id: 15,
@@ -213,7 +213,7 @@ const Blog = () => {
         fullContent: 'Full content for The Future of Human-AI Collaboration...',
         readTime: '9 MIN READ',
         category: 'Thought Leadership',
-        image: '/thought-3.jpg'
+        image: 'src/images/blogs4_3.png'
       },
       {
         id: 16,
@@ -223,7 +223,7 @@ const Blog = () => {
         fullContent: 'Full content for Regulating AI...',
         readTime: '10 MIN READ',
         category: 'Thought Leadership',
-        image: '/thought-4.jpg'
+        image: 'src/images/blogs4_4.png'
       }
     ],
     'How We Built It': [
@@ -231,21 +231,21 @@ const Blog = () => {
         id: 17,
         date: 'May 29, 2025',
         title: 'Building Our Real-Time Video Analysis Pipeline',
-        excerpt: 'Architecture deep dive into our distributed system processing 1M+ video streams daily.',
+        excerpt: 'Architecture deep dive into our distributed system processing 1K+ video streams daily.',
         fullContent: 'Full content for Building Our Real-Time Video Analysis Pipeline...',
         readTime: '14 MIN READ',
         category: 'How We Built It',
-        image: '/built-1.jpg'
+        image: 'src/images/blogs5_1.png'
       },
       {
         id: 18,
         date: 'June 4, 2025',
-        title: 'Scaling Our Recommendation System to 100M Users',
+        title: 'Scaling Our Recommendation System to 10K+ Users',
         excerpt: 'Lessons learned from evolving our architecture to handle exponential growth.',
         fullContent: 'Full content for Scaling Our Recommendation System...',
         readTime: '11 MIN READ',
         category: 'How We Built It',
-        image: '/built-2.jpg'
+        image: 'src/images/blogs5_2.png'
       },
       {
         id: 19,
@@ -255,7 +255,7 @@ const Blog = () => {
         fullContent: 'Full content for Migrating Our ML Platform...',
         readTime: '13 MIN READ',
         category: 'How We Built It',
-        image: '/built-3.jpg'
+        image: 'src/images/blogs5_3.png'
       },
       {
         id: 20,
@@ -265,7 +265,7 @@ const Blog = () => {
         fullContent: 'Full content for Implementing Continuous Training...',
         readTime: '10 MIN READ',
         category: 'How We Built It',
-        image: '/built-4.jpg'
+        image: 'src/images/blogs5_4.png'
       }
     ]
   };
@@ -330,19 +330,21 @@ const Blog = () => {
       <main className="flex-grow pt-16"> {/* Adjust pt- to account for fixed navbar height */}
 
         {/* Hero Section */}
-        <div className="relative bg-gradient-to-b from-[#12121e] to-[#1a1a2e] py-24 overflow-hidden">
-          <div className="absolute inset-0 opacity-20">
-            <div
-              className="absolute inset-0 z-0 opacity-120"
-              style={{
-                backgroundImage: `url(${bg7})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center'
-              }}
-            />
-            <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] bg-[length:40px_40px]"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-900/50 to-transparent"></div>
-          </div>
+        <div className="relative py-24 overflow-hidden">
+  {/* Background with smoother gradient */}
+  <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a12] via-[#12121e] to-[#1a1a2e]"></div>
+  <div className="absolute inset-0 opacity-20">
+    <div
+      className="absolute inset-0 z-0 opacity-120"
+      style={{
+        backgroundImage: `url(${bg7})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }}
+    />
+    <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] bg-[length:40px_40px]"></div>
+    <div className="absolute inset-0 bg-gradient-to-r from-purple-900/50 to-transparent"></div>
+  </div>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
@@ -394,8 +396,7 @@ const Blog = () => {
         </div>
 
         {/* Featured Articles Slider */}
-        <section id="featured-section" className="bg-gradient-to-b from-[#1a1a2e] to-[#12121e] py-16 relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-full opacity-10">
+        <section id="featured-section" className="bg-gradient-to-b from-[#1a1a2e] via-[#161627] to-[#12121e] py-16 relative overflow-hidden">          <div className="absolute top-0 left-0 w-full h-full opacity-10">
             <div className="absolute inset-0 bg-[url('/circuit-pattern.svg')] bg-[length:300px_300px]"></div>
           </div>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
