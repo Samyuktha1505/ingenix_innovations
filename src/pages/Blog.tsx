@@ -325,7 +325,7 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#0a0a12] text-white">
-      <Navbar categories={categories} setSelectedCategory={setSelectedCategory} />
+      <Navbar />
 
       <main className="flex-grow pt-16"> {/* Adjust pt- to account for fixed navbar height */}
 
@@ -335,7 +335,7 @@ const Blog = () => {
             <div
               className="absolute inset-0 z-0 opacity-120"
               style={{
-                backgroundImage: `url(${bg7.src})`, // Use .src for Next.js Image import
+                backgroundImage: `url(${bg7})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center'
               }}
@@ -348,7 +348,7 @@ const Blog = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="text-5xl md:text-6xl font-bold pb-2 mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-200 to-violet-400"
+              className="text-5xl md:text-6xl font-bold pb-3 mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-200 to-violet-400"
             >
               AI Insights Hub
             </motion.h1>
