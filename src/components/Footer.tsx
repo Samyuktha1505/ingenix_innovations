@@ -1,28 +1,22 @@
 import { Link } from 'react-router-dom';
 import { Linkedin, Mail, Phone } from 'lucide-react';
-import { FaXTwitter } from 'react-icons/fa6'; // Make sure FaXTwitter is imported if you want to use it
+import { FaXTwitter } from 'react-icons/fa6';
 
 const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* 4-column layout that becomes 1 column on small screens */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:[grid-template-columns:1.5fr_1fr_1fr_1fr] gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:[grid-template-columns:1.5fr_1fr_1fr_1fr] gap-8 text-center md:text-left">
           {/* Column 1: Brand */}
           <div>
-            <div className="mb-5">
+            <div className="mb-5 flex justify-center md:justify-start">
               <Link to="/" className="flex items-center">
-                <span className="text-2xl font-bold text-[#6E59A5]">
-                  Ingenix
-                </span>
-                <span className="text-2xl font-medium ml-1 text-white">
-                  Innovations
-                </span>
+                <span className="text-2xl font-bold text-[#6E59A5]">Ingenix</span>
+                <span className="text-2xl font-medium ml-1 text-white">Innovations</span>
               </Link>
             </div>
-            <p className="text-gray-400 mb-6">
-              Empowering enterprises with cutting-edge AI solutions to solve
-              real-world challenges.
+            <p className="text-gray-400 mb-6 max-w-sm mx-auto md:mx-0">
+              Empowering enterprises with cutting-edge AI solutions to solve real-world challenges.
             </p>
           </div>
 
@@ -30,46 +24,11 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-5">Solutions</h3>
             <ul className="space-y-3">
-              <li>
-                <Link
-                  to="/solutions#ai-consulting"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  AI Consulting
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/solutions#voice-ai"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Voice AI
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/solutions#agentic-ai"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Agentic AI
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/solutions#generative"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Generative AI
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/solutions#predictive"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Predictive Analytics
-                </Link>
-              </li>
+              <li><Link to="/solutions#ai-consulting" className="text-gray-400 hover:text-white transition-colors">AI Consulting</Link></li>
+              <li><Link to="/solutions#voice-ai" className="text-gray-400 hover:text-white transition-colors">Voice AI</Link></li>
+              <li><Link to="/solutions#agentic-ai" className="text-gray-400 hover:text-white transition-colors">Agentic AI</Link></li>
+              <li><Link to="/solutions#generative" className="text-gray-400 hover:text-white transition-colors">Generative AI</Link></li>
+              <li><Link to="/solutions#predictive" className="text-gray-400 hover:text-white transition-colors">Predictive Analytics</Link></li>
               <li><Link to="/solutions#automation" className="text-gray-400 hover:text-white transition-colors">Process Automation</Link></li>
             </ul>
           </div>
@@ -78,43 +37,23 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-5">Company</h3>
             <ul className="space-y-3">
-              <li>
-                <Link
-                  to="/about"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/contact"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Contact Us
-                </Link>
-              </li>
+              <li><Link to="/about" className="text-gray-400 hover:text-white transition-colors">About Us</Link></li>
+              <li><Link to="/contact" className="text-gray-400 hover:text-white transition-colors">Contact Us</Link></li>
             </ul>
           </div>
 
           {/* Column 4: Contact */}
           <div>
             <h3 className="text-lg font-semibold mb-5">Contact</h3>
-            <ul className="space-y-3 text-sm">
-              <li className="flex items-start">
-                <Mail
-                  size={18}
-                  className="text-gray-400 mr-3 mt-1 flex-shrink-0"
-                />
+            <ul className="space-y-3 text-sm mx-auto md:mx-0 max-w-xs">
+              <li className="flex justify-center md:justify-start items-start">
+                <Mail size={18} className="text-gray-400 mr-3 mt-1 flex-shrink-0" />
                 <a href="mailto:sales@ingenixinnovations.com" className="text-gray-400 hover:text-white transition-colors">
                   sales@ingenixinnovations.com
                 </a>
               </li>
-              <li className="flex items-start">
-                <Phone
-                  size={18}
-                  className="text-gray-400 mr-3 mt-1 flex-shrink-0"
-                />
+              <li className="flex justify-center md:justify-start items-start">
+                <Phone size={18} className="text-gray-400 mr-3 mt-1 flex-shrink-0" />
                 <span className="text-gray-400">+91 74837 15401</span>
               </li>
               <li className="text-gray-400">
@@ -125,7 +64,7 @@ const Footer = () => {
                 India
               </li>
             </ul>
-            <div className="flex space-x-4 mt-4">
+            <div className="flex justify-center md:justify-start space-x-4 mt-4">
               <a
                 href="https://www.linkedin.com/company/ingenix-innovations/"
                 className="text-gray-400 hover:text-white transition-colors"
@@ -134,9 +73,9 @@ const Footer = () => {
               >
                 <Linkedin size={20} />
               </a>
-              {/* If you want the X (Twitter) icon uncomment this: */}
+              {/* Uncomment if you want Twitter */}
               {/* <a
-                href="#" // Add your X (Twitter) URL here
+                href="#"
                 className="text-gray-400 hover:text-white transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -153,29 +92,18 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+        {/* Bottom Bar */}
+        <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-center md:justify-between items-center text-center md:text-left">
           <p className="text-gray-500 text-sm">
-            © {new Date().getFullYear()} Ingenix Innovations. All rights
-            reserved.
+            © {new Date().getFullYear()} Ingenix Innovations. All rights reserved.
           </p>
           <div className="mt-4 md:mt-0">
-            <ul className="flex space-x-6">
+            <ul className="flex justify-center space-x-6">
               <li>
-                <a
-                  href="#" // Add your Privacy Policy URL here
-                  className="text-gray-500 text-sm hover:text-gray-400"
-                >
-                  Privacy Policy
-                </a>
+                <a href="#" className="text-gray-500 text-sm hover:text-gray-400">Privacy Policy</a>
               </li>
               <li>
-                <a
-                  href="#" // Add your Terms of Service URL here
-                  className="text-gray-500 text-sm hover:text-gray-400"
-                >
-                  Terms of Service
-                </a>
+                <a href="#" className="text-gray-500 text-sm hover:text-gray-400">Terms of Service</a>
               </li>
             </ul>
           </div>
