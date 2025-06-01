@@ -109,7 +109,7 @@ const Blog = () => {
         fullContent: 'Full content for Understanding Mixture of Experts...',
         readTime: '12 MIN READ',
         category: 'Technical Explainers',
-        image: '/tech-1.jpg'
+        image: 'src/images/blogs_1.1.png'
       },
       {
         id: 6,
@@ -119,7 +119,7 @@ const Blog = () => {
         fullContent: 'Full content for The Math Behind Diffusion Models...',
         readTime: '15 MIN READ',
         category: 'Technical Explainers',
-        image: '/tech-2.jpg'
+        image: 'src/images/blogs2_5.png'
       },
       {
         id: 7,
@@ -129,7 +129,7 @@ const Blog = () => {
         fullContent: 'Full content for Optimizing Transformer Inference...',
         readTime: '10 MIN READ',
         category: 'Technical Explainers',
-        image: '/tech-3.jpg'
+        image: 'src/images/blogs2_4.png'
       },
       {
         id: 8,
@@ -139,7 +139,7 @@ const Blog = () => {
         fullContent: 'Full content for Quantization...',
         readTime: '11 MIN READ',
         category: 'Technical Explainers',
-        image: '/tech-4.jpg'
+        image: 'src/images/blogs2_3.png'
       }
     ],
     'Use Cases': [
@@ -151,7 +151,7 @@ const Blog = () => {
         fullContent: 'Full content for AI-Powered Drug Discovery...',
         readTime: '8 MIN READ',
         category: 'Use Cases',
-        image: '/use-case-1.jpg'
+        image: 'src/images/blogs3_1.png'
       },
       {
         id: 10,
@@ -161,7 +161,7 @@ const Blog = () => {
         fullContent: 'Full content for Automating Financial Reporting...',
         readTime: '7 MIN READ',
         category: 'Use Cases',
-        image: '/use-case-2.jpg'
+        image: 'src/images/blogs3_2.png'
       },
       {
         id: 11,
@@ -171,7 +171,7 @@ const Blog = () => {
         fullContent: 'Full content for Computer Vision in Precision Agriculture...',
         readTime: '9 MIN READ',
         category: 'Use Cases',
-        image: '/use-case-3.jpg'
+        image: 'src/images/blogs3_3.png'
       },
       {
         id: 12,
@@ -181,7 +181,7 @@ const Blog = () => {
         fullContent: 'Full content for AI for Personalized Education...',
         readTime: '10 MIN READ',
         category: 'Use Cases',
-        image: '/use-case-4.jpg'
+        image: 'src/images/blogs3_4.png'
       }
     ],
     'Thought Leadership': [
