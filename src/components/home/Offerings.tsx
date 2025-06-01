@@ -175,12 +175,22 @@ const Offerings = () => {
       style={{ height: `${sectionHeight}vh` }}
     >
       <div className="text-center mb-6 sm:mb-6 md:mb-6 px-4">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
-          Our <span className="text-purple-400">AI Solutions</span>
-        </h2>
-        <p className="mt-4 text-lg text-gray-300 max-w-3xl mx-auto">
+      <motion.h2 
+          className="text-4xl sm:text-5xl font-bold text-center text-white mb-6"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          Our <span className="bg-gradient-to-r from-[#6E59A5] to-[#8B5CF6] text-transparent bg-clip-text">AI Solutions</span>
+        </motion.h2>
+        <motion.p 
+          className="text-gray-400 max-w-2xl text-center mx-auto text-lg mb-5"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
           Cutting-edge artificial intelligence technologies designed to transform your business operations and drive innovation.
-        </p>
+        </motion.p>
       </div>
 
       {/* Sticky container: full screen, centers its child (the card viewport) */}

@@ -22,7 +22,7 @@ const DynamicTagline = () => {
   }, []);
 
   return (
-    <div className="h-24 item-center justify-center items-center justify-center">
+    <div className="h-24 item-center justify-center items-center">
     {}
      <span className="invisible absolute">
     Digital Transformation
