@@ -4,6 +4,7 @@ import { ChevronLeft, ChevronRight, ArrowRight, Mail, BookOpen, Cpu, Lightbulb, 
 import { useState, useEffect, useRef } from 'react'; // Import useRef
 import { motion, AnimatePresence } from 'framer-motion';
 import bg7 from '@/images/indimages/bg10.png'; // Ensure this path is correct for your project structure
+import { Link } from 'react-router-dom';
 
 const Blog = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -725,18 +726,13 @@ const Blog = () => {
               viewport={{ once: true }}
               className="flex flex-col sm:flex-row gap-4 justify-center max-w-lg mx-auto"
             >
-              <input
-                type="email"
-                placeholder="Enter your best email address"
-                className="flex-grow px-5 py-3 rounded-xl bg-[#1e1e2e] border border-purple-500 text-white focus:outline-none focus:ring-4 focus:ring-purple-400/50 text-sm md:text-base placeholder-gray-400"
-                required
-              />
+             <Link to="/contact"> 
               <button
                 type="submit"
                 className="bg-gradient-to-r from-purple-600 to-violet-500 hover:from-purple-700 hover:to-violet-600 text-white py-3 px-8 rounded-xl transition-all font-bold text-base md:text-lg shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center gap-2"
               >
                 Subscribe Now <Mail className="w-5 h-5" />
-              </button>
+              </button></Link> 
             </motion.div>
           </div>
         </section>
