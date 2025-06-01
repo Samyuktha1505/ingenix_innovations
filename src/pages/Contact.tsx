@@ -8,6 +8,7 @@ import { useToast } from '@/hooks/use-toast';
 import { motion } from 'framer-motion';
 import impImage from '../assets/imp.png';
 
+
 const Toast = ({ title, description, type, onClose }) => {
   const bgColor = type === 'error' ? 'bg-red-500' : 'bg-green-500';
   return (

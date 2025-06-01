@@ -3,6 +3,8 @@ import Footer from '@/components/Footer';
 import { motion, useSpring, useTransform } from 'framer-motion';
 import { Typewriter } from 'react-simple-typewriter';
 import AboutUsBackground from '../assets/image.png';
+
+
 import { useEffect } from 'react';
 import { Target, Eye, Brain, FlaskConical, Zap } from 'lucide-react';
 

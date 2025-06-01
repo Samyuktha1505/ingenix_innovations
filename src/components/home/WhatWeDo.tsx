@@ -13,8 +13,7 @@ const WhatWeDo = () => {
       description: "We harness the latest breakthroughs in AI research and translate them into practical, scalable solutions for real-world challenges.",
       icon: Sparkles,
       delay: 0,
-      image: img1 // For Vite/CRA, ensure images are in `public` or handled by the build process.
-                                     // If in `src`, import them: `import img1 from '../images/img1.jpg'` and use `image: img1`
+      image: img1 // For Vite/CRA, ensure images are in `public` or handled by the build process                                     // If in `src`, import them: `import img1 from '../images/img1.jpg'` and use `image: img1`
     },
     {
       title: "Custom Solutions",
