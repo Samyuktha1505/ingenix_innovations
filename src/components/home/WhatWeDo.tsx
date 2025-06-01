@@ -3,6 +3,8 @@ import { Sparkles, Rocket, Zap, Code, Database, Bot } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card'; // Assuming this path is correct
 import { motion } from 'framer-motion';
 import AnimatedWaves from './AnimatedWaves'; // Assuming this path is correct
+import img1 from '../../assets/img1.jpg';
+import img3 from '../../assets/img3.png';
 
 const WhatWeDo = () => {
   const features = [
@@ -11,7 +13,7 @@ const WhatWeDo = () => {
       description: "We harness the latest breakthroughs in AI research and translate them into practical, scalable solutions for real-world challenges.",
       icon: Sparkles,
       delay: 0,
-      image: "/src/images/img1.jpg" // For Vite/CRA, ensure images are in `public` or handled by the build process.
+      image: img1 // For Vite/CRA, ensure images are in `public` or handled by the build process.
                                      // If in `src`, import them: `import img1 from '../images/img1.jpg'` and use `image: img1`
     },
     {
@@ -47,7 +49,7 @@ const WhatWeDo = () => {
       description: "We create autonomous AI agents that can perform complex tasks, make decisions, and integrate with your existing workflows.",
       icon: Bot,
       delay: 0.5,
-      image: "/src/images/img3.png" // Similar to img1, ensure path is correct for your setup.
+      image: img3 // Similar to img1, ensure path is correct for your setup.
     },
   ];
 
