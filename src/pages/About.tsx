@@ -2,7 +2,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { motion, useSpring, useTransform } from 'framer-motion';
 import { Typewriter } from 'react-simple-typewriter';
-import AboutUsBackground from '@/images/image.png';
+import AboutUsBackground from '../assets/image.png';
 import { useEffect } from 'react';
 import { Target, Eye, Brain, FlaskConical, Zap } from 'lucide-react';
 

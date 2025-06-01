@@ -7,7 +7,7 @@ import { Sparkles } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import CustomSolutionsSection from "@/components/home/custom"
-import bg5 from '@/assets/indimages/bg3.avif';
+import bg5 from '@/assets/bg3.avif';
 // At top of file, import JSONs
 import healthcareLottie from '@/assets/lottie/healthcare1.json';
 import financeLottie from '@/assets/lottie/finance1.json';

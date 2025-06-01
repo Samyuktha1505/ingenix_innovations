@@ -6,7 +6,7 @@ import { Linkedin, Mail, Phone } from 'lucide-react';
 import { FaXTwitter } from 'react-icons/fa6';
 import { useToast } from '@/hooks/use-toast';
 import { motion } from 'framer-motion';
-import impImage from '@/images/imp.png';
+import impImage from '../assets/imp.png';
 
 const Toast = ({ title, description, type, onClose }) => {
   const bgColor = type === 'error' ? 'bg-red-500' : 'bg-green-500';
@@ -20,7 +20,8 @@ const Toast = ({ title, description, type, onClose }) => {
 };
 
 const Contact = () => {
-  const { toast, toastState, setToastState } = useToast();
+  const { toast } = useToast();
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -280,7 +281,7 @@ const Contact = () => {
       setSelectedCountry(countryCodes[0]);
       form.reset();
     } catch (error) {
-      toast({ title: 'Error', description: 'Something went wrong. Try again later.', type: 'error' });
+      toast({ title: 'Error', description: 'Something went wrong. Try again later.', type: 'background' });
       console.error("Form submission error:", error);
     } finally {
       setIsSubmitting(false);
@@ -592,14 +593,6 @@ const Contact = () => {
         </motion.div>
       </main>
       <Footer />
-      {toastState && (
-        <Toast
-          title={toastState.title}
-          description={toastState.description}
-          type={toastState.type}
-          onClose={() => setToastState(null)}
-        />
-      )}
     </div>
   );
 };
