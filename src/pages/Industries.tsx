@@ -15,7 +15,7 @@ import logisticsLottie from '@/assets/lottie/logistics1.json';
 import EdtechLottie from'@/assets/lottie/edtech1.json';
 import DigitalmarketingLottie from '@/assets/lottie/digitalmarketing1.json';
 import ecommerceLottie from '@/assets/lottie/ecommerce1.json';
-
+import { Link } from 'react-router-dom'; // Keep this import
 
 // Industry data with Lottie paths
 const industryDetails = [
@@ -154,12 +154,12 @@ const Industries = () => {
   return (
     <div className="min-h-screen flex flex-col bg-[#12121e] text-white">
       <Navbar />
-      
-      
+
+
       <div className="h-screen relative overflow-hidden">
-      <div 
+      <div
   className="absolute inset-0 z-0 opacity-60"
-  style={{ 
+  style={{
     backgroundImage: `url(${bg5})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center'
@@ -171,8 +171,8 @@ const Industries = () => {
             <pointLight position={[10, 10, 10]} />
             {/* <Industry3DModel />
 {[...Array(3)].map((_, i) => <Industry3DModel key={i} />)} */}
-            <OrbitControls 
-              enableZoom={false} 
+            <OrbitControls
+              enableZoom={false}
               autoRotate
               autoRotateSpeed={1.5}
             />
@@ -181,10 +181,9 @@ const Industries = () => {
         </div>
 
 
-        
         <div className="relative z-10 h-full flex flex-col justify-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <motion.h1 
+            <motion.h1
               className="text-5xl md:text-6xl font-bold mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -194,15 +193,30 @@ const Industries = () => {
 
               {/*Industries We Serve<span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6E59A5] to-[#8B5CF6]"> </span>*/}
             </motion.h1>
-            <motion.p 
+            <motion.p
               className="mt-4 text-xl text-gray-300 max-w-3xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              
+
               We deliver specialized AI solutions across multiple sectors, tailored to your industry's unique challenges.
             </motion.p>
+             {/* Schedule Consultation Button */}
+            <motion.div
+              className="mt-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <Link
+                to="/contact" // <-- Set this to your contact page route
+                className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-r from-[#6E59A5] to-[#8B5CF6] hover:from-[#8B5CF6] hover:to-[#6E59A5] transition-all duration-300 shadow-lg"
+              >
+                Schedule a Consultation
+                <Sparkles className="ml-2 h-5 w-5" />
+              </Link>
+            </motion.div>
           </div>
         </div>
       </div>
@@ -211,7 +225,7 @@ const Industries = () => {
 <main className="flex-grow" ref={containerRef}>
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 -mt-20 relative z-20">
     {industryDetails.map((industry, index) => (
-      <div 
+      <div
         key={index}
         className="group relative rounded-2xl p-6 bg-[#0f0f1b] border border-[#6e59a5] shadow-md transition-all duration-300 filter hover:border-[#9b5cd1] hover:shadow-[0_0_10px_#9b5cd1] mb-12"
       >
@@ -237,7 +251,7 @@ const Industries = () => {
               {industry.name}
             </h2>
             <p className="text-gray-300 mb-6">{industry.description}</p>
-            
+
             <div className="md:w-2/3">
               <h3 className="text-xl font-semibold mb-4 text-[#8B5CF6]">Industry-Specific Solutions</h3>
               <p className="text-gray-300 mb-6">
@@ -247,8 +261,8 @@ const Industries = () => {
                 <h4 className="text-lg font-medium mb-3 text-white">Key Use Cases</h4>
                 <ul className="grid sm:grid-cols-2 gap-x-4 gap-y-2">
                   {industry.useCases.map((useCase, i) => (
-                    <motion.li 
-                      key={i} 
+                    <motion.li
+                      key={i}
                       className="flex items-start"
                       initial={{ opacity: 0, x: -10 }}
                       whileInView={{ opacity: 1, x: 0 }}
@@ -269,8 +283,8 @@ const Industries = () => {
               </h4>
               <ul className="grid sm:grid-cols-2 gap-x-4 gap-y-2">
                 {industry.genAIApplications.map((app, i) => (
-                  <motion.li 
-                    key={i} 
+                  <motion.li
+                    key={i}
                     className="flex items-start"
                     initial={{ opacity: 0, x: -10 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -287,8 +301,8 @@ const Industries = () => {
               <h4 className="text-lg font-medium mb-3 text-white">Technologies</h4>
               <div className="flex flex-wrap gap-2">
                 {industry.technologies.map((tech, i) => (
-                  <span 
-                    key={i} 
+                  <span
+                    key={i}
                     className={`${tech === 'Generative AI' ? 'bg-[#6E59A5]/30 border-[#8B5CF6]' : 'bg-[#1a1a2e] border-gray-700'} border text-gray-300 text-sm px-3 py-1 rounded-full`}
                   >
                     {tech === 'Generative AI' ? (
@@ -314,9 +328,8 @@ const Industries = () => {
         </motion.div>
       </div>
     ))}
-    
-   
- 
+
+
 <CustomSolutionsSection />
   </div>
 </main>
