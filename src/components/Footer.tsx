@@ -100,7 +100,7 @@ const Footer = () => {
           <div className="mt-4 md:mt-0">
             <ul className="flex justify-center space-x-6">
               <li>
-                <a href="#" className="text-gray-500 text-sm hover:text-gray-400">Privacy Policy</a>
+                <a href="/src/components/privacy.html" className="text-gray-500 text-sm hover:text-gray-400">Privacy Policy</a>
               </li>
               <li>
                 <a href="#" className="text-gray-500 text-sm hover:text-gray-400">Terms of Service</a>
