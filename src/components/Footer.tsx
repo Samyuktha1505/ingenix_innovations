@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom';
 import { Linkedin, Mail, Phone } from 'lucide-react';
 import { FaXTwitter } from 'react-icons/fa6';
+// import terms from "@/pages/termsofservice"
+import bg5 from '@/assets/bg3.avif';
+
 const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white">
@@ -102,8 +105,7 @@ const Footer = () => {
                 <a href="/src/components/privacy.html" className="text-gray-500 text-sm hover:text-gray-400">Privacy Policy</a>
               </li>
               <li>
-                <a href="/src/components/termsofservice.html" className="text-gray-500 text-sm hover:text-gray-400">Terms of Service</a>
-              </li>
+              <Link to="/terms" className="text-gray-500 text-sm hover:text-gray-400">Terms of Service</Link>              </li>
             </ul>
           </div>
         </div>
