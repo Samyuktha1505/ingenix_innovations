@@ -202,21 +202,7 @@ const Industries = () => {
 
               We deliver specialized AI solutions across multiple sectors, tailored to your industry's unique challenges.
             </motion.p>
-             {/* Schedule Consultation Button */}
-            <motion.div
-              className="mt-8"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              <Link
-                to="/contact" // <-- Set this to your contact page route
-                className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-r from-[#6E59A5] to-[#8B5CF6] hover:from-[#8B5CF6] hover:to-[#6E59A5] transition-all duration-300 shadow-lg"
-              >
-                Schedule a Consultation
-                <Sparkles className="ml-2 h-5 w-5" />
-              </Link>
-            </motion.div>
+            
           </div>
         </div>
       </div>
