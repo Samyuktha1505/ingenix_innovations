@@ -1,7 +1,8 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Lightbulb, Cog, Repeat } from "lucide-react";
 import { useEffect, useState } from "react";
-import Link from '@/pages/Contact'; // Assuming you're using Next.js for routing
+// import Link from '@/pages/Contact'; // Assuming you're using Next.js for routing
+import { Link } from 'react-router-dom'; // Keep this import
 
 const CustomSolutionsSection = () => {
   const features = [
@@ -96,17 +97,19 @@ const CustomSolutionsSection = () => {
       </div>
 
       {/* Consultation Button */}
-      <div className="text-center mt-10">
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-[#8B5CF6] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-[#c084fc] transition duration-300 ease-in-out"
-          >
-            Schedule a Consultation 
-          </motion.button>
-          <div className="text-center mb-10 pt-10 md:pt-6">
-  </div>
-      </div>
+     {/* Consultation Button */}
+<div className="text-center mt-10">
+  <Link to="/contact"> {/* Wrap the button with Link */}
+    <motion.button
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      className="bg-[#8B5CF6] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-[#c084fc] transition duration-300 ease-in-out"
+    >
+      Schedule a Consultation
+    </motion.button>
+  </Link>
+</div>
+     
     </motion.section>
   );
 };
