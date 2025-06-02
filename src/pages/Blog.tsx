@@ -28,6 +28,7 @@ import blogs5_1 from '@/assets/blogs5_1.png';
 import blogs5_2 from '@/assets/blogs5_2.png';
 import blogs5_3 from '@/assets/blogs5_3.png';
 import blogs5_4 from '@/assets/blogs5_4.png';
+import { Linkedin } from 'lucide-react';
 
 
 const Blog = () => {
@@ -60,7 +61,7 @@ const Blog = () => {
           <p>NVIDIA's focus on an end-to-end 800 V HVDC solution from the power distribution unit (PDU) to the chip itself ensures optimal power delivery and minimal conversion losses. This integrated approach is critical for hyperscale AI deployments where every watt counts.</p>
           <p>This transition will require significant investment in new power supply units, busbars, and internal server components designed to handle the higher voltage. However, the long-term benefits in terms of operational efficiency, cost savings, and the ability to scale AI compute resources are compelling. Data centers built on this new architecture will be more environmentally friendly and economically viable for the demanding AI workloads of tomorrow.</p>
         `,
-        readTime: '8 MIN READ',
+        readTime: '6 MIN READ',
         category: 'AI Trends',
         image: blog2
       },
@@ -69,7 +70,22 @@ const Blog = () => {
         date: 'June 5, 2025',
         title: 'The Rise of Multimodal Foundation Models in 2025',
         excerpt: 'How combining vision, language, and audio modalities is creating more versatile AI systems that understand context like ever before.',
-        fullContent: 'Full content for The Rise of Multimodal Foundation Models...',
+        fullContent: `
+    <p>Artificial intelligence in 2025 is defined by the rise of multimodal foundation models—AI systems capable of understanding and generating content across text, images, audio, and more. Unlike earlier models that specialized in one data type, these new architectures can process and relate information from multiple modalities, making them vastly more versatile and context-aware.</p>
+<h3>What Are Multimodal Foundation Models?</h3>
+<p>Foundation models are large, pre-trained neural networks trained on massive datasets that include text, images, code, and more. Multimodal models extend this concept by learning from and reasoning about several data types at once. For example, a single model can answer questions about an image, generate captions, or even interpret audio clips—all within the same architecture.</p>
+<h3>Real-World Applications</h3>
+<ul>
+  <li><strong>Enterprise Automation:</strong> Multimodal models power advanced search engines, customer support bots, and digital document analyzers that can process text, images, and charts together.</li>
+  <li><strong>Accessibility:</strong> These models can describe images for visually impaired users or transcribe audio in real time.</li>
+  <li><strong>Creative Tools:</strong> Artists and designers use multimodal AI to generate images from text prompts, remix music, or create interactive storytelling experiences.</li>
+</ul>
+<h3>Technical Innovations</h3>
+<p>Recent advances include unified neural architectures, cross-modal attention mechanisms, and efficient training on diverse datasets. Models like GPT-4o and Gemini can seamlessly blend information from different sources, providing richer and more accurate outputs.</p>
+<h3>Challenges and Outlook</h3>
+<p>Despite their promise, multimodal models face challenges in aligning data from different modalities, mitigating bias, and ensuring transparency. Ongoing research focuses on improving data curation, model interpretability, and energy efficiency. As these models mature, expect them to become the backbone of next-generation AI applications, enabling machines to understand and interact with the world as humans do—through a blend of senses.</p>
+
+  `,
         readTime: '6 MIN READ',
         category: 'AI Trends',
         image: img3
@@ -79,8 +95,25 @@ const Blog = () => {
         date: 'June 12, 2025',
         title: 'Edge AI: Bringing Intelligence to IoT Devices',
         excerpt: 'The latest breakthroughs in tinyML are enabling powerful AI models to run on microcontrollers with less than 1MB of memory.',
-        fullContent: 'Full content for Edge AI...',
-        readTime: '7 MIN READ',
+        fullContent: `<p>Edge AI is transforming the Internet of Things (IoT) by enabling devices to process data locally, right where it is generated, instead of sending everything to the cloud. This approach reduces latency, improves privacy, and enables real-time decision-making for applications ranging from smart homes to industrial automation.</p>
+<h3>Why Edge AI?</h3>
+<p>Traditional IoT systems transmit raw data to central servers for analysis, leading to network congestion, higher costs, and delays—problems that are unacceptable in time-sensitive scenarios like autonomous vehicles or critical infrastructure. Edge AI solves this by running AI models directly on microcontrollers or edge devices, often with less than 1MB of memory.</p>
+<h3>Breakthroughs in TinyML</h3>
+<ul>
+  <li><strong>Model Compression:</strong> Advances in quantization and pruning allow complex models to run efficiently on limited hardware.</li>
+  <li><strong>Specialized Hardware:</strong> New chips are optimized for AI inference at the edge, balancing performance and energy consumption.</li>
+  <li><strong>On-Device Learning:</strong> Some edge AI systems can adapt to new data, enabling personalized experiences without cloud retraining.</li>
+</ul>
+<h3>Use Cases</h3>
+<ul>
+  <li><strong>Smart Cameras:</strong> Detect anomalies, recognize faces, or monitor safety in real time.</li>
+  <li><strong>Wearables:</strong> Analyze health data and provide instant feedback without uploading sensitive information.</li>
+  <li><strong>Industrial IoT:</strong> Predict equipment failures, optimize energy usage, and automate quality control.</li>
+</ul>
+<h3>Challenges</h3>
+<p>Edge AI must overcome constraints in compute, memory, and power, as well as ensure security and privacy. The future will see even more capable models running at the edge, unlocking new possibilities for autonomous, intelligent systems everywhere.</p>
+`,
+        readTime: '5 MIN READ',
         category: 'AI Trends',
         image: blogs4
       },
@@ -89,8 +122,22 @@ const Blog = () => {
         date: 'June 18, 2025',
         title: 'Generative AI in Creative Industries: Beyond Hype',
         excerpt: 'How studios and agencies are actually implementing generative tools in their workflows, with measurable productivity gains.',
-        fullContent: 'Full content for Generative AI in Creative Industries...',
-        readTime: '9 MIN READ',
+        fullContent: `<p>Generative AI is reshaping creative industries by automating content creation, enhancing productivity, and enabling new forms of artistic expression. Far from being just a buzzword, generative models are now integral to workflows in art, music, design, and entertainment.</p>
+<h3>What Is Generative AI?</h3>
+<p>Generative AI refers to algorithms—like GANs and VAEs—that can produce new content resembling their training data. These models learn patterns from vast datasets and generate art, music, text, or even fashion designs that are novel yet coherent.</p>
+<h3>Real-World Adoption</h3>
+<ul>
+  <li><strong>Film & Animation:</strong> Studios use AI to generate storyboards, backgrounds, and even animate characters, speeding up production cycles.</li>
+  <li><strong>Music:</strong> AI systems compose melodies, suggest harmonies, or remix tracks, serving as creative partners for musicians.</li>
+  <li><strong>Advertising:</strong> Agencies generate personalized ad copy and visuals at scale, optimizing campaigns in real time.</li>
+</ul>
+<h3>Measurable Productivity Gains</h3>
+<p>Organizations report faster turnaround times, reduced costs, and enhanced creative output. AI assists with ideation, automates repetitive tasks, and enables rapid prototyping, freeing human creators to focus on high-level vision and refinement.</p>
+<h3>Challenges and Considerations</h3>
+<p>Despite the benefits, generative AI raises questions about authorship, copyright, and potential job displacement. Successful adoption requires clear policies, human oversight, and ongoing training to ensure ethical and effective use.</p>
+<p>As generative AI continues to mature, expect it to become a staple in creative toolkits, driving innovation across industries and empowering creators to push the boundaries of what’s possible.</p>
+`,
+        readTime: '4 MIN READ',
         category: 'AI Trends',
         image: blogs5
       },
@@ -99,8 +146,21 @@ const Blog = () => {
         date: 'July 1, 2025',
         title: 'The Future of AI in Healthcare',
         excerpt: 'Exploring how AI is revolutionizing diagnostics, drug discovery, and personalized medicine.',
-        fullContent: 'Full content for The Future of AI in Healthcare...',
-        readTime: '10 MIN READ',
+        fullContent: `<p>AI is revolutionizing healthcare by improving diagnostics, accelerating drug discovery, and personalizing medicine. From analyzing medical images to predicting disease outbreaks, AI is enhancing every stage of the healthcare value chain.</p>
+<h3>AI in Diagnostics</h3>
+<p>Machine learning algorithms can analyze X-rays, MRIs, and histopathology slides with high accuracy, helping clinicians identify conditions earlier and more reliably. AI-powered tools also expedite the analysis of complex data, reducing diagnostic errors and enabling faster treatment decisions.</p>
+<h3>Drug Discovery and Clinical Trials</h3>
+<ul>
+  <li><strong>Target Identification:</strong> AI analyzes genetic and molecular data to identify new drug targets, speeding up the discovery process.</li>
+  <li><strong>Patient Recruitment:</strong> Algorithms match patients to clinical trials based on eligibility, improving enrollment and trial outcomes.</li>
+  <li><strong>Real-Time Monitoring:</strong> AI tracks patient data and adverse events during trials, ensuring safety and compliance.</li>
+</ul>
+<h3>Personalized Medicine</h3>
+<p>AI integrates genetic, clinical, and lifestyle data to tailor treatment plans for individual patients, maximizing efficacy and minimizing side effects. Wearable devices and telemedicine platforms powered by AI enable continuous monitoring and early intervention, improving patient outcomes and engagement.</p>
+<h3>Challenges and the Road Ahead</h3>
+<p>Key challenges include data privacy, regulatory compliance, and the need for transparent, explainable AI systems. As these hurdles are addressed, AI will become an indispensable partner in healthcare, driving better outcomes for patients and providers alike.</p>
+`,
+        readTime: '5 MIN READ',
         category: 'AI Trends',
         image: blogs6 // Assuming you have more images
       },
@@ -109,8 +169,21 @@ const Blog = () => {
         date: 'July 8, 2025',
         title: 'Quantum Computing Meets AI: A New Frontier',
         excerpt: 'How quantum algorithms could supercharge machine learning in the coming decades.',
-        fullContent: 'Full content for Quantum Computing Meets AI...',
-        readTime: '11 MIN READ',
+        fullContent: `<p>Quantum computing and artificial intelligence are converging to create a new frontier of innovation. Quantum computers, which use qubits capable of existing in multiple states simultaneously, promise to solve problems that are intractable for classical computers—potentially transforming the future of AI.</p>
+<h3>What Is Quantum Computing?</h3>
+<p>Unlike traditional bits, qubits leverage quantum mechanics to represent and process vast amounts of information in parallel. This capability enables quantum computers to tackle complex optimization, simulation, and cryptography problems exponentially faster than classical machines.</p>
+<h3>How Quantum Will Supercharge AI</h3>
+<ul>
+  <li><strong>Faster Model Training:</strong> Quantum algorithms could reduce the time required to train large AI models from weeks to hours, making AI development more efficient and accessible.</li>
+  <li><strong>Smarter Optimization:</strong> Quantum computers excel at solving optimization problems, which are central to tasks like supply chain management and financial modeling.</li>
+  <li><strong>Quantum Machine Learning:</strong> New algorithms may enable AI systems to learn from fewer data points, reduce noise, and generalize better—pushing the boundaries of what’s possible with current machine learning techniques.</li>
+</ul>
+<h3>Challenges</h3>
+<p>Quantum computing is still in its infancy, with significant technical hurdles to overcome, including error correction, qubit stability, and hardware scalability. Yet, as research progresses, the synergy between quantum computing and AI could unlock breakthroughs in fields ranging from drug discovery to climate modeling.</p>
+<h3>The Road Ahead</h3>
+<p>Expect the next decade to bring hybrid quantum-classical AI systems, new algorithms, and entirely new applications—ushering in an era where the most powerful forms of computation and intelligence work hand in hand.</p>
+`,
+        readTime: '7 MIN READ',
         category: 'AI Trends',
         image: blogs7
       },
@@ -119,8 +192,21 @@ const Blog = () => {
         date: 'July 15, 2025',
         title: 'AI Ethics and Governance: Navigating the Complexities',
         excerpt: 'Discussing the frameworks and policies needed to ensure responsible AI development and deployment.',
-        fullContent: 'Full content for AI Ethics and Governance...',
-        readTime: '9 MIN READ',
+        fullContent: `<p>As artificial intelligence becomes deeply embedded in society, robust frameworks for AI ethics and governance are essential. These frameworks ensure that AI technologies are developed and deployed responsibly, balancing innovation with ethical considerations and regulatory compliance.</p>
+<h3>Why Governance Matters</h3>
+<p>AI systems can amplify biases, infringe on privacy, and make decisions that impact lives. Effective governance addresses these risks by embedding ethical guidelines, transparency, and accountability into every stage of AI development and deployment.</p>
+<h3>Key Principles</h3>
+<ul>
+  <li><strong>Ethical Design:</strong> Preventing bias, promoting fairness, and ensuring inclusivity are foundational to responsible AI.</li>
+  <li><strong>Transparency:</strong> Clear explanations of how AI decisions are made help build trust and facilitate oversight.</li>
+  <li><strong>Accountability:</strong> Defining roles and responsibilities for AI outcomes ensures that organizations remain answerable for their systems.</li>
+</ul>
+<h3>Implementing Governance</h3>
+<p>Organizations should establish comprehensive policies, conduct regular impact assessments, and engage diverse stakeholders in the governance process. Ongoing training, transparent monitoring, and regular audits are necessary to maintain compliance and adapt to evolving standards.</p>
+<h3>The Path Forward</h3>
+<p>As AI technologies continue to advance, governance must evolve to address new challenges. By prioritizing ethics and accountability, organizations can harness AI’s potential while safeguarding individual rights and societal values.</p>
+`,
+        readTime: '4 MIN READ',
         category: 'AI Trends',
         image: blogs8
       }
@@ -131,8 +217,23 @@ const Blog = () => {
         date: 'May 23, 2025',
         title: 'Understanding Mixture of Experts Architecture',
         excerpt: 'Deep dive into how MoE models like Google\'s Switch Transformer achieve better performance with lower compute costs.',
-        fullContent: 'Full content for Understanding Mixture of Experts...',
-        readTime: '12 MIN READ',
+        fullContent: `<p>Mixture of Experts (MoE) architectures represent a breakthrough in scaling deep learning models efficiently. Unlike traditional dense models, MoE selectively activates only portions of the network for each input, drastically reducing computation while maintaining or improving accuracy.</p>
+<h3>Core Principles of MoE</h3>
+<p>At the heart of MoE is a gating mechanism that routes each input token to a subset of specialized "expert" subnetworks. This allows the model to scale up the number of parameters without a proportional increase in computation.</p>
+<h3>Google’s Switch Transformer</h3>
+<p>The Switch Transformer is a prominent MoE model that demonstrated how activating just one expert per token could achieve state-of-the-art results with a fraction of the compute cost of dense models. The architecture enables models with over a trillion parameters to be trained and deployed efficiently.</p>
+<h3>Benefits and Trade-offs</h3>
+<ul>
+  <li><strong>Efficiency:</strong> Only a small fraction of the model is active per inference, reducing resource usage.</li>
+  <li><strong>Specialization:</strong> Experts can specialize in handling different types of data or tasks, improving performance.</li>
+  <li><strong>Complexity:</strong> Training and deploying MoE models require sophisticated routing and load balancing strategies.</li>
+</ul>
+<h3>Implementation and Use Cases</h3>
+<p>MoE architectures are increasingly used in natural language processing, recommendation systems, and large-scale vision models. Their ability to scale efficiently makes them ideal for cloud-based AI services.</p>
+<h3>Conclusion</h3>
+<p>As AI models continue to grow, MoE will play a key role in making large-scale intelligence both feasible and sustainable.</p>
+`,
+        readTime: '7 MIN READ',
         category: 'Technical Explainers',
         image: blogs1
       },
@@ -141,8 +242,24 @@ const Blog = () => {
         date: 'May 28, 2025',
         title: 'The Math Behind Diffusion Models',
         excerpt: 'From stochastic differential equations to practical implementations, we break down the theory powering image generation models.',
-        fullContent: 'Full content for The Math Behind Diffusion Models...',
-        readTime: '15 MIN READ',
+        fullContent: `<p>Diffusion models have emerged as a powerful approach for generative modeling, particularly in image synthesis. Their mathematical foundation is rooted in stochastic processes, variational inference, and deep learning.</p>
+<h3>The Diffusion Process</h3>
+<p>Diffusion models work by gradually adding noise to data (the forward process) and then learning to reverse this process to generate new samples from noise (the reverse process). The forward process is modeled as a Markov chain, where the data distribution is transformed into pure noise over T steps, parameterized by a variance schedule.</p>
+<h3>Variational Lower Bound and Training</h3>
+<p>The model is trained to minimize the difference between the true data distribution and the distribution generated by reversing the diffusion process. This is formalized as a variational lower bound (VLB) objective, similar to that used in variational autoencoders. The loss function encourages the model to accurately denoise at each step.</p>
+<h3>Reverse Samplers</h3>
+<ul>
+  <li><strong>DDPM (Denoising Diffusion Probabilistic Models):</strong> Uses a learned neural network to predict the noise added at each step, enabling the generation of high-quality samples.</li>
+  <li><strong>DDIM (Deterministic Denoising):</strong> Provides faster sampling by skipping some stochastic steps, trading off diversity for speed.</li>
+</ul>
+<h3>Text Prompting and Conditioning</h3>
+<p>Modern diffusion models can be conditioned on text or other inputs, enabling controllable generation. Techniques like classifier guidance and classifier-free guidance further improve sample quality and alignment with prompts.</p>
+<h3>Current Trends</h3>
+<p>Recent research focuses on improving efficiency, sample diversity, and fidelity, as well as applying diffusion models to modalities beyond images, such as audio and video.</p>
+<h3>Conclusion</h3>
+<p>Understanding the math behind diffusion models is key to leveraging their full potential in generative AI applications.</p>
+`,
+        readTime: '9 MIN READ',
         category: 'Technical Explainers',
         image: blogs2_5
       },
@@ -151,8 +268,25 @@ const Blog = () => {
         date: 'June 3, 2025',
         title: 'Optimizing Transformer Inference: Key Techniques',
         excerpt: 'Practical guide to reducing latency and memory usage for production LLM deployments.',
-        fullContent: 'Full content for Optimizing Transformer Inference...',
-        readTime: '10 MIN READ',
+        fullContent: `<p>Transformer models have become the backbone of modern AI, but their inference phase can be resource-intensive. Optimizing inference is critical for deploying large language models (LLMs) in production with low latency and cost.</p>
+<h3>Phases of Transformer Inference</h3>
+<ul>
+  <li><strong>Prefill Phase:</strong> Processes the entire input sequence in parallel, leveraging GPU efficiency for batch operations.</li>
+  <li><strong>Decode Phase:</strong> Generates output tokens sequentially, which can become a bottleneck in real-time applications.</li>
+</ul>
+<h3>Key Optimization Techniques</h3>
+<ul>
+  <li><strong>KV Caching:</strong> Stores key-value pairs from previous tokens, reducing redundant computation during decoding.</li>
+  <li><strong>Speculative Decoding:</strong> Uses a smaller draft model to predict multiple tokens ahead, verifying them with the main model to reduce latency.</li>
+  <li><strong>Batching:</strong> Processes multiple requests simultaneously, maximizing GPU utilization and throughput.</li>
+  <li><strong>Quantization:</strong> Reduces model precision (e.g., from FP32 to INT8 or lower), shrinking memory footprint and accelerating inference.</li>
+</ul>
+<h3>Best Practices</h3>
+<p>Choosing the right mix of techniques depends on the application’s latency, throughput, and hardware constraints. Careful profiling and tuning are essential for optimal results.</p>
+<h3>Conclusion</h3>
+<p>With these optimizations, organizations can deploy powerful transformer models at scale, delivering fast and efficient AI services to users.</p>
+`,
+        readTime: '7 MIN READ',
         category: 'Technical Explainers',
         image: blogs2_4
       },
@@ -161,8 +295,23 @@ const Blog = () => {
         date: 'June 10, 2025',
         title: 'Quantization: From FP32 to INT4 Without Losing Accuracy',
         excerpt: 'Comprehensive look at modern quantization approaches that maintain model quality while drastically reducing size.',
-        fullContent: 'Full content for Quantization...',
-        readTime: '11 MIN READ',
+        fullContent: `<p>Quantization is a powerful technique for reducing the size and computational requirements of deep learning models by representing weights and activations with lower-precision data types. Modern quantization methods enable reductions from FP32 (32-bit floating point) to INT4 (4-bit integer) with minimal loss in model accuracy.</p>
+<h3>Why Quantize?</h3>
+<p>Quantization shrinks model size, lowers memory bandwidth, and accelerates inference—making it possible to run large models on edge devices and in latency-sensitive environments.</p>
+<h3>Techniques</h3>
+<ul>
+  <li><strong>Post-Training Quantization:</strong> Converts a trained FP32 model to lower precision, often with minimal calibration data.</li>
+  <li><strong>Quantization-Aware Training:</strong> Simulates quantization effects during training, allowing the model to adapt and preserve accuracy.</li>
+  <li><strong>Block Quantization:</strong> Applies different scales to blocks of weights, improving representational power at very low bit-widths (e.g., INT4, FP4).</li>
+</ul>
+<h3>Modern Approaches</h3>
+<p>State-of-the-art frameworks support mixed-precision and per-channel quantization, further reducing accuracy loss. Hardware accelerators are increasingly optimized for low-bit inference, enabling practical deployment at scale.</p>
+<h3>Challenges</h3>
+<p>Quantization can introduce rounding errors and dynamic range limitations. Careful selection of quantization parameters and calibration methods is essential to maintain model quality.</p>
+<h3>Conclusion</h3>
+<p>With the right techniques, quantization enables efficient, high-performance AI on a wide range of devices—without sacrificing accuracy.</p>
+`,
+        readTime: '10 MIN READ',
         category: 'Technical Explainers',
         image: blogs2_3
       }
@@ -173,8 +322,19 @@ const Blog = () => {
         date: 'May 25, 2025',
         title: 'AI-Powered Drug Discovery at AstraZeneca',
         excerpt: 'Case study on how machine learning accelerated their small molecule discovery pipeline by 40%.',
-        fullContent: 'Full content for AI-Powered Drug Discovery...',
-        readTime: '8 MIN READ',
+        fullContent: `<p>AstraZeneca is at the forefront of using AI to accelerate drug discovery, making the process faster, more efficient, and more targeted. By leveraging machine learning and advanced analytics, the company has achieved a 40% acceleration in its small molecule discovery pipeline.</p>
+<h3>How AI Accelerates Discovery</h3>
+<ul>
+  <li><strong>Target Identification:</strong> AI algorithms analyze vast datasets to identify promising drug targets and predict disease mechanisms.</li>
+  <li><strong>Protein Structure Analysis:</strong> Deep learning models help understand protein folding and interactions, aiding in drug design.</li>
+  <li><strong>Patient Recruitment:</strong> AI matches patient profiles to clinical trials, improving enrollment efficiency and trial outcomes.</li>
+</ul>
+<h3>Real-Time Data Analysis</h3>
+<p>AI systems monitor ongoing trials, detect adverse events, and ensure regulatory compliance, enabling faster and safer decision-making.</p>
+<h3>Impact</h3>
+<p>The integration of AI has led to more effective drug candidates, reduced costs, and a significant acceleration in bringing new therapies to market.</p>
+`,
+        readTime: '6 MIN READ',
         category: 'Use Cases',
         image: blogs3_1
       },
@@ -183,8 +343,19 @@ const Blog = () => {
         date: 'May 30, 2025',
         title: 'Automating Financial Reporting with LLMs',
         excerpt: 'How JP Morgan reduced quarterly report preparation time from 2 weeks to 3 days.',
-        fullContent: 'Full content for Automating Financial Reporting...',
-        readTime: '7 MIN READ',
+        fullContent: `<p>Large language models (LLMs) are transforming financial reporting by automating data analysis, report generation, and compliance checks. JP Morgan, for example, reduced its quarterly report preparation time from two weeks to just three days by leveraging AI-powered automation.</p>
+<h3>How It Works</h3>
+<ul>
+  <li><strong>Data Extraction:</strong> LLMs can ingest structured and unstructured data from diverse sources, including financial statements and news articles.</li>
+  <li><strong>Report Generation:</strong> AI models generate draft reports, summaries, and insights, which are then reviewed and finalized by analysts.</li>
+  <li><strong>Sentiment Analysis:</strong> LLMs extract and analyze sentiment from market news, providing real-time context for reporting.</li>
+</ul>
+<h3>Benefits</h3>
+<p>Automating routine tasks allows finance teams to focus on higher-value analysis, improves accuracy, and ensures faster compliance with regulatory requirements.</p>
+<h3>Future Outlook</h3>
+<p>As LLMs become more capable, expect further reductions in reporting cycles and new applications in risk assessment and forecasting.</p>
+`,
+        readTime: '5 MIN READ',
         category: 'Use Cases',
         image: blogs3_2
       },
@@ -193,8 +364,18 @@ const Blog = () => {
         date: 'June 7, 2025',
         title: 'Computer Vision in Precision Agriculture',
         excerpt: 'Monitoring crop health and predicting yields with drone imagery and deep learning.',
-        fullContent: 'Full content for Computer Vision in Precision Agriculture...',
-        readTime: '9 MIN READ',
+        fullContent: `<p>Computer vision is revolutionizing precision agriculture by enabling farmers to monitor crop health, predict yields, and optimize resource use with unprecedented accuracy. Drones and satellites capture high-resolution imagery, which AI models analyze to extract actionable insights.</p>
+<h3>Applications</h3>
+<ul>
+  <li><strong>Crop Monitoring:</strong> AI detects diseases, pests, and nutrient deficiencies early, allowing timely intervention.</li>
+  <li><strong>Yield Prediction:</strong> Machine learning models analyze growth patterns and environmental data to forecast yields and inform planning.</li>
+  <li><strong>Resource Optimization:</strong> Computer vision helps optimize irrigation, fertilization, and pesticide application, reducing waste and environmental impact.</li>
+</ul>
+<h3>Challenges</h3>
+<p>Key challenges include variability in image quality, changing weather conditions, and the need for large, annotated datasets. Ongoing research focuses on improving model robustness and integrating multi-modal data sources.</p>
+<p>With continued innovation, computer vision will play a central role in making agriculture more efficient, sustainable, and resilient.</p>
+`,
+        readTime: '5 MIN READ',
         category: 'Use Cases',
         image: blogs3_3
       },
@@ -203,8 +384,19 @@ const Blog = () => {
         date: 'June 15, 2025',
         title: 'AI for Personalized Education',
         excerpt: 'How Khan Academy\'s AI tutor adapts to individual learning styles in real-time.',
-        fullContent: 'Full content for AI for Personalized Education...',
-        readTime: '10 MIN READ',
+        fullContent: `<p>AI is transforming education by enabling personalized learning experiences that adapt to each student's needs, pace, and style. Platforms like Khan Academy’s AI tutor use real-time data to tailor lessons, provide instant feedback, and support mastery-based progression.</p>
+<h3>How AI Personalizes Learning</h3>
+<ul>
+  <li><strong>Adaptive Content:</strong> AI analyzes student performance and adjusts lesson difficulty, ensuring optimal challenge and engagement.</li>
+  <li><strong>Real-Time Feedback:</strong> Intelligent tutors provide hints, explanations, and encouragement, helping students overcome obstacles instantly.</li>
+  <li><strong>Progress Tracking:</strong> Detailed analytics help teachers identify learning gaps and intervene proactively.</li>
+</ul>
+<h3>Benefits</h3>
+<p>Personalized education improves outcomes, boosts motivation, and supports lifelong learning. It also enables teachers to focus on high-impact instruction and mentoring.</p>
+<h3>Challenges</h3>
+<p>Ensuring data privacy, equity, and accessibility are ongoing concerns. As AI in education evolves, collaboration between educators, technologists, and policymakers will be key to maximizing benefits for all learners.</p>
+`,
+        readTime: '4 MIN READ',
         category: 'Use Cases',
         image: blogs3_4
       }
@@ -215,8 +407,23 @@ const Blog = () => {
         date: 'May 27, 2025',
         title: 'The Ethical Imperative of Explainable AI',
         excerpt: 'Why interpretability isn\'t just nice-to-have but essential for responsible deployment.',
-        fullContent: 'Full content for The Ethical Imperative...',
-        readTime: '8 MIN READ',
+        fullContent: `<p>Explainable AI (XAI) is essential for building trust, ensuring accountability, and enabling responsible deployment of AI systems. As AI becomes more complex and influential, understanding how models make decisions is no longer optional—it is a moral and practical necessity.</p>
+<h3>Why Interpretability Matters</h3>
+<ul>
+  <li><strong>Trust:</strong> Transparent models are easier to trust, especially in high-stakes domains like healthcare and finance.</li>
+  <li><strong>Accountability:</strong> Clear explanations enable organizations to justify decisions and comply with regulations.</li>
+  <li><strong>Debugging:</strong> Interpretability helps identify and correct errors or biases in AI systems.</li>
+</ul>
+<h3>Approaches to Explainability</h3>
+<ul>
+  <li><strong>Model Transparency:</strong> Using inherently interpretable models where possible.</li>
+  <li><strong>Post-Hoc Explanations:</strong> Applying techniques like LIME or SHAP to explain complex models after training.</li>
+  <li><strong>Visualization:</strong> Tools that highlight important features or decision pathways.</li>
+</ul>
+<h3>The Path Forward</h3>
+<p>Organizations must prioritize explainability in AI design, invest in research, and foster a culture of transparency. Only then can AI systems be deployed ethically and effectively in society.</p>
+`,
+        readTime: '7 MIN READ',
         category: 'Thought Leadership',
         image: blogs4_1
       },
@@ -225,8 +432,21 @@ const Blog = () => {
         date: 'June 1, 2025',
         title: 'Preparing for Artificial General Intelligence',
         excerpt: 'A framework for gradual, safe development of more capable AI systems.',
-        fullContent: 'Full content for Preparing for AGI...',
-        readTime: '12 MIN READ',
+        fullContent: `<p>Artificial General Intelligence (AGI)—AI systems with human-level or greater capability across a wide range of tasks—remains a long-term goal. Preparing for AGI requires a framework for gradual, safe development and deployment.</p>
+<h3>Defining AGI</h3>
+<p>AGI differs from today's narrow AI in its ability to transfer knowledge, reason abstractly, and adapt to new domains without retraining. The path to AGI involves advances in reasoning, memory, and self-supervised learning.</p>
+<h3>Framework for Safe Development</h3>
+<ul>
+  <li><strong>Capability Monitoring:</strong> Track progress and emerging risks as systems become more general and autonomous.</li>
+  <li><strong>Robust Alignment:</strong> Ensure AI objectives remain aligned with human values at every stage.</li>
+  <li><strong>Governance:</strong> Establish oversight mechanisms, transparency, and international collaboration to guide AGI development.</li>
+</ul>
+<h3>Gradual Deployment</h3>
+<p>AGI should be introduced in controlled phases, with ongoing evaluation and adaptation of safety protocols. Engaging diverse stakeholders—including ethicists, policymakers, and the public—is essential to anticipate and mitigate risks.</p>
+<h3>Conclusion</h3>
+<p>By preparing now, we can maximize the benefits of AGI while minimizing potential harms, ensuring a future where advanced AI serves humanity’s best interests.</p>
+`,
+        readTime: '6 MIN READ',
         category: 'Thought Leadership',
         image: blogs4_2
       },
@@ -235,8 +455,21 @@ const Blog = () => {
         date: 'June 8, 2025',
         title: 'The Future of Human-AI Collaboration',
         excerpt: 'Moving beyond tools to true partners: how AI will augment human capabilities.',
-        fullContent: 'Full content for The Future of Human-AI Collaboration...',
-        readTime: '9 MIN READ',
+        fullContent: `<p>The next wave of AI innovation will move beyond tools to true partnership between humans and machines. Human-AI collaboration is set to augment human capabilities, enabling individuals and teams to achieve more than ever before.</p>
+<h3>From Automation to Augmentation</h3>
+<p>Early AI focused on automating repetitive tasks. Today, collaborative AI systems act as copilots, advisors, and creative partners, enhancing human decision-making and creativity.</p>
+<h3>Key Collaboration Models</h3>
+<ul>
+  <li><strong>Decision Support:</strong> AI analyzes data and suggests actions, while humans provide judgment and context.</li>
+  <li><strong>Co-Creation:</strong> Artists, writers, and engineers use AI to brainstorm, prototype, and refine ideas.</li>
+  <li><strong>Adaptive Workflows:</strong> AI systems learn from users and adapt to their preferences, creating personalized experiences.</li>
+</ul>
+<h3>Challenges</h3>
+<p>Effective collaboration requires trust, transparency, and clear communication between humans and AI. Ethical considerations, such as autonomy and accountability, must be addressed.</p>
+<h3>The Road Ahead</h3>
+<p>As AI capabilities expand, the most successful organizations will be those that foster seamless, ethical, and productive human-AI partnerships.</p>
+`,
+        readTime: '5 MIN READ',
         category: 'Thought Leadership',
         image: blogs4_3
       },
@@ -245,8 +478,21 @@ const Blog = () => {
         date: 'June 17, 2025',
         title: 'Regulating AI Without Stifling Innovation',
         excerpt: 'A balanced approach to governance that protects society while allowing progress.',
-        fullContent: 'Full content for Regulating AI...',
-        readTime: '10 MIN READ',
+        fullContent: `<p>Balancing innovation and regulation is one of the greatest challenges in AI governance. Effective regulation protects society from harm while enabling the continued growth and benefits of AI technologies.</p>
+<h3>The Need for Regulation</h3>
+<p>AI systems can introduce risks related to bias, privacy, and accountability. Regulation is necessary to ensure ethical development, prevent misuse, and maintain public trust.</p>
+<h3>Principles for Balanced Governance</h3>
+<ul>
+  <li><strong>Risk-Based Approach:</strong> Tailor regulations to the level of risk posed by different AI applications.</li>
+  <li><strong>Transparency and Accountability:</strong> Require clear documentation and assign responsibility for AI outcomes.</li>
+  <li><strong>Stakeholder Engagement:</strong> Involve industry, academia, and civil society in policy development.</li>
+</ul>
+<h3>Global Perspectives</h3>
+<p>Different regions are adopting varied approaches to AI regulation, from the EU’s comprehensive AI Act to more flexible frameworks in the US and Asia. Harmonizing standards and promoting international cooperation will be key to effective governance.</p>
+<h3>Conclusion</h3>
+<p>With thoughtful, adaptive regulation, we can harness AI’s transformative potential while safeguarding fundamental rights and values.</p>
+`,
+        readTime: '5 MIN READ',
         category: 'Thought Leadership',
         image: blogs4_4
       }
@@ -257,8 +503,23 @@ const Blog = () => {
         date: 'May 29, 2025',
         title: 'Building Our Real-Time Video Analysis Pipeline',
         excerpt: 'Architecture deep dive into our distributed system processing 1K+ video streams daily.',
-        fullContent: 'Full content for Building Our Real-Time Video Analysis Pipeline...',
-        readTime: '14 MIN READ',
+        fullContent: `<p>Building a real-time video analysis pipeline capable of processing over 1,000 video streams daily requires robust architecture, scalable infrastructure, and efficient algorithms. Here’s how we designed and deployed our distributed system.</p>
+<h3>System Architecture</h3>
+<ul>
+  <li><strong>Ingestion Layer:</strong> Handles incoming video streams using scalable message queues and load balancers.</li>
+  <li><strong>Processing Layer:</strong> Distributed compute nodes run AI models for object detection, tracking, and event recognition in real time.</li>
+  <li><strong>Storage and Analytics:</strong> Results are stored in a time-series database, enabling fast querying and dashboard visualization.</li>
+</ul>
+<h3>Key Challenges</h3>
+<ul>
+  <li><strong>Latency:</strong> Optimized model inference and data transfer to keep end-to-end latency under 500ms.</li>
+  <li><strong>Scalability:</strong> Auto-scaling clusters handle variable workloads, ensuring reliability and cost efficiency.</li>
+  <li><strong>Fault Tolerance:</strong> Redundant components and health monitoring minimize downtime and data loss.</li>
+</ul>
+<h3>Lessons Learned</h3>
+<p>Investing in observability, continuous integration, and automated testing was critical for maintaining performance at scale. Ongoing optimization and hardware upgrades keep the system ahead of growing demand.</p>
+`,
+        readTime: '6 MIN READ',
         category: 'How We Built It',
         image: blogs5_1
       },
@@ -267,8 +528,23 @@ const Blog = () => {
         date: 'June 4, 2025',
         title: 'Scaling Our Recommendation System to 10K+ Users',
         excerpt: 'Lessons learned from evolving our architecture to handle exponential growth.',
-        fullContent: 'Full content for Scaling Our Recommendation System...',
-        readTime: '11 MIN READ',
+        fullContent: `<p>Scaling a recommendation system to serve over 10,000 users required architectural evolution, robust data pipelines, and continuous optimization. Here’s what we learned along the way.</p>
+<h3>Architecture Evolution</h3>
+<ul>
+  <li><strong>Microservices:</strong> Decoupled components for data ingestion, feature engineering, model inference, and user feedback.</li>
+  <li><strong>Data Pipeline:</strong> Real-time ETL processes aggregate and transform user interactions, enabling up-to-date recommendations.</li>
+  <li><strong>Model Serving:</strong> Deployed models using scalable APIs with load balancing and caching for low-latency responses.</li>
+</ul>
+<h3>Lessons Learned</h3>
+<ul>
+  <li><strong>Monitoring:</strong> Implemented detailed logging and metrics to track system health and user engagement.</li>
+  <li><strong>Personalization:</strong> Incorporated contextual and behavioral signals to improve relevance and diversity.</li>
+  <li><strong>Continuous Improvement:</strong> Regular A/B testing and feedback loops drive ongoing model refinement.</li>
+</ul>
+<h3>Conclusion</h3>
+<p>With the right architecture and practices, recommendation systems can scale to meet the needs of rapidly growing user bases.</p>
+`,
+        readTime: '6 MIN READ',
         category: 'How We Built It',
         image: blogs5_2
       },
@@ -277,8 +553,23 @@ const Blog = () => {
         date: 'June 9, 2025',
         title: 'Migrating Our ML Platform to Kubernetes',
         excerpt: 'The good, the bad, and the ugly of containerizing our machine learning workloads.',
-        fullContent: 'Full content for Migrating Our ML Platform...',
-        readTime: '13 MIN READ',
+        fullContent: `<p>Migrating our machine learning platform to Kubernetes enabled us to containerize workloads, improve scalability, and streamline deployment. The journey, however, involved overcoming technical and organizational challenges.</p>
+<h3>Why Kubernetes?</h3>
+<ul>
+  <li><strong>Portability:</strong> Containers encapsulate dependencies, making it easier to move workloads across environments.</li>
+  <li><strong>Scalability:</strong> Kubernetes orchestrates resources, auto-scales pods, and manages failover for high availability.</li>
+  <li><strong>DevOps Integration:</strong> CI/CD pipelines automate testing, deployment, and rollback, accelerating innovation.</li>
+</ul>
+<h3>Challenges</h3>
+<ul>
+  <li><strong>Resource Management:</strong> Tuning resource requests and limits to balance cost and performance.</li>
+  <li><strong>Stateful Workloads:</strong> Managing persistent storage and data consistency for ML experiments.</li>
+  <li><strong>Team Training:</strong> Upskilling engineers in Kubernetes concepts and best practices.</li>
+</ul>
+<h3>Outcomes</h3>
+<p>The migration improved system reliability, reduced deployment times, and enabled faster iteration. Ongoing investment in observability and automation continues to pay dividends.</p>
+`,
+        readTime: '7 MIN READ',
         category: 'How We Built It',
         image: blogs5_3
       },
@@ -287,8 +578,23 @@ const Blog = () => {
         date: 'June 20, 2025',
         title: 'Implementing Continuous Training for Our Fraud Detection Models',
         excerpt: 'How we reduced false positives by 30% with automated model retraining.',
-        fullContent: 'Full content for Implementing Continuous Training...',
-        readTime: '10 MIN READ',
+        fullContent: `<p>Continuous training is essential for keeping fraud detection models effective as fraud patterns evolve. Our automated retraining pipeline reduced false positives by 30% and improved detection rates.</p>
+<h3>Pipeline Overview</h3>
+<ul>
+  <li><strong>Data Collection:</strong> Real-time ingestion of transaction data and feedback from analysts.</li>
+  <li><strong>Model Retraining:</strong> Scheduled retraining jobs incorporate new data, ensuring models remain up to date.</li>
+  <li><strong>Validation and Deployment:</strong> Automated testing and canary deployments minimize risk and downtime.</li>
+</ul>
+<h3>Key Lessons</h3>
+<ul>
+  <li><strong>Monitoring:</strong> Continuous evaluation of model performance detects drift and triggers retraining as needed.</li>
+  <li><strong>Collaboration:</strong> Close cooperation between data scientists, engineers, and fraud analysts ensures practical, actionable models.</li>
+  <li><strong>Automation:</strong> Investing in automation reduces manual workload and accelerates response to emerging threats.</li>
+</ul>
+<h3>Conclusion</h3>
+<p>Continuous training is a cornerstone of modern fraud detection, enabling organizations to stay ahead of adversaries and protect customers effectively.</p>
+`,
+        readTime: '5 MIN READ',
         category: 'How We Built It',
         image: blogs5_4
       }
@@ -352,24 +658,25 @@ const Blog = () => {
     <div className="min-h-screen flex flex-col bg-[#0a0a12] text-white">
       <Navbar />
 
-      <main className="flex-grow pt-16"> {/* Adjust pt- to account for fixed navbar height */}
-
+      <main className="flex-grow pt-16">
+        {" "}
+        {/* Adjust pt- to account for fixed navbar height */}
         {/* Hero Section */}
         <div className="relative py-24 overflow-hidden">
-  {/* Background with smoother gradient */}
-  <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a12] via-[#12121e] to-[#1a1a2e]"></div>
-  <div className="absolute inset-0 opacity-20">
-    <div
-      className="absolute inset-0 z-0 opacity-120"
-      style={{
-        backgroundImage: `url(${bg7})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center'
-      }}
-    />
-    <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] bg-[length:40px_40px]"></div>
-    <div className="absolute inset-0 bg-gradient-to-r from-purple-900/50 to-transparent"></div>
-  </div>
+          {/* Background with smoother gradient */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a12] via-[#12121e] to-[#1a1a2e]"></div>
+          <div className="absolute inset-0 opacity-20">
+            <div
+              className="absolute inset-0 z-0 opacity-120"
+              style={{
+                backgroundImage: `url(${bg7})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            />
+            <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] bg-[length:40px_40px]"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-900/50 to-transparent"></div>
+          </div>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
@@ -379,7 +686,9 @@ const Blog = () => {
             >
               AI Insights Hub
             </motion.h1>
-            <div className="h-24 flex items-center justify-center"> {/* Increased height for more tagline space */}
+            <div className="h-24 flex items-center justify-center">
+              {" "}
+              {/* Increased height for more tagline space */}
               <AnimatePresence mode="wait">
                 <motion.p
                   key={currentTaglineIndex}
@@ -399,7 +708,9 @@ const Blog = () => {
               transition={{ delay: 0.3, duration: 0.5 }}
               className="text-gray-300 max-w-4xl mx-auto text-lg md:text-xl leading-relaxed mt-4"
             >
-              Dive deep into expert analysis on cutting-edge artificial intelligence technologies, real-world applications, and their transformative impact on businesses and society.
+              Dive deep into expert analysis on cutting-edge artificial
+              intelligence technologies, real-world applications, and their
+              transformative impact on businesses and society.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -410,7 +721,9 @@ const Blog = () => {
               {/* Primary Call to Action - Scrolls to latest articles */}
               <button
                 onClick={() => {
-                  document.getElementById('latest-articles-section')?.scrollIntoView({ behavior: 'smooth' });
+                  document
+                    .getElementById("latest-articles-section")
+                    ?.scrollIntoView({ behavior: "smooth" });
                 }}
                 className="px-8 py-4 rounded-full font-bold text-lg bg-gradient-to-r from-purple-600 to-violet-500 text-white shadow-lg shadow-purple-500/40 hover:from-purple-700 hover:to-violet-600 transition-all transform hover:scale-105 flex items-center gap-2"
               >
@@ -419,9 +732,13 @@ const Blog = () => {
             </motion.div>
           </div>
         </div>
-
         {/* Featured Articles Slider */}
-        <section id="featured-section" className="bg-gradient-to-b from-[#1a1a2e] via-[#161627] to-[#12121e] py-16 relative overflow-hidden">          <div className="absolute top-0 left-0 w-full h-full opacity-10">
+        <section
+          id="featured-section"
+          className="bg-gradient-to-b from-[#1a1a2e] via-[#161627] to-[#12121e] py-16 relative overflow-hidden"
+        >
+          {" "}
+          <div className="absolute top-0 left-0 w-full h-full opacity-10">
             <div className="absolute inset-0 bg-[url('/circuit-pattern.svg')] bg-[length:300px_300px]"></div>
           </div>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -434,11 +751,21 @@ const Blog = () => {
                 className="text-2xl md:text-3xl font-bold flex items-center gap-3 text-purple-300"
               >
                 {/* Icons based on selected category for Featured section */}
-                {selectedCategory === 'AI Trends' && <Lightbulb className="w-7 h-7 text-purple-400" />}
-                {selectedCategory === 'Technical Explainers' && <Cpu className="w-7 h-7 text-purple-400" />}
-                {selectedCategory === 'Use Cases' && <BookOpen className="w-7 h-7 text-purple-400" />}
-                {selectedCategory === 'Thought Leadership' && <Brain className="w-7 h-7 text-purple-400" />}
-                {selectedCategory === 'How We Built It' && <Settings className="w-7 h-7 text-purple-400" />}
+                {selectedCategory === "AI Trends" && (
+                  <Lightbulb className="w-7 h-7 text-purple-400" />
+                )}
+                {selectedCategory === "Technical Explainers" && (
+                  <Cpu className="w-7 h-7 text-purple-400" />
+                )}
+                {selectedCategory === "Use Cases" && (
+                  <BookOpen className="w-7 h-7 text-purple-400" />
+                )}
+                {selectedCategory === "Thought Leadership" && (
+                  <Brain className="w-7 h-7 text-purple-400" />
+                )}
+                {selectedCategory === "How We Built It" && (
+                  <Settings className="w-7 h-7 text-purple-400" />
+                )}
                 Featured {selectedCategory} Articles
               </motion.h2>
               <motion.div
@@ -496,13 +823,23 @@ const Blog = () => {
                       </div>
                       <div className="p-6">
                         <div className="flex justify-between items-start mb-3">
-                          <span className="text-sm text-gray-400">{article.date}</span>
-                          <span className="text-sm text-gray-400">{article.readTime}</span>
+                          <span className="text-sm text-gray-400">
+                            {article.date}
+                          </span>
+                          <span className="text-sm text-gray-400">
+                            {article.readTime}
+                          </span>
                         </div>
-                        <h3 className="text-xl font-semibold mb-3 line-clamp-2 text-purple-200">{article.title}</h3>
-                        <p className="text-gray-300 mb-4 line-clamp-3">{article.excerpt}</p>
+                        <h3 className="text-xl font-semibold mb-3 line-clamp-2 text-purple-200">
+                          {article.title}
+                        </h3>
+                        <p className="text-gray-300 mb-4 line-clamp-3">
+                          {article.excerpt}
+                        </p>
                         <div className="flex justify-between items-center">
-                          <span className="text-sm text-gray-400">{article.readTime}</span>
+                          <span className="text-sm text-gray-400">
+                            {article.readTime}
+                          </span>
                           <button
                             className="text-purple-400 hover:text-purple-300 text-sm font-medium flex items-center gap-1 group-hover:translate-x-1 transition-transform"
                             onClick={() => setOpenArticle(article)}
@@ -522,7 +859,9 @@ const Blog = () => {
                   key={index}
                   onClick={() => setCurrentSlide(index)}
                   className={`w-3 h-3 rounded-full transition-all ${
-                    currentSlide === index ? 'bg-purple-500 w-6' : 'bg-[#3a3a57]'
+                    currentSlide === index
+                      ? "bg-purple-500 w-6"
+                      : "bg-[#3a3a57]"
                   }`}
                   aria-label={`Go to slide ${index + 1}`}
                 />
@@ -530,62 +869,76 @@ const Blog = () => {
             </div>
           </div>
         </section>
-
         {/* Blog Content Sections */}
         <div className="bg-[#12121e] py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid md:grid-cols-4 gap-8">
               <section className="md:col-span-3" id="latest-articles-section">
                 <div className="flex justify-between items-center mb-8">
-                  <h2 className="text-2xl md:text-3xl font-bold text-purple-300">Latest Articles</h2>
+                  <h2 className="text-2xl md:text-3xl font-bold text-purple-300">
+                    Latest Articles
+                  </h2>
                   {/* Category selection is now handled by Navbar, so removed the select dropdown here */}
                 </div>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {filteredArticles.slice(0, articlesToShow).map((article, index) => (
-                    <motion.article
-                      key={article.id}
-                      className="border border-[#3a3a57] rounded-xl overflow-hidden bg-[#1e1e2e] hover:shadow-lg transition-all relative group"
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      whileHover={{ y: -5 }}
-                      transition={{ duration: 0.3, delay: index * 0.05 }}
-                      viewport={{ once: true, amount: 0.1 }}
-                    >
-                      <div className="h-48 bg-[#2d2d42] relative overflow-hidden">
-                        <img
-                          src={article.image}
-                          alt={article.title}
-                          className="absolute inset-0 object-cover w-full h-full opacity-80 transform transition-transform duration-300 group-hover:scale-105"
-                        />
-                        <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-[#1e1e2e] to-transparent"></div>
-                      </div>
-                      <div className="p-5">
-                        <div className="flex justify-between items-start mb-2">
-                          <span className="text-xs text-purple-400 font-medium">{article.category}</span>
-                          <span className="text-xs text-gray-400">{article.date}</span>
+                  {filteredArticles
+                    .slice(0, articlesToShow)
+                    .map((article, index) => (
+                      <motion.article
+                        key={article.id}
+                        className="border border-[#3a3a57] rounded-xl overflow-hidden bg-[#1e1e2e] hover:shadow-lg transition-all relative group"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        whileHover={{ y: -5 }}
+                        transition={{ duration: 0.3, delay: index * 0.05 }}
+                        viewport={{ once: true, amount: 0.1 }}
+                      >
+                        <div className="h-48 bg-[#2d2d42] relative overflow-hidden">
+                          <img
+                            src={article.image}
+                            alt={article.title}
+                            className="absolute inset-0 object-cover w-full h-full opacity-80 transform transition-transform duration-300 group-hover:scale-105"
+                          />
+                          <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-[#1e1e2e] to-transparent"></div>
                         </div>
-                        <h3 className="text-lg font-semibold mb-2 line-clamp-2 text-purple-200">{article.title}</h3>
-                        <p className="text-gray-300 text-sm mb-3 line-clamp-3">{article.excerpt}</p>
-                        <div className="flex justify-between items-center mt-3">
-                          <span className="text-xs text-gray-400">{article.readTime}</span>
-                          <button
-                            className="text-purple-400 hover:text-purple-300 text-xs font-medium flex items-center gap-1 group-hover:translate-x-1 transition-transform"
-                            onClick={() => setOpenArticle(article)}
-                          >
-                            Read More <ArrowRight className="w-3 h-3" />
-                          </button>
+                        <div className="p-5">
+                          <div className="flex justify-between items-start mb-2">
+                            <span className="text-xs text-purple-400 font-medium">
+                              {article.category}
+                            </span>
+                            <span className="text-xs text-gray-400">
+                              {article.date}
+                            </span>
+                          </div>
+                          <h3 className="text-lg font-semibold mb-2 line-clamp-2 text-purple-200">
+                            {article.title}
+                          </h3>
+                          <p className="text-gray-300 text-sm mb-3 line-clamp-3">
+                            {article.excerpt}
+                          </p>
+                          <div className="flex justify-between items-center mt-3">
+                            <span className="text-xs text-gray-400">
+                              {article.readTime}
+                            </span>
+                            <button
+                              className="text-purple-400 hover:text-purple-300 text-xs font-medium flex items-center gap-1 group-hover:translate-x-1 transition-transform"
+                              onClick={() => setOpenArticle(article)}
+                            >
+                              Read More <ArrowRight className="w-3 h-3" />
+                            </button>
+                          </div>
                         </div>
-                      </div>
-                    </motion.article>
-                  ))}
+                      </motion.article>
+                    ))}
                 </div>
                 {articlesToShow < filteredArticles.length && (
                   <div className="mt-10 flex justify-center">
                     <button
-                      onClick={() => setArticlesToShow(prev => prev + 6)}
+                      onClick={() => setArticlesToShow((prev) => prev + 6)}
                       className="px-8 py-4 rounded-full font-medium bg-gradient-to-r from-purple-600 to-violet-500 text-white hover:from-purple-700 hover:to-violet-600 transition-all flex items-center gap-2 shadow-lg hover:shadow-xl transform hover:scale-105"
                     >
-                      Load More Articles <ChevronDown className="w-4 h-4" /> {/* Changed icon to ChevronDown */}
+                      Load More Articles <ChevronDown className="w-4 h-4" />{" "}
+                      {/* Changed icon to ChevronDown */}
                     </button>
                   </div>
                 )}
@@ -599,17 +952,19 @@ const Blog = () => {
                   viewport={{ once: true }}
                 >
                   <h3 className="font-bold text-xl md:text-2xl mb-6 text-purple-300 flex items-center gap-3">
-                    <Code2 className="w-6 h-6 text-purple-400" /> Popular Categories
+                    <Code2 className="w-6 h-6 text-purple-400" /> Popular
+                    Categories
                   </h3>
                   <ul className="space-y-3">
-                    {categories.map(category => (
+                    {categories.map((category) => (
                       <li key={category}>
                         <button
                           onClick={() => setSelectedCategory(category)}
                           className={`w-full text-left px-4 py-3 rounded-lg transition-all flex items-center justify-between text-base md:text-lg
-                            ${selectedCategory === category
-                              ? 'bg-purple-600/30 text-purple-300 font-semibold'
-                              : 'hover:bg-[#2d2d42] text-gray-200'
+                            ${
+                              selectedCategory === category
+                                ? "bg-purple-600/30 text-purple-300 font-semibold"
+                                : "hover:bg-[#2d2d42] text-gray-200"
                             }`}
                         >
                           <span>{category}</span>
@@ -629,11 +984,15 @@ const Blog = () => {
                   viewport={{ once: true }}
                 >
                   <h3 className="font-bold text-xl md:text-2xl mb-6 text-purple-300 flex items-center gap-3">
-                    <BookOpen className="w-6 h-6 text-purple-400" /> Recently Published
+                    <BookOpen className="w-6 h-6 text-purple-400" /> Recently
+                    Published
                   </h3>
                   <div className="space-y-6">
-                    {latestArticles.map(article => (
-                      <div key={article.id} className="flex gap-4 items-start group">
+                    {latestArticles.map((article) => (
+                      <div
+                        key={article.id}
+                        className="flex gap-4 items-start group"
+                      >
                         <div className="flex-shrink-0 w-20 h-20 bg-[#2d2d42] rounded-xl overflow-hidden relative border border-[#3a3a57]">
                           <img
                             src={article.image}
@@ -642,8 +1001,12 @@ const Blog = () => {
                           />
                         </div>
                         <div>
-                          <h4 className="text-base font-medium line-clamp-2 text-purple-200 group-hover:text-purple-300 transition-colors">{article.title}</h4>
-                          <p className="text-sm text-gray-400 mt-1">{article.date}</p>
+                          <h4 className="text-base font-medium line-clamp-2 text-purple-200 group-hover:text-purple-300 transition-colors">
+                            {article.title}
+                          </h4>
+                          <p className="text-sm text-gray-400 mt-1">
+                            {article.date}
+                          </p>
                           <button
                             className="text-purple-400 hover:text-purple-300 text-sm font-medium flex items-center gap-1 mt-2"
                             onClick={() => setOpenArticle(article)}
@@ -659,7 +1022,6 @@ const Blog = () => {
             </div>
           </div>
         </div>
-
         {/* Modal for "Read More" */}
         <AnimatePresence>
           {openArticle && (
@@ -676,7 +1038,7 @@ const Blog = () => {
                 animate={{ scale: 1, y: 0 }}
                 exit={{ scale: 0.95, y: 40 }}
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                onClick={e => e.stopPropagation()}
+                onClick={(e) => e.stopPropagation()}
               >
                 <button
                   className="absolute top-4 right-4 text-gray-400 hover:text-purple-400 text-3xl font-bold z-10"
@@ -691,10 +1053,16 @@ const Blog = () => {
                   className="rounded-xl w-full h-64 object-cover mb-6 border border-[#3a3a57]"
                 />
                 <div className="flex flex-wrap justify-between items-center mb-4 gap-2">
-                  <span className="text-sm bg-purple-600/90 text-white px-4 py-2 rounded-full font-medium">{openArticle.category}</span>
-                  <span className="text-sm text-gray-400">{openArticle.date} • {openArticle.readTime}</span>
+                  <span className="text-sm bg-purple-600/90 text-white px-4 py-2 rounded-full font-medium">
+                    {openArticle.category}
+                  </span>
+                  <span className="text-sm text-gray-400">
+                    {openArticle.date} • {openArticle.readTime}
+                  </span>
                 </div>
-                <h2 className="text-2xl md:text-3xl font-bold mb-6 text-purple-200">{openArticle.title}</h2>
+                <h2 className="text-2xl md:text-3xl font-bold mb-6 text-purple-200">
+                  {openArticle.title}
+                </h2>
                 {/*
                   IMPORTANT: openArticle.fullContent is where your full article text should be.
                   Ensure it's populated in your allArticles data.
@@ -706,19 +1074,40 @@ const Blog = () => {
                 />
                 {/* You might want to style the 'prose' class from @tailwindcss/typography plugin for better content formatting */}
                 <div className="mt-8 pt-6 border-t border-[#3a3a57] text-center">
-                  <p className="text-gray-400 text-lg mb-3">Found this insightful? Share it!</p>
+                  <p className="text-gray-400 text-lg mb-3">
+                    Found this insightful? Share it!
+                  </p>
                   {/* Add social sharing icons here (e.g., Twitter, LinkedIn) */}
                   <div className="flex justify-center gap-4">
-                    {/* Example placeholder for sharing icons */}
-                    <button className="p-3 rounded-full bg-[#2d2d42] hover:bg-[#3a3a57] transition-colors"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.55-298.55 298.55-59.452 0-114.68-17.219-161.17-47.106 8.447.974 16.568 1.299 25.34 1.299 49.025 0 94.521-16.558 130.165-44.207-46.32-.975-89.309-31.103-103.149-72.731 6.798.974 12.93 1.624 19.812 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.217 12.67 47.436 13.319-28.913-19.277-47.925-51.88-47.925-88.638 0-19.546 5.199-38.127 14.167-54.01 51.072 62.24 127.476 103.573 213.074 109.998-2.618-13.928-4.24-28.697-4.24-43.645 0-105.828 85.987-191.816 191.816-191.816 55.469 0 105.626 23.235 140.347 60.177 15.118-2.903 29.794-8.672 43.165-16.039-4.78 15.892-15.013 29.288-29.073 37.882 13.465-1.956 26.66-4.925 39.317-10.793-9.988 16.059-22.339 29.883-36.878 41.157z"></path></svg></button>
-                    <button className="p-3 rounded-full bg-[#2d2d42] hover:bg-[#3a3a57] transition-colors"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M416 32H32A32 32 0 0 0 0 64v384a32 32 0 0 0 32 32h384a32 32 0 0 0 32-32V64a32 32 0 0 0-32-32zM132.8 384H80V176h52.8zm-.8-208.8c-15.6 0-28.3-12.7-28.3-28.3 0-15.6 12.7-28.3 28.3-28.3 15.6 0 28.3 12.7 28.3 28.3 0 15.6-12.7 28.3-28.3 28.3zm204 208.8h-52.8V290c0-26.4-9.3-44.6-33.1-44.6-18.1 0-28.8 12.1-33.6 23.9-1.7 4.2-2.2 10-2.2 15.9v99.7h-52.8s.7-133 0-147.2h52.8v22.8c-2.3-10.1-4.7-16.4-4.7-16.4l-.3.3-33.6-23.9c-24.8-17.6-61.9-20.7-77.9-2.7-10.4 11.6-14.7 27.2-14.7 42.9 0 79.4 0 119.5 0 119.5z"></path></svg></button>
+                    <a
+                      href="https://x.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-3 rounded-full bg-[#2d2d42] hover:bg-[#3a3a57] transition-colors flex items-center justify-center"
+                      aria-label="Share on X"
+                    >
+                      <span
+                        className="text-xl font-bold text-white"
+                        style={{ fontFamily: "sans-serif" }}
+                      >
+                        X
+                      </span>
+                    </a>
+                    <a
+                      href="https://linkedin.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-3 rounded-full bg-[#2d2d42] hover:bg-[#3a3a57] transition-colors flex items-center justify-center"
+                      aria-label="Share on LinkedIn"
+                    >
+                      <Linkedin className="w-6 h-6 text-white" />
+                    </a>
                   </div>
                 </div>
               </motion.div>
             </motion.div>
           )}
         </AnimatePresence>
-
         {/* CTA Section */}
         <section className="bg-gradient-to-r from-purple-800/60 to-violet-800/60 py-20 relative overflow-hidden rounded-xl mx-auto max-w-6xl mt-16 shadow-2xl mb-16">
           <div className="absolute inset-0 opacity-15">
@@ -741,7 +1130,9 @@ const Blog = () => {
               viewport={{ once: true }}
               className="text-gray-200 mb-10 max-w-2xl mx-auto text-base md:text-lg leading-relaxed"
             >
-              Subscribe to our newsletter for exclusive articles, cutting-edge research summaries, and expert insights delivered directly to your inbox.
+              Subscribe to our newsletter for exclusive articles, cutting-edge
+              research summaries, and expert insights delivered directly to your
+              inbox.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -750,13 +1141,14 @@ const Blog = () => {
               viewport={{ once: true }}
               className="flex flex-col sm:flex-row gap-4 justify-center max-w-lg mx-auto"
             >
-             <Link to="/contact"> 
-              <button
-                type="submit"
-                className="bg-gradient-to-r from-purple-600 to-violet-500 hover:from-purple-700 hover:to-violet-600 text-white py-3 px-8 rounded-xl transition-all font-bold text-base md:text-lg shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center gap-2"
-              >
-                Subscribe Now <Mail className="w-5 h-5" />
-              </button></Link> 
+              <Link to="/contact">
+                <button
+                  type="submit"
+                  className="bg-gradient-to-r from-purple-600 to-violet-500 hover:from-purple-700 hover:to-violet-600 text-white py-3 px-8 rounded-xl transition-all font-bold text-base md:text-lg shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center gap-2"
+                >
+                  Subscribe Now <Mail className="w-5 h-5" />
+                </button>
+              </Link>
             </motion.div>
           </div>
         </section>
