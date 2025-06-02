@@ -623,7 +623,7 @@ const fetchSectionSpecificNews = async () => {
   setError(null);
 
   try {
-    const apiKey = 'your api key';
+    const apiKey = '09f3c2e13d92488182679c7d6cff694d';
     
     // Define queries for each section
     const sectionQueries = {

@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Linkedin, Mail, Phone } from 'lucide-react';
 import { FaXTwitter } from 'react-icons/fa6';
-// import terms from "@/pages/termsofservice"
 import bg5 from '@/assets/bg3.avif';
 
 const Footer = () => {
@@ -102,7 +101,8 @@ const Footer = () => {
           <div className="mt-4 md:mt-0">
             <ul className="flex justify-center space-x-6">
               <li>
-                <a href="/src/components/privacy.html" className="text-gray-500 text-sm hover:text-gray-400">Privacy Policy</a>
+              <a href="/legal/privacy.html" className="text-gray-500 text-sm hover:text-gray-400">Privacy Policy</a>
+
               </li>
               <li>
               <Link to="/terms" className="text-gray-500 text-sm hover:text-gray-400">Terms of Service</Link>              </li>
