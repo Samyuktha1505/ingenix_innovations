@@ -207,11 +207,7 @@ const Hero = () => {
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
-              <Link to="/contact">
-                <Button size="lg" variant="outline" className="border-[#6E59A5] text-[#6E59A5] hover:bg-[#E5DEFF]">
-                  Schedule a Consultation
-                </Button>
-              </Link>
+             
             </motion.div>
           </motion.div>
           

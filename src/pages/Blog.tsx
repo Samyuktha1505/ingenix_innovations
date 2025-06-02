@@ -30,6 +30,20 @@ import blogs5_3 from '@/assets/blogs5_3.png';
 import blogs5_4 from '@/assets/blogs5_4.png';
 import { Linkedin } from 'lucide-react';
 
+// Define types for API news articles
+interface NewsArticle {
+  id: string;
+  title: string;
+  description: string;
+  url: string;
+  urlToImage: string;
+  publishedAt: string;
+  content: string;
+  source: {
+    name: string;
+  };
+  author?: string;
+}
 
 const Blog = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -37,11 +51,14 @@ const Blog = () => {
   const [touchEnd, setTouchEnd] = useState(0);
   const [openArticle, setOpenArticle] = useState(null); // Modal state
   const [articlesToShow, setArticlesToShow] = useState(6); // State for "Load More" functionality
+  const [isLoading, setIsLoading] = useState(false);
+  const [apiArticles, setApiArticles] = useState<NewsArticle[]>([]);
+  const [error, setError] = useState<string | null>(null);
 
   // All articles organized by category
   // IMPORTANT: You need to add 'fullContent' for each article for the modal to display it.
   // I've added an example for the first article.
-  const allArticles = {
+  const [allArticles, setAllArticles] = useState({
     'AI Trends': [
       {
         id: 1,
@@ -599,12 +616,113 @@ const Blog = () => {
         image: blogs5_4
       }
     ]
-  };
+  });
+  // Fetch news from API
+const fetchSectionSpecificNews = async () => {
+  setIsLoading(true);
+  setError(null);
 
+  try {
+    const apiKey = 'your api key';
+    
+    // Define queries for each section
+    const sectionQueries = {
+      'AI Trends': 'AI OR "Artificial Intelligence" OR "Machine Learning"',
+      'Technical Explainers': '"AI technical" OR "ML explainer" OR "Neural Networks"',
+      'Use Cases': '"AI in healthcare" OR "AI finance" OR "AI manufacturing"',
+      'Thought Leadership': '"AI ethics" OR "Future of AI" OR "AI policy"',
+      'How We Built It': '"AI system architecture" OR "ML pipeline" OR "AI implementation"'
+    };
+
+    // Fetch news for each section
+    const sectionUpdates = await Promise.all(
+      Object.entries(sectionQueries).map(async ([section, query]) => {
+        const response = await fetch(
+           `https://newsapi.org/v2/everything?q=${encodeURIComponent(query)}&sortBy=publishedAt&pageSize=3&language=en&apiKey=${apiKey}`
+        );
+        
+        if (!response.ok) throw new Error(`Failed to fetch ${section} news`);
+        const data = await response.json();
+        
+        return {
+          section,
+          articles: data.articles?.map((article: NewsArticle, index: number) => ({
+            id: `api-${section}-${index}-${Date.now()}`,
+            date: new Date(article.publishedAt).toLocaleDateString('en-US', { 
+              year: 'numeric', 
+              month: 'long', 
+              day: 'numeric' 
+            }),
+            title: article.title,
+            excerpt: article.description || 'No description available',
+            fullContent: `
+              <p>${article.content || article.description || 'No content available'}</p>
+              ${article.urlToImage ? `<img src="${article.urlToImage}" alt="${article.title}" style="max-width: 100%; border-radius: 8px; margin: 1rem 0;" />` : ''}
+              <p>Source: ${article.source?.name || 'Unknown'}</p>
+              ${article.author ? `<p>Author: ${article.author}</p>` : ''}
+              <p><a href="${article.url}" target="_blank" rel="noopener noreferrer" style="color: #a78bfa;">Read original article</a></p>
+            `,
+            readTime: '4 MIN READ',
+            category: section,
+            image: article.urlToImage || getDefaultImage(section)
+          })) || []
+        };
+      })
+    );
+
+    // Update state with section-specific news
+    setAllArticles(prev => {
+      const updated = {...prev};
+      sectionUpdates.forEach(({section, articles}) => {
+        updated[section] = [
+          ...articles.slice(0, 3), // Keep 3 newest articles per section
+          ...prev[section].filter(article => {
+            // Safely check if article has an id and it's not an API article
+            if (!article.id) return true; // Keep if no id exists (original articles)
+            if (typeof article.id !== 'string') return true; // Keep if id isn't string
+            return !article.id.startsWith('api-'); // Filter out existing API articles
+          })
+        ];
+      });
+      return updated;
+    });
+
+  } catch (err) {
+    console.error('Full error object:', err);
+    console.error('Error message:', err.message);
+    console.error('Response status:', err.response?.status);
+    setError(`Failed to load news. Details: ${err.message}`);
+  } finally {
+    setIsLoading(false);
+  }
+};
+
+// Helper function to get default images per section
+const getDefaultImage = (section: string) => {
+  switch(section) {
+    case 'AI Trends': return blog2;
+    case 'Technical Explainers': return blogs1;
+    case 'Use Cases': return blogs3_1;
+    case 'Thought Leadership': return blogs4_1;
+    case 'How We Built It': return blogs5_1;
+    default: return blog2;
+  }
+};
+
+// Update your useEffect to use the new function
+useEffect(() => {
+  fetchSectionSpecificNews();
+  const interval = setInterval(fetchSectionSpecificNews, 3600000); // 1 hour
+  return () => clearInterval(interval);
+}, []);
+
+  
+///////
   const categories = Object.keys(allArticles);
   const [selectedCategory, setSelectedCategory] = useState('AI Trends'); // Default to AI Trends
   const [currentTaglineIndex, setCurrentTaglineIndex] = useState(0);
 
+  
   // Expanded taglines for the hero section
   const taglines = [
     "Unleash the Power of AI: Deep Dive into the Future.",
@@ -661,6 +779,18 @@ const Blog = () => {
       <main className="flex-grow pt-16">
         {" "}
         {/* Adjust pt- to account for fixed navbar height */}
+        {isLoading && (
+          <div className="fixed top-0 left-0 w-full h-1 bg-purple-500 z-50">
+            <div className="h-full bg-purple-400 animate-pulse" style={{ width: '80%' }}></div>
+          </div>
+        )}
+        
+        {/* Add error message */}
+        {error && (
+          <div className="bg-yellow-900/50 text-yellow-200 p-4 text-center">
+            {error}
+          </div>
+        )}
         {/* Hero Section */}
         <div className="relative py-24 overflow-hidden">
           {/* Background with smoother gradient */}
@@ -879,6 +1009,15 @@ const Blog = () => {
                     Latest Articles
                   </h2>
                   {/* Category selection is now handled by Navbar, so removed the select dropdown here */}
+                  {selectedCategory === 'AI Trends' && (
+                    <button 
+                      onClick={fetchSectionSpecificNews}
+                      className="text-sm bg-[#2d2d42] hover:bg-[#3a3a57] px-3 py-1 rounded-lg flex items-center gap-1 transition-colors"
+                      disabled={isLoading}
+                    >
+                      {isLoading ? 'Refreshing...' : 'Refresh News'}
+                    </button>
+                  )}
                 </div>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
                   {filteredArticles
